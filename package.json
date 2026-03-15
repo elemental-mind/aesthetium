@@ -1,0 +1,21 @@
+{
+  "name": "aesthetium",
+  "version": "1.0.0",
+  "description": "Classless, attribute-driven CSS framework.",
+  "author": "Magnus Meseck",
+  "license": "MIT",
+  "type": "module",
+  "style": "./distribution/aesthetium.css",
+  "main": "./distribution/aesthetium.css",
+  "scripts": {
+    "build":   "postcss source/aesthetium.css -o distribution/aesthetium.css",
+    "patch":   "npm run build && npm version patch && git push && npm publish",
+    "release": "npm run build && npm version minor && git push && npm publish"
+  },
+  "devDependencies": {
+    "postcss": "^8",
+    "postcss-cli": "^11",
+    "postcss-import": "^16",
+    "cssnano": "^7"
+  }
+}

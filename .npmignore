@@ -1,0 +1,8 @@
+node_modules/
+.git/
+.vscode/
+.vite/
+source/
+concept/
+postcss.config.js
+aesthetium.html
