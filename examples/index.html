@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aesthetium — Sample Sheet</title>
-    <link rel="stylesheet" href="aesthetium.css">
+    <link rel="stylesheet" href="../source/aesthetium.css">
     <style>
         /* Demo-only helpers — not part of the framework */
         .swatch-row {
@@ -516,58 +516,156 @@
         </section>
 
         <section id="tokens">
-            <h1>Token Reference</h1>
-            <p>All tokens are defined in <code>system.css</code>. Override at the <code>:root</code> level.</p>
+            <h1>Customizing & Token Reference</h1>
+            <p>All tokens are defined as CSS variables in <code>system.css</code>. For customization override any at the <code>:root</code> level in your own stylesheet.</p>
 
+            <h3>Colors — Surfaces</h3>
             <table>
-                <thead>
-                    <tr>
-                        <th>Variable</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Variable</th><th>Default (light)</th><th>Description</th></tr></thead>
                 <tbody>
-                    <tr>
-                        <td><code>--color-accent</code></td>
-                        <td><code>#000000</code></td>
-                        <td>Primary CTA / brand color</td>
-                    </tr>
-                    <tr>
-                        <td><code>--color-accent-fg</code></td>
-                        <td><code>#ffffff</code></td>
-                        <td>Text on accent background</td>
-                    </tr>
-                    <tr>
-                        <td><code>--font-heading</code></td>
-                        <td><code>'Inter', system-ui</code></td>
-                        <td>Font for h1–h6</td>
-                    </tr>
-                    <tr>
-                        <td><code>--font-body</code></td>
-                        <td><code>'Inter', system-ui</code></td>
-                        <td>Font for body text</td>
-                    </tr>
-                    <tr>
-                        <td><code>--font-mono</code></td>
-                        <td><code>ui-monospace</code></td>
-                        <td>Font for code blocks</td>
-                    </tr>
-                    <tr>
-                        <td><code>--radius</code></td>
-                        <td><code>0.4rem</code></td>
-                        <td>Default border radius</td>
-                    </tr>
-                    <tr>
-                        <td><code>--container-width</code></td>
-                        <td><code>72rem</code></td>
-                        <td>Max width of page layout</td>
-                    </tr>
-                    <tr>
-                        <td><code>--content-width</code></td>
-                        <td><code>68ch</code></td>
-                        <td>Max width of text paragraphs</td>
-                    </tr>
+                    <tr><td><code>--color-page</code></td><td><code>#fafafa</code></td><td>Page shell background</td></tr>
+                    <tr><td><code>--color-bg</code></td><td><code>#ffffff</code></td><td>Cards, inputs, dialogs</td></tr>
+                    <tr><td><code>--color-surface</code></td><td><code>#f5f5f5</code></td><td>Inset elements, table headers</td></tr>
+                    <tr><td><code>--color-surface-2</code></td><td><code>#ebebeb</code></td><td>Hover states, nested surfaces</td></tr>
+                    <tr><td><code>--color-border</code></td><td><code>#d4d4d4</code></td><td>Borders and dividers</td></tr>
+                    <tr><td><code>--color-text</code></td><td><code>#171717</code></td><td>Primary text</td></tr>
+                    <tr><td><code>--color-muted</code></td><td><code>#737373</code></td><td>Secondary / de-emphasized text</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Colors — Accent</h3>
+            <table>
+                <thead><tr><th>Variable</th><th>Default</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td><code>--color-accent</code></td><td><code>#000000</code></td><td>CTAs, links, focus rings — override with your brand color</td></tr>
+                    <tr><td><code>--color-accent-fg</code></td><td><code>#ffffff</code></td><td>Text on accent backgrounds</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Colors — Semantic</h3>
+            <table>
+                <thead><tr><th>Variable</th><th>Default</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td><code>--color-positive</code></td><td><code>#16a34a</code></td><td>Success states, confirm actions</td></tr>
+                    <tr><td><code>--color-positive-fg</code></td><td><code>#ffffff</code></td><td>Text on positive backgrounds</td></tr>
+                    <tr><td><code>--color-negative</code></td><td><code>#dc2626</code></td><td>Errors, destructive actions</td></tr>
+                    <tr><td><code>--color-negative-fg</code></td><td><code>#ffffff</code></td><td>Text on negative backgrounds</td></tr>
+                    <tr><td><code>--color-alert</code></td><td><code>#d97706</code></td><td>Warnings, expiring states</td></tr>
+                    <tr><td><code>--color-alert-fg</code></td><td><code>#ffffff</code></td><td>Text on alert backgrounds</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Colors — Neutral scale</h3>
+            <table>
+                <thead><tr><th>Variable</th><th>Value</th></tr></thead>
+                <tbody>
+                    <tr><td><code>--gray-50</code></td><td><code>#fafafa</code></td></tr>
+                    <tr><td><code>--gray-100</code></td><td><code>#f5f5f5</code></td></tr>
+                    <tr><td><code>--gray-200</code></td><td><code>#ebebeb</code></td></tr>
+                    <tr><td><code>--gray-300</code></td><td><code>#d4d4d4</code></td></tr>
+                    <tr><td><code>--gray-400</code></td><td><code>#a3a3a3</code></td></tr>
+                    <tr><td><code>--gray-500</code></td><td><code>#737373</code></td></tr>
+                    <tr><td><code>--gray-600</code></td><td><code>#525252</code></td></tr>
+                    <tr><td><code>--gray-700</code></td><td><code>#404040</code></td></tr>
+                    <tr><td><code>--gray-800</code></td><td><code>#262626</code></td></tr>
+                    <tr><td><code>--gray-900</code></td><td><code>#171717</code></td></tr>
+                </tbody>
+            </table>
+
+            <h3>Typography — Fonts</h3>
+            <table>
+                <thead><tr><th>Variable</th><th>Default</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td><code>--font-heading</code></td><td><code>'Inter', system-ui, sans-serif</code></td><td>h1–h6</td></tr>
+                    <tr><td><code>--font-body</code></td><td><code>'Inter', system-ui, sans-serif</code></td><td>Body text</td></tr>
+                    <tr><td><code>--font-mono</code></td><td><code>ui-monospace, 'JetBrains Mono'</code></td><td>Code blocks</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Typography — Type scale</h3>
+            <table>
+                <thead><tr><th>Variable</th><th>Value</th><th>px</th></tr></thead>
+                <tbody>
+                    <tr><td><code>--text-xs</code></td><td><code>0.75rem</code></td><td>12px</td></tr>
+                    <tr><td><code>--text-sm</code></td><td><code>0.875rem</code></td><td>14px</td></tr>
+                    <tr><td><code>--text-base</code></td><td><code>1rem</code></td><td>16px</td></tr>
+                    <tr><td><code>--text-lg</code></td><td><code>1.125rem</code></td><td>18px</td></tr>
+                    <tr><td><code>--text-xl</code></td><td><code>1.25rem</code></td><td>20px</td></tr>
+                    <tr><td><code>--text-2xl</code></td><td><code>1.5rem</code></td><td>24px</td></tr>
+                    <tr><td><code>--text-3xl</code></td><td><code>1.875rem</code></td><td>30px</td></tr>
+                    <tr><td><code>--text-4xl</code></td><td><code>2.25rem</code></td><td>36px</td></tr>
+                    <tr><td><code>--text-5xl</code></td><td><code>3rem</code></td><td>48px</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Typography — Leading</h3>
+            <table>
+                <thead><tr><th>Variable</th><th>Value</th></tr></thead>
+                <tbody>
+                    <tr><td><code>--leading-tight</code></td><td><code>1.25</code></td></tr>
+                    <tr><td><code>--leading-normal</code></td><td><code>1.65</code></td></tr>
+                    <tr><td><code>--leading-loose</code></td><td><code>1.8</code></td></tr>
+                </tbody>
+            </table>
+
+            <h3>Spacing</h3>
+            <table>
+                <thead><tr><th>Variable</th><th>Value</th><th>px</th></tr></thead>
+                <tbody>
+                    <tr><td><code>--space-1</code></td><td><code>0.25rem</code></td><td>4px</td></tr>
+                    <tr><td><code>--space-2</code></td><td><code>0.5rem</code></td><td>8px</td></tr>
+                    <tr><td><code>--space-3</code></td><td><code>0.75rem</code></td><td>12px</td></tr>
+                    <tr><td><code>--space-4</code></td><td><code>1rem</code></td><td>16px</td></tr>
+                    <tr><td><code>--space-5</code></td><td><code>1.25rem</code></td><td>20px</td></tr>
+                    <tr><td><code>--space-6</code></td><td><code>1.5rem</code></td><td>24px</td></tr>
+                    <tr><td><code>--space-8</code></td><td><code>2rem</code></td><td>32px</td></tr>
+                    <tr><td><code>--space-10</code></td><td><code>2.5rem</code></td><td>40px</td></tr>
+                    <tr><td><code>--space-12</code></td><td><code>3rem</code></td><td>48px</td></tr>
+                    <tr><td><code>--space-16</code></td><td><code>4rem</code></td><td>64px</td></tr>
+                    <tr><td><code>--space-20</code></td><td><code>5rem</code></td><td>80px</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Border radius</h3>
+            <table>
+                <thead><tr><th>Variable</th><th>Value</th></tr></thead>
+                <tbody>
+                    <tr><td><code>--radius-sm</code></td><td><code>0.25rem</code></td></tr>
+                    <tr><td><code>--radius</code></td><td><code>0.4rem</code></td></tr>
+                    <tr><td><code>--radius-lg</code></td><td><code>0.75rem</code></td></tr>
+                    <tr><td><code>--radius-xl</code></td><td><code>1.25rem</code></td></tr>
+                    <tr><td><code>--radius-full</code></td><td><code>9999px</code></td></tr>
+                </tbody>
+            </table>
+
+            <h3>Motion</h3>
+            <table>
+                <thead><tr><th>Variable</th><th>Value</th></tr></thead>
+                <tbody>
+                    <tr><td><code>--duration-fast</code></td><td><code>100ms</code></td></tr>
+                    <tr><td><code>--duration</code></td><td><code>150ms</code></td></tr>
+                    <tr><td><code>--duration-slow</code></td><td><code>250ms</code></td></tr>
+                    <tr><td><code>--ease</code></td><td><code>ease</code></td></tr>
+                </tbody>
+            </table>
+
+            <h3>Shadows</h3>
+            <table>
+                <thead><tr><th>Variable</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td><code>--shadow-sm</code></td><td>Subtle — cards, inputs</td></tr>
+                    <tr><td><code>--shadow</code></td><td>Medium — dropdowns, popovers</td></tr>
+                    <tr><td><code>--shadow-lg</code></td><td>Large — floating panels</td></tr>
+                    <tr><td><code>--shadow-xl</code></td><td>Extra large — dialogs, modals</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Layout</h3>
+            <table>
+                <thead><tr><th>Variable</th><th>Default</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td><code>--container-width</code></td><td><code>72rem</code></td><td>Max width of the page layout</td></tr>
+                    <tr><td><code>--content-width</code></td><td><code>68ch</code></td><td>Max width of text paragraphs</td></tr>
                 </tbody>
             </table>
         </section>
