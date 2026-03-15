@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aesthetium — Sample Sheet</title>
+    <link rel="stylesheet" href="aesthetium.css">
+    <style>
+        /* Demo-only helpers — not part of the framework */
+        .swatch-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-block: 1rem;
+            align-items: flex-start;
+        }
+
+        .swatch-wrap {
+            display: inline-block;
+            position: relative;
+        }
+
+        .swatch {
+            display: block;
+            width: 5rem;
+            height: 3.5rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+        }
+
+        .swatch-wrap.shadow .swatch {
+            height: 5rem;
+            margin: 0.75rem;
+        }
+
+        .swatch-label {
+            position: absolute;
+            bottom: 0.3rem;
+            right: 0.3rem;
+            font-size: 0.625rem;
+            font-family: var(--font-mono);
+            line-height: 1;
+            padding: 0.15rem 0.35rem;
+            border-radius: var(--radius-sm);
+            background: rgba(0, 0, 0, 0.12);
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        .swatch-wrap.shadow .swatch-label {
+            bottom: 1.05rem;
+            right: 1.05rem;
+        }
+
+        .swatch-wrap.dark .swatch-label {
+            background: rgba(255, 255, 255, 0.18);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .row {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-block: 0.75rem;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        /* ── Floating header (demo only) ──────────────────────────── */
+        #header-wrap {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            max-width: var(--container-width);
+            margin-inline: auto;
+            padding: var(--space-3) var(--space-4) var(--space-10);
+            background: linear-gradient(to bottom,
+                    var(--color-page) 0%,
+                    var(--color-page) 55%,
+                    transparent 100%);
+            pointer-events: none;
+        }
+
+        #header-wrap>header {
+            pointer-events: auto;
+            position: static;
+            top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: var(--text-lg);
+            gap: var(--space-4);
+            padding-inline: var(--space-6);
+            padding-block: var(--space-4);
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-wrap">
+        <header>
+            <strong>Aesthetium</strong>
+            <nav>
+                <a href="#typography">Type</a>
+                <a href="#colors">Colors</a>
+                <a href="#buttons">Buttons</a>
+                <a href="#forms">Forms</a>
+                <a href="#components">Components</a>
+                <a href="#tokens" active>Tokens</a>
+            </nav>
+        </header>
+    </div>
+
+    <main>
+
+        <section id="intro">
+            <h1>Aesthetium</h1>
+            <p>A classless CSS framework driven by design tokens. Drop in the stylesheet, write semantic HTML, and add
+                <em>expressive attributes</em> when you need variants. No class names. No build step.</p>
+            <pre><code>&lt;link rel="stylesheet" href="aesthetium.css"&gt;</code></pre>
+            <aside>
+                Override variables in <code>system.css</code> to theme the entire framework — swap your brand color,
+                fonts, and radius in one place.
+            </aside>
+            <aside alert>
+                Browser support requires <code>color-mix()</code> (Chrome 111+, Firefox 113+, Safari 16.2+).
+            </aside>
+        </section>
+
+        <section id="typography">
+            <h1>Typography</h1>
+            <h1>Heading 1 — The quick brown fox</h1>
+            <h2>Heading 2 — The quick brown fox</h2>
+            <h3>Heading 3 — The quick brown fox</h3>
+
+            <p>Body copy. Aesthetium is designed with a deliberately constrained palette and a healthy dose of
+                whitespace. Typography should be invisible — the reader should notice the content, not the design.</p>
+
+            <p>Links look like <a href="#">this anchor</a>. They use the accent color and fade on hover. <strong>Bold
+                    text</strong> for emphasis, <em>italics</em> for tone, <small>small text for metadata</small>,
+                <del>deleted content</del>, and <mark>highlighted passages</mark>.</p>
+
+            <blockquote>
+                Good design is as little design as possible.
+                <cite>— Dieter Rams</cite>
+            </blockquote>
+
+            <p>Inline code: <code>const x = 42</code>. For longer snippets use a <code>&lt;pre&gt;</code> block:</p>
+
+            <pre><code>/* Override the accent color to match your brand */
+:root {
+  --color-accent:    #6d28d9;
+  --color-accent-fg: #ffffff;
+}</code></pre>
+
+            <h3>Lists</h3>
+            <div class="row">
+                <div class="col">
+                    <ul>
+                        <li>Classless by default</li>
+                        <li>Token-driven theming</li>
+                        <li>Semantic HTML first
+                            <ul>
+                                <li>Nested lists work</li>
+                                <li>As expected</li>
+                            </ul>
+                        </li>
+                        <li>Attribute variants</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ol>
+                        <li>Write semantic HTML</li>
+                        <li>Link the stylesheet</li>
+                        <li>Override tokens as needed</li>
+                        <li>Ship it</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="colors">
+            <h1>Colors</h1>
+            <p>The palette is neutral by default. Override <code>--color-accent</code> to apply your brand. Positive,
+                negative, and alert accents are pre-defined.</p>
+
+            <h3>Surface stack — light</h3>
+            <p>Depth in light mode: white cards sit on a near-white page. Shadows complete the separation.</p>
+            <div class="swatch-row">
+                <div class="swatch-wrap">
+                    <div class="swatch" style="background:var(--color-page)"></div><span
+                        class="swatch-label">page</span>
+                </div>
+                <div class="swatch-wrap">
+                    <div class="swatch" style="background:var(--color-bg); box-shadow:var(--shadow-sm)"></div><span
+                        class="swatch-label">bg</span>
+                </div>
+                <div class="swatch-wrap">
+                    <div class="swatch" style="background:var(--color-surface)"></div><span
+                        class="swatch-label">surface</span>
+                </div>
+                <div class="swatch-wrap">
+                    <div class="swatch" style="background:var(--color-surface-2)"></div><span
+                        class="swatch-label">surface‑2</span>
+                </div>
+                <div class="swatch-wrap">
+                    <div class="swatch" style="background:var(--color-border)"></div><span
+                        class="swatch-label">border</span>
+                </div>
+                <div class="swatch-wrap dark">
+                    <div class="swatch" style="background:var(--color-muted)"></div><span
+                        class="swatch-label">muted</span>
+                </div>
+                <div class="swatch-wrap dark">
+                    <div class="swatch" style="background:var(--color-text)"></div><span
+                        class="swatch-label">text</span>
+                </div>
+            </div>
+
+            <h3>Shadow scale</h3>
+            <div class="swatch-row">
+                <div class="swatch-wrap shadow">
+                    <div class="swatch" style="background:var(--color-bg); box-shadow:var(--shadow-sm)"></div><span
+                        class="swatch-label">sm</span>
+                </div>
+                <div class="swatch-wrap shadow">
+                    <div class="swatch" style="background:var(--color-bg); box-shadow:var(--shadow)"></div><span
+                        class="swatch-label">md</span>
+                </div>
+                <div class="swatch-wrap shadow">
+                    <div class="swatch" style="background:var(--color-bg); box-shadow:var(--shadow-lg)"></div><span
+                        class="swatch-label">lg</span>
+                </div>
+                <div class="swatch-wrap shadow">
+                    <div class="swatch" style="background:var(--color-bg); box-shadow:var(--shadow-xl)"></div><span
+                        class="swatch-label">xl</span>
+                </div>
+            </div>
+
+            <h3>Semantic accents</h3>
+            <div class="swatch-row">
+                <div class="swatch-wrap dark">
+                    <div class="swatch" style="background:var(--color-accent)"></div><span
+                        class="swatch-label">accent</span>
+                </div>
+                <div class="swatch-wrap dark">
+                    <div class="swatch" style="background:var(--color-positive)"></div><span
+                        class="swatch-label">positive</span>
+                </div>
+                <div class="swatch-wrap dark">
+                    <div class="swatch" style="background:var(--color-negative)"></div><span
+                        class="swatch-label">negative</span>
+                </div>
+                <div class="swatch-wrap dark">
+                    <div class="swatch" style="background:var(--color-alert)"></div><span
+                        class="swatch-label">alert</span>
+                </div>
+            </div>
+
+            <h3>Neutral scale</h3>
+            <div class="swatch-row">
+                <div class="swatch-wrap">
+                    <div class="swatch" style="background:var(--gray-50)"></div><span class="swatch-label">50</span>
+                </div>
+                <div class="swatch-wrap">
+                    <div class="swatch" style="background:var(--gray-100)"></div><span class="swatch-label">100</span>
+                </div>
+                <div class="swatch-wrap">
+                    <div class="swatch" style="background:var(--gray-200)"></div><span class="swatch-label">200</span>
+                </div>
+                <div class="swatch-wrap">
+                    <div class="swatch" style="background:var(--gray-300)"></div><span class="swatch-label">300</span>
+                </div>
+                <div class="swatch-wrap dark">
+                    <div class="swatch" style="background:var(--gray-400)"></div><span class="swatch-label">400</span>
+                </div>
+                <div class="swatch-wrap dark">
+                    <div class="swatch" style="background:var(--gray-500)"></div><span class="swatch-label">500</span>
+                </div>
+                <div class="swatch-wrap dark">
+                    <div class="swatch" style="background:var(--gray-600)"></div><span class="swatch-label">600</span>
+                </div>
+                <div class="swatch-wrap dark">
+                    <div class="swatch" style="background:var(--gray-700)"></div><span class="swatch-label">700</span>
+                </div>
+                <div class="swatch-wrap dark">
+                    <div class="swatch" style="background:var(--gray-800)"></div><span class="swatch-label">800</span>
+                </div>
+                <div class="swatch-wrap dark">
+                    <div class="swatch" style="background:var(--gray-900)"></div><span class="swatch-label">900</span>
+                </div>
+            </div>
+
+            <h3>Badges</h3>
+            <div class="row">
+                <span badge accent>accent</span>
+                <span badge>default</span>
+                <span badge positive>positive</span>
+                <span badge negative>negative</span>
+                <span badge alert>alert</span>
+            </div>
+        </section>
+
+        <section id="buttons">
+            <h1>Buttons</h1>
+            <p>Buttons are styled by attribute, not class. The default is a neutral secondary button. Add
+                <code>cta</code> for a primary action.</p>
+
+            <h3>Variants</h3>
+            <div class="row">
+                <button cta>Call to Action</button>
+                <button>Default</button>
+                <button ghost>Ghost</button>
+                <button disabled>Disabled</button>
+                <button positive>Confirm</button>
+                <button negative>Delete</button>
+                <button alert>Warning</button>
+            </div>
+
+            <h3>Sizes</h3>
+            <div class="row" style="align-items: baseline;">
+                <button large>Large</button>
+                <button>Default</button>
+                <button small>Small</button>
+            </div>
+
+            <h3>Shapes</h3>
+            <div class="row">
+                <button cta pill>Primary Pill</button>
+                <button pill>Pill</button>
+                <button ghost pill>Ghost Pill</button>
+            </div>
+
+            <h3>Markup</h3>
+            <pre><code>&lt;button&gt;Default&lt;/button&gt;
+&lt;button cta&gt;Call to Action&lt;/button&gt;
+&lt;button ghost&gt;Ghost&lt;/button&gt;
+&lt;button positive&gt;Confirm&lt;/button&gt;
+&lt;button negative&gt;Delete&lt;/button&gt;
+&lt;button alert&gt;Warning&lt;/button&gt;
+&lt;button small pill&gt;Small Pill&lt;/button&gt;</code></pre>
+        </section>
+
+        <section id="forms">
+            <h1>Forms</h1>
+            <form>
+                <fieldset>
+                    <legend>Account details</legend>
+
+                    <div class="stack">
+                        <div>
+                            <label for="name">Full name</label>
+                            <input type="text" id="name" placeholder="Ada Lovelace" valid>
+                            <small>Looks good.</small>
+                        </div>
+
+                        <div>
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" placeholder="ada@example.com" invalid>
+                            <small>Please enter a valid email address.</small>
+                        </div>
+
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Min. 8 characters">
+                        </div>
+
+                        <div>
+                            <label for="role">Role</label>
+                            <select id="role">
+                                <option value="">Select a role…</option>
+                                <option>Designer</option>
+                                <option>Engineer</option>
+                                <option>Product Manager</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" placeholder="Tell us about yourself…"></textarea>
+                        </div>
+
+                        <div class="row">
+                            <input type="checkbox" id="agree">
+                            <label for="agree" style="margin:0">I agree to the terms</label>
+                        </div>
+
+                        <div class="row">
+                            <input type="radio" id="plan-free" name="plan">
+                            <label for="plan-free" style="margin:0">Free</label>
+                            <input type="radio" id="plan-pro" name="plan">
+                            <label for="plan-pro" style="margin:0">Pro</label>
+                            <input type="radio" id="plan-team" name="plan">
+                            <label for="plan-team" style="margin:0">Team</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="row">
+                    <input type="submit" value="Create Account">
+                    <button type="reset" ghost>Reset</button>
+                </div>
+            </form>
+
+            <h3>Progress</h3>
+            <div class="stack">
+                <progress value="25" max="100"></progress>
+                <progress value="60" max="100" positive></progress>
+                <progress value="80" max="100" negative></progress>
+            </div>
+        </section>
+
+        <section id="components">
+            <h1>Components</h1>
+            <h3>Callouts</h3>
+            <aside>A neutral callout. Use <code>&lt;aside&gt;</code> for supporting information.</aside>
+            <aside positive>Operation completed successfully. Your changes have been saved.</aside>
+            <aside negative>Something went wrong. Please try again or contact support.</aside>
+            <aside alert>Your trial ends in 3 days. Upgrade to keep access.</aside>
+
+            <h3>Disclosure</h3>
+            <details>
+                <summary>What is a classless framework?</summary>
+                <p>A classless framework styles native HTML elements directly. You write semantic markup —
+                    <code>&lt;button&gt;</code>, <code>&lt;table&gt;</code>, <code>&lt;nav&gt;</code> — and the
+                    framework makes it look good without any class names.</p>
+            </details>
+            <details>
+                <summary>How do I add my brand color?</summary>
+                <p>Override <code>--color-accent</code> and <code>--color-accent-fg</code> in your own stylesheet or a
+                    <code>&lt;style&gt;</code> block after the framework import:</p>
+                <pre><code>:root {
+  --color-accent:    #6d28d9;
+  --color-accent-fg: #ffffff;
+}</code></pre>
+            </details>
+            <details>
+                <summary>Can I use custom fonts?</summary>
+                <p>Yes. Override <code>--font-heading</code> and <code>--font-body</code> with any font stack you
+                    prefer. Load the font yourself via <code>@import</code> or a <code>&lt;link&gt;</code> tag.</p>
+            </details>
+
+            <h3>Table</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Token</th>
+                        <th>Default</th>
+                        <th>Purpose</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>--color-accent</code></td>
+                        <td><code>#000000</code></td>
+                        <td>CTA buttons, links, focus rings</td>
+                        <td><span badge accent>core</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>--color-positive</code></td>
+                        <td><code>#16a34a</code></td>
+                        <td>Success states, confirm actions</td>
+                        <td><span badge positive>semantic</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>--color-negative</code></td>
+                        <td><code>#dc2626</code></td>
+                        <td>Errors, destructive actions</td>
+                        <td><span badge negative>semantic</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>--color-alert</code></td>
+                        <td><code>#d97706</code></td>
+                        <td>Warnings, expiring states</td>
+                        <td><span badge alert>semantic</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>--font-heading</code></td>
+                        <td><code>'Inter'</code></td>
+                        <td>All heading elements</td>
+                        <td><span badge>type</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Articles</h3>
+            <article>
+                <h4>Article card</h4>
+                <p>The <code>&lt;article&gt;</code> element gets a surface background, border, and rounded corners.
+                    Useful for cards, posts, or any contained content unit.</p>
+                <div class="row">
+                    <button small>Read more</button>
+                    <span badge>Draft</span>
+                </div>
+            </article>
+        </section>
+
+        <section id="tokens">
+            <h1>Token Reference</h1>
+            <p>All tokens are defined in <code>system.css</code>. Override at the <code>:root</code> level.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>--color-accent</code></td>
+                        <td><code>#000000</code></td>
+                        <td>Primary CTA / brand color</td>
+                    </tr>
+                    <tr>
+                        <td><code>--color-accent-fg</code></td>
+                        <td><code>#ffffff</code></td>
+                        <td>Text on accent background</td>
+                    </tr>
+                    <tr>
+                        <td><code>--font-heading</code></td>
+                        <td><code>'Inter', system-ui</code></td>
+                        <td>Font for h1–h6</td>
+                    </tr>
+                    <tr>
+                        <td><code>--font-body</code></td>
+                        <td><code>'Inter', system-ui</code></td>
+                        <td>Font for body text</td>
+                    </tr>
+                    <tr>
+                        <td><code>--font-mono</code></td>
+                        <td><code>ui-monospace</code></td>
+                        <td>Font for code blocks</td>
+                    </tr>
+                    <tr>
+                        <td><code>--radius</code></td>
+                        <td><code>0.4rem</code></td>
+                        <td>Default border radius</td>
+                    </tr>
+                    <tr>
+                        <td><code>--container-width</code></td>
+                        <td><code>72rem</code></td>
+                        <td>Max width of page layout</td>
+                    </tr>
+                    <tr>
+                        <td><code>--content-width</code></td>
+                        <td><code>68ch</code></td>
+                        <td>Max width of text paragraphs</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Aesthetium — classless, token-driven, semantic.</p>
+    </footer>
+
+</body>
+
+</html>
