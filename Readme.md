@@ -1,14 +1,25 @@
 # Aesthetium
 
-A classless, attribute-driven CSS framework. Drop it in and get a clean, modern UI with zero class names — semantic HTML styled out of the box, with expressive attributes for variants.
+A classless, attribute-driven CSS framework.
+
+- **Classless** — semantic HTML styled out of the box, zero class names required
+- **Attribute-based** — expressive attributes for variants and states
+- **Customizable** — tweak the entire design system through CSS variables
+
+Beautiful styles out of the box - with semantic intent-driven attributes if you need them. Take a button for example:
 
 ```html
-<button cta>Save</button>
-<aside positive>Changes saved.</aside>
-<span badge accent>New</span>
+<button> Default Button </button>
+<button cta>Call to Action Button </button>
 ```
 
 ## Installation
+
+### CDN
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aesthetium/distribution/aesthetium.css">
+```
 
 ### npm
 
@@ -25,50 +36,6 @@ Or with a bundler:
 ```css
 @import 'aesthetium';
 ```
-
-### CDN
-
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aesthetium/distribution/aesthetium.css">
-```
-
-To pin a specific version:
-
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aesthetium@1.0.0/distribution/aesthetium.css">
-```
-
-## Customization
-
-Aesthetium is built on CSS custom properties. Override any token in your own `:root` block **after** the framework stylesheet to apply your theme — no build step required.
-
-```css
-:root {
-  --color-accent:    #6366f1; /* your brand color for CTAs, links, focus rings */
-  --color-accent-fg: #ffffff; /* text on top of the accent color               */
-
-  --font-heading: 'Playfair Display', serif;
-  --font-body:    'Inter', sans-serif;
-}
-```
-
-### Key tokens
-
-| Token | Default | Purpose |
-|---|---|---|
-| `--color-accent` | `#000000` | CTAs, links, focus rings |
-| `--color-accent-fg` | `#ffffff` | Text on accent backgrounds |
-| `--color-positive` | `#16a34a` | Success states |
-| `--color-negative` | `#dc2626` | Error states |
-| `--color-alert` | `#d97706` | Warning states |
-| `--font-heading` | Inter | Heading font |
-| `--font-body` | Inter | Body font |
-| `--container-width` | `72rem` | Max page width |
-| `--content-width` | `68ch` | Max paragraph width |
-
-The full token list is in [`source/system.css`](source/system.css).
-
-Dark mode is supported automatically via `prefers-color-scheme`.
 
 ## Attributes
 
@@ -133,7 +100,7 @@ Aesthetium uses boolean HTML attributes for variants — no class names needed.
 <progress value="80" max="100" positive></progress>
 ```
 
-### `<nav> a`
+### `<nav> <a>`
 
 | Attribute | Effect |
 |---|---|
@@ -164,6 +131,38 @@ Apply `badge` to any inline element to render it as a pill badge. Combine with a
 <span badge positive>Active</span>
 <span badge negative>Expired</span>
 ```
+
+## Customization
+
+Aesthetium is built on CSS custom properties. Override any token in your own `:root` block **after** the framework stylesheet to apply your theme — no build step required.
+
+```css
+:root {
+  --color-accent:    #6366f1; /* your brand color for CTAs, links, focus rings */
+  --color-accent-fg: #ffffff; /* text on top of the accent color               */
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body:    'Inter', sans-serif;
+}
+```
+
+### Key tokens
+
+| Token | Default | Purpose |
+|---|---|---|
+| `--color-accent` | `#000000` | CTAs, links, focus rings |
+| `--color-accent-fg` | `#ffffff` | Text on accent backgrounds |
+| `--color-positive` | `#16a34a` | Success states |
+| `--color-negative` | `#dc2626` | Error states |
+| `--color-alert` | `#d97706` | Warning states |
+| `--font-heading` | Inter | Heading font |
+| `--font-body` | Inter | Body font |
+| `--container-width` | `72rem` | Max page width |
+| `--content-width` | `68ch` | Max paragraph width |
+
+The full token list is in [`source/system.css`](source/system.css).
+
+Dark mode is supported automatically via `prefers-color-scheme`.
 
 ## License
 
