@@ -1,16 +1,17 @@
 # Aesthetium
 
-A classless, attribute-driven CSS framework.
+A very lightweight CSS framework with a clean and minimalistic black & white aesthetic by default (think OpenAI style):
 
 - **Classless** — semantic HTML styled out of the box, zero class names required
 - **Attribute-based** — expressive attributes for variants and states
 - **Customizable** — tweak the entire design system through CSS variables
 
-Beautiful styles out of the box - with semantic intent-driven attributes if you need them. Take a button for example:
+This framework helps you keep your DOM clean, helping drive the separation between *what* to display and *how* to display it. In the very few cases where the HTML element's native name does not allow for fully expressing the *what*, Aesthetium provides a few well considered semantic intent-driven attributes. Take a button for example:
 
 ```html
-<button> Default Button </button>
-<button cta>Call to Action Button </button>
+<button>Default Button</button>
+<button cta>Call to Action Button</button>
+<button negative>Delete the internet</button>
 ```
 
 ## Installation
