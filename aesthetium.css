@@ -1,0 +1,795 @@
+/* ═══════════════════════════════════════════════════════════════
+   Aesthetium — Classless CSS Framework
+   Attribute-driven. Token-based. Semantic HTML only.
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap');
+@import 'system.css';
+
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ─── Base ──────────────────────────────────────────────────── */
+
+html {
+  font-size: var(--text-base);
+  -webkit-text-size-adjust: 100%;
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-page);
+}
+
+
+/* ─── Typography ────────────────────────────────────────────── */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  color: var(--color-text);
+  margin-block-end: var(--space-3);
+  margin-block-start: var(--space-8);
+}
+
+h1 {
+  font-size: var(--text-5xl);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-block-start: var(--space-12);
+}
+
+h2 {
+  font-size: var(--text-4xl);
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: var(--text-3xl);
+  letter-spacing: -0.01em;
+}
+
+h4 {
+  font-size: var(--text-2xl);
+}
+
+h5 {
+  font-size: var(--text-xl);
+}
+
+h6 {
+  font-size: var(--text-lg);
+}
+
+p {
+  margin-block-end: var(--space-4);
+  max-width: var(--content-width);
+}
+
+p:last-child {
+  margin-block-end: 0;
+}
+
+
+/* ─── Links ─────────────────────────────────────────────────── */
+
+a {
+  color: var(--color-accent);
+  text-underline-offset: 0.2em;
+  transition: opacity var(--duration) var(--ease);
+}
+
+a:hover {
+  opacity: 0.65;
+}
+
+
+/* ─── Lists ─────────────────────────────────────────────────── */
+
+ul,
+ol {
+  padding-inline-start: var(--space-6);
+  margin-block-end: var(--space-4);
+}
+
+li {
+  margin-block-end: var(--space-1);
+}
+
+li:last-child {
+  margin-block-end: 0;
+}
+
+
+/* ─── Inline elements ───────────────────────────────────────── */
+
+strong,
+b {
+  font-weight: 600;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+mark {
+  background-color: color-mix(in srgb, var(--color-alert) 22%, transparent);
+  color: inherit;
+  border-radius: var(--radius-sm);
+  padding-inline: var(--space-1);
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+del {
+  color: var(--color-muted);
+}
+
+sup,
+sub {
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+
+/* ─── Blockquote ────────────────────────────────────────────── */
+
+blockquote {
+  border-inline-start: 3px solid var(--color-border);
+  padding-inline-start: var(--space-5);
+  color: var(--color-muted);
+  margin-block: var(--space-6);
+  font-style: italic;
+}
+
+blockquote p {
+  color: inherit;
+}
+
+blockquote cite {
+  display: block;
+  margin-block-start: var(--space-2);
+  font-style: normal;
+  font-size: var(--text-sm);
+}
+
+
+/* ─── Code ──────────────────────────────────────────────────── */
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.35em;
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-5);
+  overflow-x: auto;
+  margin-block: var(--space-6);
+  line-height: var(--leading-loose);
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+
+/* ─── Horizontal rule ───────────────────────────────────────── */
+
+hr {
+  border: none;
+  border-block-start: 1px solid var(--color-border);
+  margin-block: var(--space-8);
+}
+
+
+/* ─── Tables ────────────────────────────────────────────────── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: var(--space-6);
+  font-size: var(--text-sm);
+  outline: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+thead {
+  background-color: var(--color-surface);
+}
+
+th {
+  font-weight: 600;
+  text-align: start;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--color-border);
+}
+
+td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: var(--color-surface);
+}
+
+
+/* ─── Media ─────────────────────────────────────────────────── */
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin-block: var(--space-6);
+}
+
+figcaption {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  margin-block-start: var(--space-2);
+  text-align: center;
+}
+
+
+/* ─── Layout — document structure ──────────────────────────── */
+
+body>header,
+body>main {
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+body>header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+body>main {
+  padding-block: var(--space-12);
+}
+
+body>footer {
+  width: 100%;
+  padding-block: var(--space-8);
+  padding-inline: var(--space-6);
+  background-color: var(--gray-900);
+  color: var(--gray-400);
+  font-size: var(--text-sm);
+}
+
+section {
+  margin-block: var(--space-12);
+}
+
+
+/* ─── Navigation ────────────────────────────────────────────── */
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+}
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  transition:
+    color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
+}
+
+nav a:hover {
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  opacity: 1;
+}
+
+nav a[aria-current="page"],
+nav a[active] {
+  color: var(--color-text);
+  background-color: var(--color-surface-2);
+  font-weight: 600;
+}
+
+
+/* ─── Article ───────────────────────────────────────────────── */
+
+article {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-block: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* ─── Aside — callout blocks ────────────────────────────────── */
+
+aside {
+  background-color: var(--color-surface);
+  border-inline-start: 3px solid var(--color-border);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: var(--space-4) var(--space-5);
+  margin-block: var(--space-4);
+  font-size: var(--text-sm);
+}
+
+aside[positive] {
+  border-color: var(--color-positive);
+  background-color: color-mix(in srgb, var(--color-positive) 8%, var(--color-bg));
+}
+
+aside[negative] {
+  border-color: var(--color-negative);
+  background-color: color-mix(in srgb, var(--color-negative) 8%, var(--color-bg));
+}
+
+aside[alert] {
+  border-color: var(--color-alert);
+  background-color: color-mix(in srgb, var(--color-alert) 8%, var(--color-bg));
+}
+
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+[role="button"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: 1;
+  padding: calc(var(--space-2) + 1px) var(--space-4);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  transition:
+    background-color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    opacity var(--duration) var(--ease);
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover {
+  background-color: var(--color-surface-2);
+}
+
+button:active {
+  opacity: 0.75;
+}
+
+button:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+button:disabled,
+input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary / CTA */
+button[cta],
+input[type="submit"] {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-fg);
+}
+
+button[cta]:hover,
+input[type="submit"]:hover {
+  opacity: 0.82;
+  background-color: var(--color-accent);
+}
+
+/* Semantic variants */
+button[positive] {
+  background: var(--color-positive);
+  border-color: var(--color-positive);
+  color: var(--color-positive-fg);
+}
+
+button[negative] {
+  background: var(--color-negative);
+  border-color: var(--color-negative);
+  color: var(--color-negative-fg);
+}
+
+button[alert] {
+  background: var(--color-alert);
+  border-color: var(--color-alert);
+  color: var(--color-alert-fg);
+}
+
+button[positive]:hover,
+button[negative]:hover,
+button[alert]:hover {
+  opacity: 0.82;
+}
+
+/* Ghost / outline */
+button[ghost] {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+button[ghost]:hover {
+  background-color: var(--color-surface);
+}
+
+/* Size modifiers */
+button[small] {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-xs);
+}
+
+button[large] {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--text-base);
+}
+
+/* Pill shape */
+button[pill] {
+  border-radius: var(--radius-full);
+}
+
+
+/* ─── Forms ─────────────────────────────────────────────────── */
+
+fieldset {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  margin-block: var(--space-4);
+}
+
+legend {
+  font-weight: 600;
+  font-size: var(--text-sm);
+  padding-inline: var(--space-2);
+}
+
+label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-block-end: var(--space-1);
+  color: var(--color-text);
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  width: 100%;
+  line-height: var(--leading-normal);
+  appearance: none;
+  transition:
+    border-color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-muted);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23737373'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  background-size: 1.25em;
+  padding-inline-end: var(--space-8);
+  cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  appearance: auto;
+  background-color: revert;
+  border: revert;
+  border-radius: revert;
+  padding: 0;
+  box-shadow: none;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  accent-color: var(--color-accent);
+}
+
+/* Validity states */
+input[valid],
+textarea[valid],
+select[valid] {
+  border-color: var(--color-positive);
+}
+
+input[invalid],
+textarea[invalid],
+select[invalid] {
+  border-color: var(--color-negative);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-negative) 12%, transparent);
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Hint text below inputs — use <small> */
+input+small,
+textarea+small,
+select+small {
+  display: block;
+  margin-block-start: var(--space-1);
+}
+
+
+/* ─── Progress ──────────────────────────────────────────────── */
+
+progress {
+  width: 100%;
+  height: 0.5rem;
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-2);
+  overflow: hidden;
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--color-surface-2);
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--color-accent);
+}
+
+progress::-moz-progress-bar {
+  background-color: var(--color-accent);
+}
+
+progress[positive]::-webkit-progress-value {
+  background-color: var(--color-positive);
+}
+
+progress[positive]::-moz-progress-bar {
+  background-color: var(--color-positive);
+}
+
+progress[negative]::-webkit-progress-value {
+  background-color: var(--color-negative);
+}
+
+progress[negative]::-moz-progress-bar {
+  background-color: var(--color-negative);
+}
+
+
+/* ─── Details / Disclosure ──────────────────────────────────── */
+
+details {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-block: var(--space-2);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--color-bg);
+}
+
+summary {
+  font-weight: 500;
+  font-size: var(--text-sm);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-surface);
+  user-select: none;
+  transition: background-color var(--duration) var(--ease);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: '›';
+  font-size: 1.1em;
+  line-height: 1;
+  transform: rotate(90deg);
+  transition: transform var(--duration) var(--ease);
+  color: var(--color-muted);
+  flex-shrink: 0;
+}
+
+details[open] summary::after {
+  transform: rotate(270deg);
+}
+
+details[open] {
+  padding: 0 var(--space-4) var(--space-4);
+}
+
+details[open]>summary {
+  margin-inline: calc(-1 * var(--space-4));
+  border-bottom: 1px solid var(--color-border);
+}
+
+summary:hover {
+  background-color: var(--color-surface-2);
+}
+
+details> :not(summary):first-of-type {
+  padding-top: var(--space-4);
+}
+
+details>pre {
+  margin-block: var(--space-3) 0;
+}
+
+
+/* ─── Dialog ────────────────────────────────────────────────── */
+
+dialog {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  max-width: 480px;
+  width: calc(100% - var(--space-8));
+  box-shadow: var(--shadow-xl);
+}
+
+dialog::backdrop {
+  background-color: color-mix(in srgb, var(--color-text) 35%, transparent);
+  backdrop-filter: blur(3px);
+}
+
+dialog h2,
+dialog h3 {
+  margin-block-start: 0;
+}
+
+
+/* ─── Badges ────────────────────────────────────────────────── */
+
+[badge] {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  padding: 0.2em 0.6em;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-2);
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+[badge][positive] {
+  background-color: color-mix(in srgb, var(--color-positive) 14%, transparent);
+  color: var(--color-positive);
+}
+
+[badge][negative] {
+  background-color: color-mix(in srgb, var(--color-negative) 14%, transparent);
+  color: var(--color-negative);
+}
+
+[badge][alert] {
+  background-color: color-mix(in srgb, var(--color-alert) 14%, transparent);
+  color: var(--color-alert);
+}
+
+[badge][accent] {
+  background-color: color-mix(in srgb, var(--color-accent) 14%, transparent);
+  color: var(--color-accent);
+}
