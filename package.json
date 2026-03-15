@@ -4,6 +4,11 @@
   "description": "Classless, attribute-driven CSS framework.",
   "author": "Magnus Meseck",
   "license": "MIT",
+  "homepage": "https://github.com/elemental-mind/aesthetium",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elemental-mind/aesthetium.git"
+  },
   "type": "module",
   "style": "./distribution/aesthetium.css",
   "main": "./distribution/aesthetium.css",
