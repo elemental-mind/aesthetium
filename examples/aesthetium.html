@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetium</title>
+  <link rel="stylesheet" href="../distribution/aesthetium.css">
+  <style>
+    body {
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      background: var(--color-page);
+    }
+
+    /* ─── Hero text — absolute overlay ──────────────────────── */
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 6rem;
+      transform: translateY(-50%);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .hero-text h1 {
+      font-size: 4.5rem;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0 0 1.25rem;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: var(--color-muted);
+      line-height: 1.7;
+      max-width: 30ch;
+      margin: 0;
+    }
+
+    /* ─── Stage ── nudged right ──────────────────────────────── */
+    .stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 32%;
+      perspective: 1000px;
+    }
+
+    /* ─── Card stack wrapper — receives the 3-D rotation ─────── */
+    .card-stack {
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateX(24deg) rotateY(-35deg) rotateZ(19deg);
+      transition: transform 0.15s ease;
+      will-change: transform;
+      cursor: default;
+    }
+
+    /* ─── Shared card shell ───────────────────────────────────── */
+    .card-3d {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 80px 160px rgba(0, 0, 0, .05), 0 30px 60px rgba(0, 0, 0, .1);
+      padding: 1.75rem 2rem;
+      width: 420px;
+      transform-style: preserve-3d;
+    }
+
+    /* propagate 3d context through every intermediate container */
+    .card-3d>*,
+    .card-3d form {
+      transform-style: preserve-3d;
+    }
+
+    .card-3d h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      margin: 0 0 1.25rem;
+      transform: translateZ(10px);
+    }
+
+    .card-3d form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .card-3d label {
+      display: block;
+      font-size: var(--text-xs);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      color: var(--color-text);
+    }
+
+    .card-3d .hint {
+      font-size: var(--text-xs);
+      color: var(--color-muted);
+      margin-top: 0.2rem;
+    }
+
+    .card-3d .check-row {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: var(--text-xs);
+    }
+
+    .card-3d .radio-row {
+      display: flex;
+      gap: 0.9rem;
+      font-size: var(--text-xs);
+    }
+
+    .card-3d .radio-row label {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .card-3d {
+        box-shadow: 0 80px 160px rgba(0, 0, 0, .5), 0 30px 60px rgba(0, 0, 0, .3);
+      }
+    }
+
+    /* ─── Back card heading row ──────────────────────────────── */
+    .card-heading-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-heading-row h3 {
+      margin: 0;
+    }
+
+    /* ─── Middle card: chart ──────────────────────────────────── */
+    .card-chart {
+      position: absolute;
+      top: -270px;
+      left: -570px;
+      z-index: 1;
+      transform: translateZ(-260px);
+      width: 380px;
+      color: var(--color-accent);
+    }
+
+    .chart-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .chart-stat {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--color-text);
+      margin: 0.2rem 0 0.2rem;
+    }
+
+    .chart-label {
+      font-size: var(--text-xs);
+      color: var(--color-muted);
+      margin: 0;
+    }
+
+    .chart-svg {
+      display: block;
+      width: 100%;
+      height: 80px;
+      margin: 0 0 0.4rem;
+      overflow: visible;
+    }
+
+    .chart-ticks {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.6rem;
+      color: var(--color-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Gauge card ─────────────────────────────────────────── */
+    .card-gauge {
+      position: absolute;
+      top: 270px;
+      left: -430px;
+      z-index: 1;
+      transform: translateZ(-170px);
+      width: 270px;
+    }
+
+    .card-gauge h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .gauge-svg {
+      display: block;
+      width: 100%;
+      margin: 0.25rem 0 0;
+    }
+
+    .gauge-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: -0.5rem;
+      padding: 0 0.25rem;
+    }
+
+    .gauge-footer span:not([badge]) {
+      font-size: 0.6rem;
+      color: var(--color-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Front card ──────────────────────────────────────────── */
+    .card-front {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ─── Back card — staggered behind ───────────────────────── */
+    .card-back {
+      position: absolute;
+      top: -50px;
+      left: 130px;
+      z-index: 1;
+      transform: translateZ(-500px);
+      overflow: hidden;
+      width: 400px;
+    }
+
+    .card-back .card-image {
+      margin: -1.75rem -2rem 1.25rem;
+      height: 320px;
+      overflow: hidden;
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    }
+
+    .card-back .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-back .card-caption {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      line-height: 1.65;
+      margin: 0 0 1.25rem;
+    }
+
+    .card-back .tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .card-back .tag {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 0.2rem 0.55rem;
+    }
+
+    /* ─── Controls panel ─────────────────────────────────────── */
+    .controls {
+      display: none;
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 1rem 1.5rem;
+      gap: 1.5rem;
+      align-items: end;
+    }
+
+    .ctrl {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      align-items: center;
+    }
+
+    .ctrl label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      white-space: nowrap;
+    }
+
+    .ctrl input[type=range] {
+      width: 80px;
+      accent-color: var(--color-accent);
+      cursor: pointer;
+    }
+
+    .ctrl .val {
+      font-size: 0.65rem;
+      font-variant-numeric: tabular-nums;
+      color: var(--color-text);
+      min-width: 3ch;
+      text-align: center;
+    }
+
+    .ctrl-divider {
+      width: 1px;
+      height: 48px;
+      background: var(--color-border);
+      align-self: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero-text">
+    <h1>Aesthetium</h1>
+    <h5>The minimalist CSS Framework</h5>
+    <p>Light on the eye. Light on your code. Light on your bandwidth.</p>
+  </div>
+
+  <div class="stage">
+    <div class="card-stack">
+
+      <!-- ── Back card: layers image ───────────────────────── -->
+      <div class="card-3d card-back">
+        <div class="card-image">
+          <img src="../concept/layers.png" alt="Layered abstract 3D forms">
+        </div>
+        <div class="card-heading-row">
+          <h3>Aesthetic Layers</h3>
+          <span badge positive>4 KB</span>
+        </div>
+        <p class="card-caption">Every surface is a layer. Aesthetium stacks tokens, utilities and components — minimal by design, purposeful by default.</p>
+        <div class="tags">
+          <span class="tag">Design tokens</span>
+          <span class="tag">Utility-first</span>
+          <span class="tag">Zero JS</span>
+        </div>
+      </div>
+
+      <!-- ── Middle card: chart ───────────────────────────── -->
+      <div class="card-3d card-chart">
+        <div class="chart-header">
+          <div>
+            <h3>Lighthouse</h3>
+            <div class="chart-stat">98</div>
+            <p class="chart-label">Performance score</p>
+          </div>
+          <span badge positive>+4</span>
+        </div>
+        <svg class="chart-svg" viewBox="0 0 200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="currentColor" stop-opacity="0.15"/>
+              <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,65 L28,58 L55,62 L80,40 L105,44 L130,22 L158,28 L185,10 L200,14 L200,80 L0,80 Z" fill="url(#chartFill)" class="chart-fill"/>
+          <polyline points="0,65 28,58 55,62 80,40 105,44 130,22 158,28 185,10 200,14" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" class="chart-line"/>
+          <circle cx="200" cy="14" r="3.5" fill="currentColor" class="chart-dot"/>
+        </svg>
+        <div class="chart-ticks">
+          <span>Jan</span><span>Mar</span><span>May</span><span>Jul</span>
+        </div>
+      </div>
+
+      <!-- ── Gauge card ───────────────────────────────────── -->
+      <div class="card-3d card-gauge">
+        <h3>Bundle Budget</h3>
+        <!--
+          Arc math: cx=100 cy=105 r=72
+          Circumference = 452.4  |  270° track = 339.3  |  gap = 113.1
+          72% fill = 244.3       |  remaining = 208.1
+          rotate(135 100 105) starts arc at bottom-left → gap sits at bottom centre
+        -->
+        <svg class="gauge-svg" viewBox="0 0 200 165" xmlns="http://www.w3.org/2000/svg">
+          <!-- track -->
+          <circle cx="100" cy="105" r="72"
+            fill="none"
+            stroke="var(--color-border)"
+            stroke-width="13"
+            stroke-dasharray="339.3 113.1"
+            stroke-linecap="round"
+            transform="rotate(135 100 105)"/>
+          <!-- fill — 72% -->
+          <circle cx="100" cy="105" r="72"
+            fill="none"
+            stroke="var(--color-alert)"
+            stroke-width="13"
+            stroke-dasharray="244.3 208.1"
+            stroke-linecap="round"
+            transform="rotate(135 100 105)"/>
+          <!-- centre label -->
+          <text x="100" y="97" text-anchor="middle"
+            font-size="30" font-weight="800"
+            fill="var(--color-text)" font-family="inherit">72%</text>
+          <text x="100" y="116" text-anchor="middle"
+            font-size="10.5"
+            fill="var(--color-muted)" font-family="inherit">of budget used</text>
+        </svg>
+        <div class="gauge-footer">
+          <span>0 KB</span>
+          <span badge alert>Warning</span>
+          <span>100 KB</span>
+        </div>
+      </div>
+
+      <!-- ── Front card: form ──────────────────────────────── -->
+      <div class="card-3d card-front">
+        <h3>Create Account</h3>
+        <form onsubmit="return false">
+          <div>
+            <label for="name">Full name</label>
+            <input id="name" type="text" value="Ada Lovelace">
+          </div>
+
+          <div>
+            <label for="email">Email address</label>
+            <input id="email" type="email" value="ada@example.com">
+          </div>
+
+          <div>
+            <label for="pass">Password</label>
+            <input id="pass" type="password" placeholder="Min. 8 characters" invalid>
+          </div>
+
+          <div>
+            <label for="role">Role</label>
+            <select id="role">
+              <option>Select a role…</option>
+              <option>Admin</option>
+              <option>Editor</option>
+              <option>Viewer</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="bio">Bio</label>
+            <textarea id="bio" placeholder="Tell us about yourself…" rows="2"></textarea>
+          </div>
+
+          <div class="check-row">
+            <input type="checkbox" id="terms">
+            <label for="terms" style="margin:0;font-weight:400;">I agree to the terms</label>
+          </div>
+
+          <div class="radio-row">
+            <label><input type="radio" name="plan" checked> Free</label>
+            <label><input type="radio" name="plan"> Pro</label>
+            <label><input type="radio" name="plan"> Team</label>
+          </div>
+
+          <button cta style="width:100%;justify-content:center;">Create Account</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="ctrl">
+      <label>Perspective</label>
+      <input type="range" id="s-persp" min="300" max="2000" step="50" value="1000">
+      <span class="val" id="v-persp">1000</span>
+    </div>
+
+    <div class="ctrl-divider"></div>
+
+    <div class="ctrl">
+      <label>Rotate X</label>
+      <input type="range" id="s-rx" min="0" max="90" step="1" value="24">
+      <span class="val" id="v-rx">24°</span>
+    </div>
+    <div class="ctrl">
+      <label>Rotate Y</label>
+      <input type="range" id="s-ry" min="-60" max="60" step="1" value="-35">
+      <span class="val" id="v-ry">-35°</span>
+    </div>
+    <div class="ctrl">
+      <label>Rotate Z</label>
+      <input type="range" id="s-rz" min="-45" max="45" step="1" value="19">
+      <span class="val" id="v-rz">19°</span>
+    </div>
+  </div>
+
+  <script>
+    const stage = document.querySelector('.stage');
+    const card = document.querySelector('.card-stack');
+    const form = document.querySelector('.card-front form');
+
+    const BASE = { rx: 24, ry: -35, rz: 19 };
+    const MAX_Z = 124;
+    const MAX_DIST = 400;
+
+    // Shadow direction in card-local 2D space (right, slightly down per unit z²/MAX_Z)
+    const LIGHT = { ox: 0.75, oy: 0.07 };
+
+    // Tracks the current effective card rotations so shadows can follow the card
+    let curRx = BASE.rx, curRy = BASE.ry, curRz = BASE.rz;
+
+    // Returns the screen-space (x,y) projection of the card's local X and Y axes,
+    // computed from M = Rx·Ry·Rz (CSS transform order).
+    function cardAxes(rx_deg, ry_deg, rz_deg)
+    {
+      const toRad = d => d * Math.PI / 180;
+      const cX = Math.cos(toRad(rx_deg)), sX = Math.sin(toRad(rx_deg));
+      const cY = Math.cos(toRad(ry_deg)), sY = Math.sin(toRad(ry_deg));
+      const cZ = Math.cos(toRad(rz_deg)), sZ = Math.sin(toRad(rz_deg));
+      return {
+        xx: cY * cZ,                    // card-local X → screen x
+        xy: cX * sZ + sX * sY * cZ,    // card-local X → screen y
+        yx: -cY * sZ,                    // card-local Y → screen x
+        yy: cX * cZ - sX * sY * sZ,    // card-local Y → screen y
+      };
+    }
+
+    const formRows = [...form.children];
+
+    // pre-compute each row's z-depth from its vertical position in the form
+    // (captured once before any transforms are applied)
+    const POSITION_Z = (() =>
+    {
+      const fr = form.getBoundingClientRect();
+      return formRows.map(el =>
+      {
+        const er = el.getBoundingClientRect();
+        const t = (er.top + er.height / 2 - fr.top) / fr.height;
+        return Math.max(0, Math.min(1, t)) * MAX_Z;
+      });
+    })();
+
+    // For each row, the elements that should actually cast a shadow.
+    // translateZ stays on the row; filter goes on the visible leaf elements.
+    const shadowTargets = formRows.map(el =>
+    {
+      if (el.tagName === 'BUTTON') return [el];
+      // Radio row: shadow each label (radio circle + text as one unit)
+      const radioLabels = [...el.querySelectorAll('label')].filter(l => l.querySelector('input[type=radio]'));
+      if (radioLabels.length) return radioLabels;
+      // All other rows: shadow the main form control
+      const controls = [...el.querySelectorAll('input:not([type=radio]):not([type=checkbox]), select, textarea')];
+      return controls.length ? controls : [el];
+    });
+
+    function shadowForZ(z, rx_deg, ry_deg, rz_deg)
+    {
+      const t = z / MAX_Z;
+      if (t < 0.01) return 'none';
+
+      // Card-local shadow offset — quadratic so it grows fast at high z
+      const lx = LIGHT.ox * z * t;
+      const ly = LIGHT.oy * z * t;
+
+      // Project card-local offset into screen space so the shadow stays
+      // fixed relative to the card surface as it rotates
+      const { xx, xy, yx, yy } = cardAxes(rx_deg, ry_deg, rz_deg);
+      const sx = (lx * xx + ly * yx).toFixed(1);
+      const sy = (lx * xy + ly * yy).toFixed(1);
+      const blur = (30 * t * t).toFixed(1);
+      const op = (0.1 + 0.2 * t).toFixed(2);
+      return `drop-shadow(${sx}px ${sy}px ${blur}px rgba(0,0,0,${op}))`;
+    }
+
+    function updateRows(mouseX, mouseY)
+    {
+      formRows.forEach((el, i) =>
+      {
+        const r = el.getBoundingClientRect();
+        const dist = Math.hypot(mouseX - (r.left + r.width / 2),
+          mouseY - (r.top + r.height / 2));
+        const scale = Math.min(dist / MAX_DIST, 1);
+        const z = POSITION_Z[i] * scale;
+        el.style.transform = `translateZ(${z}px)`;
+        const f = shadowForZ(z, curRx, curRy, curRz);
+        shadowTargets[i].forEach(t => t.style.filter = f);
+      });
+    }
+
+    function resetRows()
+    {
+      formRows.forEach((el, i) =>
+      {
+        el.style.transform = `translateZ(${POSITION_Z[i]}px)`;
+        const f = shadowForZ(POSITION_Z[i], curRx, curRy, curRz);
+        shadowTargets[i].forEach(t => t.style.filter = f);
+      });
+    }
+
+    function applyCardTransform(dx = 0, dy = 0)
+    {
+      curRx = BASE.rx + dy * -5;
+      curRy = BASE.ry + dx * 7;
+      curRz = BASE.rz + dx * -1.5;
+      card.style.transform = `
+        rotateX(${curRx}deg)
+        rotateY(${curRy}deg)
+        rotateZ(${curRz}deg)
+      `;
+    }
+
+    document.addEventListener('mousemove', e =>
+    {
+      const dx = (e.clientX / window.innerWidth - 0.5) * 2;
+      const dy = (e.clientY / window.innerHeight - 0.5) * 2;
+      applyCardTransform(dx, dy);
+      updateRows(e.clientX, e.clientY);
+    });
+
+    document.addEventListener('mouseleave', () =>
+    {
+      applyCardTransform();
+      resetRows();
+    });
+
+    resetRows(); // initialise depths before first mouse move
+
+    // ── Sliders ──────────────────────────────────────────────
+    const bindings = [
+      { slider: 's-persp', val: 'v-persp', unit: '', set: v => stage.style.perspective = v + 'px' },
+      { slider: 's-rx', val: 'v-rx', unit: '°', set: v => { BASE.rx = v; applyCardTransform(); } },
+      { slider: 's-ry', val: 'v-ry', unit: '°', set: v => { BASE.ry = v; applyCardTransform(); } },
+      { slider: 's-rz', val: 'v-rz', unit: '°', set: v => { BASE.rz = v; applyCardTransform(); } },
+    ];
+
+    bindings.forEach(({ slider, val, unit, set }) =>
+    {
+      const el = document.getElementById(slider);
+      const lbl = document.getElementById(val);
+      el.addEventListener('input', () =>
+      {
+        lbl.textContent = el.value + unit;
+        set(Number(el.value));
+      });
+    });
+  </script>
+</body>
+
+</html>
