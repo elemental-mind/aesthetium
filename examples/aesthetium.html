@@ -344,7 +344,7 @@
       {
         this.card = card;
         this.scene = scene;
-        
+
         this.rx = RotationController.BASE_ROTATION.rx;
         this.ry = RotationController.BASE_ROTATION.ry;
         this.rz = RotationController.BASE_ROTATION.rz;
@@ -356,9 +356,9 @@
 
       sceneChanged()
       {
-        this.rx = RotationController.BASE_ROTATION.rx + scene.dy * -5;
-        this.ry = RotationController.BASE_ROTATION.ry + scene.dx * 7;
-        this.rz = RotationController.BASE_ROTATION.rz + scene.dx * -1.5;
+        this.rx = RotationController.BASE_ROTATION.rx + this.scene.dy * -5;
+        this.ry = RotationController.BASE_ROTATION.ry + this.scene.dx * 7;
+        this.rz = RotationController.BASE_ROTATION.rz + this.scene.dx * -1.5;
         this.recomputeAxes();
         this.scene.renderUpdate(() =>
           this.card.style.transform = `rotateX(${this.rx}deg) rotateY(${this.ry}deg) rotateZ(${this.rz}deg)`);
@@ -391,7 +391,7 @@
       {
         this.scene = scene;
         this.el = el;
-        this.maxFloatHeight = this.relativePositionInContainer * FloatationController.MAX_FLOATING_HEIGHT;;
+        this.maxFloatHeight = this.relativePositionInContainer * FloatationController.MAX_FLOATING_HEIGHT;
 
         scene.onChanged(() => this.sceneChanged());
       }
@@ -415,15 +415,12 @@
         const boundingRect = this.el.getBoundingClientRect();
         const position = (boundingRect.top + boundingRect.height / 2 - embeddingForm.top) / embeddingForm.height;
         return Math.max(0, Math.min(1, position));
-
-        compute;
       }
 
       sceneChanged()
       {
-        const floatFactor = this.relativeMouseDistance;
         const offsetZ = this.relativeMouseDistance * this.maxFloatHeight;
-        const { offsetX, offsetY, blur, opacity } = this.computeShadowForZOffset(offsetZ, floatFactor);
+        const { offsetX, offsetY, blur, opacity } = this.computeShadowForZOffset(offsetZ);
         this.scene.renderUpdate(() =>
         {
           this.el.style.transform = `translateZ(${offsetZ}px)`;
