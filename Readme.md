@@ -10,7 +10,7 @@ This framework helps you keep your DOM clean, helping drive the separation betwe
 
 ```html
 <button>Default Button</button>
-<button cta>Call to Action Button</button>
+<button highlight>Call to Action Button</button>
 <button negative>Delete the internet</button>
 ```
 
@@ -47,7 +47,7 @@ Aesthetium uses boolean HTML attributes for variants — no class names needed.
 | Attribute | Effect |
 |---|---|
 | *(none)* | Neutral secondary button |
-| `cta` | Primary / brand-colored button |
+| `highlight` | Primary / brand-colored button |
 | `ghost` | Transparent background, border only |
 | `positive` | Green — confirm, save |
 | `negative` | Red — delete, destructive |
@@ -57,7 +57,7 @@ Aesthetium uses boolean HTML attributes for variants — no class names needed.
 | `pill` | Fully rounded corners |
 
 ```html
-<button cta>Save</button>
+<button highlight>Save</button>
 <button ghost>Cancel</button>
 <button negative pill>Delete account</button>
 ```
