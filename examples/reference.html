@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetium — Reference Page</title>
+  <link rel="stylesheet" href="../source/aesthetium.css">
+</head>
+<body>
+
+  <!-- ═══ STICKY HEADER ═══════════════════════════════════════ -->
+  <header>
+    <strong>Brand</strong>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" active>Contact</a>
+    </nav>
+    <button highlight>Sign Up</button>
+  </header>
+
+  <main>
+
+    <!-- ═══ HERO ══════════════════════════════════════════════ -->
+    <section full-page stack centered>
+      <h1>Build beautiful websites<br>with semantic HTML</h1>
+      <p>A classless CSS framework that styles your markup. No classes, no JavaScript, just HTML.</p>
+      <div row centered>
+        <button highlight large>Get Started</button>
+        <button ghost large>Documentation</button>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURES ══════════════════════════════════════════ -->
+    <section id="features">
+      <h2>Features</h2>
+      <div row wrap>
+        <article>
+          <h3>Classless</h3>
+          <p>Style semantic HTML directly. No class names to memorize or maintain.</p>
+        </article>
+        <article>
+          <h3>Attribute-Driven</h3>
+          <p>Expressive boolean attributes describe intent, not appearance.</p>
+        </article>
+        <article>
+          <h3>Token-Based</h3>
+          <p>Entire design system configurable through CSS custom properties.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══ CONTENT / ABOUT ═══════════════════════════════════ -->
+    <section>
+      <h2>About the Project</h2>
+      <p>Aesthetium is a lightweight framework built for developers who value clean, semantic markup. It embraces the platform and works with HTML, not against it.</p>
+      <figure>
+        <img src="https://placehold.co/800x400?text=Hero+Image" alt="Placeholder image" width="800" height="400">
+        <figcaption>A visual representation of the framework architecture</figcaption>
+      </figure>
+      <h3>Key Principles</h3>
+      <ul>
+        <li>Semantic HTML first</li>
+        <li>Zero JavaScript dependency</li>
+        <li>Dark mode built-in</li>
+        <li>Under 5KB gzipped</li>
+      </ul>
+      <h3>Getting Started</h3>
+      <ol>
+        <li>Include the stylesheet in your HTML</li>
+        <li>Write semantic markup</li>
+        <li>Customize with CSS variables</li>
+      </ol>
+    </section>
+
+    <!-- ═══ TESTIMONIALS ══════════════════════════════════════ -->
+    <section>
+      <h2>What People Say</h2>
+      <blockquote>
+        <p>Finally a framework that respects HTML. I dropped all my utility classes and the code got cleaner.</p>
+        <cite>— Sarah Chen, Frontend Developer</cite>
+      </blockquote>
+      <blockquote>
+        <p>The attribute system is genius. Writing &lt;button highlight&gt; feels so natural compared to class soup.</p>
+        <cite>— Marcus Rivera, Design Engineer</cite>
+      </blockquote>
+    </section>
+
+    <!-- ═══ PRICING ═══════════════════════════════════════════ -->
+    <section id="pricing">
+      <h2>Pricing</h2>
+      <div row wrap>
+        <article>
+          <h3>Free</h3>
+          <p><strong>$0</strong> / month</p>
+          <ul>
+            <li>All core styles</li>
+            <li>Dark mode</li>
+            <li>Community support</li>
+          </ul>
+          <button ghost>Get Started</button>
+        </article>
+        <article highlight>
+          <h3>Pro</h3>
+          <p><strong>$12</strong> / month</p>
+          <ul>
+            <li>Everything in Free</li>
+            <li>Premium components</li>
+            <li>Priority support</li>
+          </ul>
+          <button highlight>Choose Pro</button>
+        </article>
+        <article>
+          <h3>Enterprise</h3>
+          <p><strong>$49</strong> / month</p>
+          <ul>
+            <li>Everything in Pro</li>
+            <li>Custom theming</li>
+            <li>Dedicated support</li>
+          </ul>
+          <button ghost>Contact Sales</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══ STATS ═════════════════════════════════════════════ -->
+    <section row spread wrap>
+      <article stack centered>
+        <strong>10K+</strong>
+        <p>Downloads</p>
+      </article>
+      <article stack centered>
+        <strong>99.9%</strong>
+        <p>Uptime</p>
+      </article>
+      <article stack centered>
+        <strong>24/7</strong>
+        <p>Support</p>
+      </article>
+      <article stack centered>
+        <strong>50+</strong>
+        <p>Components</p>
+      </article>
+    </section>
+
+    <!-- ═══ HIGHLIGHTED SECTION (full-width banner) ═══════════ -->
+    <section highlight stack centered>
+      <h2>Ready to get started?</h2>
+      <p>Join thousands of developers building with clean, semantic HTML.</p>
+      <button large ghost>Start Building</button>
+    </section>
+
+    <!-- ═══ SIDEBAR LAYOUT ════════════════════════════════════ -->
+    <section row wrap>
+      <div stack>
+        <h2>Documentation</h2>
+        <p>The framework provides a comprehensive set of styles for all common HTML elements. Each component can be customized through CSS variables without touching the source.</p>
+        <p>Attributes like <code>highlight</code>, <code>ghost</code>, and <code>positive</code> give you semantic control over element variants.</p>
+      </div>
+      <aside>
+        <strong>Quick Links</strong>
+        <p>Installation guide, API reference, and example templates are available in the docs.</p>
+      </aside>
+    </section>
+
+    <!-- ═══ DATA TABLE ════════════════════════════════════════ -->
+    <section>
+      <h2>Browser Support</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Browser</th>
+            <th>Version</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chrome</td>
+            <td>111+</td>
+            <td><span badge positive>Supported</span></td>
+          </tr>
+          <tr>
+            <td>Firefox</td>
+            <td>113+</td>
+            <td><span badge positive>Supported</span></td>
+          </tr>
+          <tr>
+            <td>Safari</td>
+            <td>16.2+</td>
+            <td><span badge positive>Supported</span></td>
+          </tr>
+          <tr>
+            <td>IE 11</td>
+            <td>All</td>
+            <td><span badge negative>Unsupported</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ═══ BADGES / TAGS ═════════════════════════════════════ -->
+    <section>
+      <h2>Tags</h2>
+      <div row wrap>
+        <span badge>Default</span>
+        <span badge highlight>Featured</span>
+        <span badge positive>Stable</span>
+        <span badge negative>Deprecated</span>
+        <span badge alert>Beta</span>
+      </div>
+    </section>
+
+    <!-- ═══ BREADCRUMB ════════════════════════════════════════ -->
+    <section>
+      <h2>Breadcrumb Navigation</h2>
+      <nav aria-label="Breadcrumb">
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#" aria-current="page">Widget</a>
+      </nav>
+    </section>
+
+    <!-- ═══ FAQ ═══════════════════════════════════════════════ -->
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>Do I need JavaScript to use Aesthetium?</summary>
+        <p>No. Aesthetium is a pure CSS framework with zero JavaScript dependencies. Everything works with just HTML and CSS.</p>
+      </details>
+      <details>
+        <summary>How do I customize the theme?</summary>
+        <p>Override any CSS custom property in your own stylesheet. Change <code>--color-accent</code> for brand color, <code>--font-body</code> for typography, and so on.</p>
+      </details>
+      <details>
+        <summary>Is dark mode supported?</summary>
+        <p>Yes, dark mode is built-in and activates automatically based on the user's system preference via <code>prefers-color-scheme</code>.</p>
+      </details>
+      <details>
+        <summary>What's the bundle size?</summary>
+        <p>Under 5KB gzipped. The framework is built with PostCSS and optimized with cssnano for minimal footprint.</p>
+      </details>
+    </section>
+
+    <!-- ═══ CONTACT FORM ══════════════════════════════════════ -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <fieldset>
+          <legend>Your Details</legend>
+
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Jane Doe">
+
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="jane@example.com">
+          <small>We'll never share your email with anyone.</small>
+
+          <label for="subject">Subject</label>
+          <select id="subject">
+            <option value="">Select a topic…</option>
+            <option value="general">General Inquiry</option>
+            <option value="support">Technical Support</option>
+            <option value="feedback">Feedback</option>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us what's on your mind…"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Preferences</legend>
+          <div row wrap>
+            <label><input type="checkbox"> Subscribe to newsletter</label>
+            <label><input type="checkbox"> Agree to terms</label>
+          </div>
+          <div row wrap>
+            <label><input type="radio" name="contact-pref"> Email</label>
+            <label><input type="radio" name="contact-pref"> Phone</label>
+            <label><input type="radio" name="contact-pref"> No preference</label>
+          </div>
+        </fieldset>
+
+        <div row>
+          <input type="submit" value="Send Message">
+          <button ghost type="reset">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ═══ ALERTS / CALLOUTS ═════════════════════════════════ -->
+    <section>
+      <h2>Notifications</h2>
+      <aside>This is a neutral informational note.</aside>
+      <aside positive>Success! Your changes have been saved.</aside>
+      <aside negative>Error: Something went wrong. Please try again.</aside>
+      <aside alert>Warning: Your session will expire in 5 minutes.</aside>
+    </section>
+
+    <!-- ═══ PROGRESS ══════════════════════════════════════════ -->
+    <section stack>
+      <h2>Progress Indicators</h2>
+      <div>
+        <small>Upload progress</small>
+        <progress value="45" max="100"></progress>
+      </div>
+      <div>
+        <small>Build status</small>
+        <progress value="100" max="100" positive></progress>
+      </div>
+      <div>
+        <small>Disk usage</small>
+        <progress value="92" max="100" negative></progress>
+      </div>
+    </section>
+
+    <!-- ═══ DIALOG / MODAL ════════════════════════════════════ -->
+    <section>
+      <h2>Dialog</h2>
+      <button onclick="document.getElementById('demo-dialog').showModal()">Open Dialog</button>
+      <dialog id="demo-dialog">
+        <h3>Confirm Action</h3>
+        <p>Are you sure you want to proceed? This action cannot be undone.</p>
+        <div row>
+          <button highlight onclick="document.getElementById('demo-dialog').close()">Confirm</button>
+          <button ghost onclick="document.getElementById('demo-dialog').close()">Cancel</button>
+        </div>
+      </dialog>
+    </section>
+
+    <!-- ═══ CODE BLOCK ════════════════════════════════════════ -->
+    <section>
+      <h2>Code Example</h2>
+      <p>Include the framework with a single <code>&lt;link&gt;</code> tag:</p>
+      <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aesthetium/distribution/aesthetium.css"&gt;
+
+&lt;button highlight&gt;Click me&lt;/button&gt;
+&lt;button ghost&gt;Or me&lt;/button&gt;</code></pre>
+    </section>
+
+    <!-- ═══ INLINE ELEMENTS ═══════════════════════════════════ -->
+    <section>
+      <h2>Inline Elements</h2>
+      <p>Text can be <strong>bold</strong>, <em>italic</em>, <small>small</small>, <mark>highlighted</mark>, <del>deleted</del>, or contain <code>inline code</code>. You can also use <abbr title="Hypertext Markup Language">HTML</abbr> abbreviations, <sup>superscript</sup>, and <sub>subscript</sub>.</p>
+      <p>Links look like <a href="#">this</a> and are styled with the accent color.</p>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+  <footer>
+    <nav>
+      <strong>Company</strong>
+      <a href="#">About</a>
+      <a href="#">Blog</a>
+      <a href="#">Careers</a>
+    </nav>
+    <nav>
+      <strong>Product</strong>
+      <a href="#">Documentation</a>
+      <a href="#">API Reference</a>
+      <a href="#">Status</a>
+    </nav>
+    <nav>
+      <strong>Community</strong>
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+      <a href="#">Discord</a>
+    </nav>
+    <p><small>&copy; 2026 Brand. All rights reserved.</small></p>
+  </footer>
+
+</body>
+</html>
