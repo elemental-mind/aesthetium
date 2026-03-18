@@ -99,6 +99,94 @@
   --container-width: 72rem;
   --content-width:   68ch;
 
+  /* ── Component tokens ───────────────────────────────────────── */
+  /*    Each references a design token as default.                */
+  /*    Override individually to customize one component.         */
+
+  /* Button */
+  --button-bg:          var(--color-surface);
+  --button-bg-hover:    var(--color-surface-2);
+  --button-border:      var(--color-border);
+  --button-text:        var(--color-text);
+  --button-radius:      var(--radius);
+  --button-font-size:   var(--text-sm);
+
+  /* Input / Form controls */
+  --input-bg:           var(--color-bg);
+  --input-border:       var(--color-border);
+  --input-radius:       var(--radius);
+  --input-font-size:    var(--text-sm);
+  --input-focus-ring:   color-mix(in srgb, var(--color-accent) 15%, transparent);
+
+  /* Card (article) */
+  --card-bg:            var(--color-bg);
+  --card-border:        var(--color-border);
+  --card-radius:        var(--radius-lg);
+  --card-padding:       var(--space-6);
+  --card-shadow:        var(--shadow-sm);
+
+  /* Table */
+  --table-border:       var(--color-border);
+  --table-header-bg:    var(--color-surface);
+  --table-radius:       var(--radius);
+  --table-cell-padding: var(--space-3) var(--space-4);
+
+  /* Badge */
+  --badge-bg:           var(--color-surface-2);
+  --badge-text:         var(--color-muted);
+  --badge-radius:       var(--radius-full);
+  --badge-font-size:    var(--text-xs);
+
+  /* Aside / Callout */
+  --aside-bg:           var(--color-surface);
+  --aside-border:       var(--color-border);
+  --aside-radius:       0 var(--radius) var(--radius) 0;
+  --aside-padding:      var(--space-4) var(--space-5);
+
+  /* Dialog */
+  --dialog-bg:          var(--color-bg);
+  --dialog-border:      var(--color-border);
+  --dialog-radius:      var(--radius-xl);
+  --dialog-padding:     var(--space-6);
+  --dialog-shadow:      var(--shadow-xl);
+  --dialog-max-width:   480px;
+
+  /* Details / Disclosure */
+  --details-bg:         var(--color-bg);
+  --details-border:     var(--color-border);
+  --details-radius:     var(--radius);
+  --details-shadow:     var(--shadow-sm);
+  --summary-bg:         var(--color-surface);
+  --summary-bg-hover:   var(--color-surface-2);
+
+  /* Code */
+  --code-bg:            var(--color-surface);
+  --code-border:        var(--color-border);
+  --code-radius:        var(--radius-sm);
+  --pre-bg:             var(--color-surface);
+  --pre-border:         var(--color-border);
+  --pre-radius:         var(--radius);
+
+  /* Blockquote */
+  --blockquote-border:  var(--color-border);
+  --blockquote-color:   var(--color-muted);
+
+  /* Progress */
+  --progress-bg:        var(--color-surface-2);
+  --progress-fill:      var(--color-accent);
+  --progress-radius:    var(--radius-full);
+  --progress-height:    0.5rem;
+
+  /* Nav */
+  --nav-link-color:     var(--color-muted);
+  --nav-link-hover-bg:  var(--color-surface);
+  --nav-link-active-bg: var(--color-surface-2);
+  --nav-link-radius:    var(--radius);
+
+  /* Fieldset */
+  --fieldset-border:    var(--color-border);
+  --fieldset-radius:    var(--radius);
+
 }
 
 
