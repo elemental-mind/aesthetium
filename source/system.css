@@ -28,18 +28,39 @@
   --color-text:  var(--gray-900);
   --color-muted: var(--gray-500);
 
-  /* ── Accent (CTA, focus rings, links) ──────────────────────── */
-  /*    Override --color-accent to apply your brand color.       */
-  --color-accent:    #000000;
-  --color-accent-fg: #ffffff;
+  /* ── Brand colors ──────────────────────────────────────────── */
+  /*    Override all three to theme the full brand palette.      */
+  /*    The -subtle and -tint tokens are derived automatically   */
+  /*    via color-mix — just change the base and everything      */
+  /*    (hover tints, badges, focus rings) updates with it.      */
+  --color-primary:          #000000;
+  --color-primary-fg:       #ffffff;
+  --color-secondary:        var(--gray-700);
+  --color-secondary-fg:     #ffffff;
+  --color-tertiary:         var(--gray-500);
+  --color-tertiary-fg:      #ffffff;
+
+  /* Derived tints */
+  --color-primary-subtle:   color-mix(in srgb, var(--color-primary)    8%, var(--color-bg));
+  --color-primary-tint:     color-mix(in srgb, var(--color-primary)   14%, transparent);
+  --color-secondary-subtle: color-mix(in srgb, var(--color-secondary)  8%, var(--color-bg));
+  --color-secondary-tint:   color-mix(in srgb, var(--color-secondary) 14%, transparent);
+  --color-tertiary-subtle:  color-mix(in srgb, var(--color-tertiary)   8%, var(--color-bg));
+  --color-tertiary-tint:    color-mix(in srgb, var(--color-tertiary)  14%, transparent);
 
   /* ── Semantic accents ──────────────────────────────────────── */
-  --color-positive:    #16a34a;
-  --color-positive-fg: #ffffff;
-  --color-negative:    #dc2626;
-  --color-negative-fg: #ffffff;
-  --color-alert:       #d97706;
-  --color-alert-fg:    #ffffff;
+  --color-positive:         #16a34a;
+  --color-positive-fg:      #ffffff;
+  --color-positive-subtle:  color-mix(in srgb, var(--color-positive)   8%, var(--color-bg));
+  --color-positive-tint:    color-mix(in srgb, var(--color-positive)  14%, transparent);
+  --color-negative:         #dc2626;
+  --color-negative-fg:      #ffffff;
+  --color-negative-subtle:  color-mix(in srgb, var(--color-negative)   8%, var(--color-bg));
+  --color-negative-tint:    color-mix(in srgb, var(--color-negative)  14%, transparent);
+  --color-alert:            #d97706;
+  --color-alert-fg:         #ffffff;
+  --color-alert-subtle:     color-mix(in srgb, var(--color-alert)      8%, var(--color-bg));
+  --color-alert-tint:       color-mix(in srgb, var(--color-alert)     14%, transparent);
 
   /* ── Typography ────────────────────────────────────────────── */
   /*    Override these to swap fonts without touching the CSS.   */
@@ -116,7 +137,7 @@
   --input-border:       var(--color-border);
   --input-radius:       var(--radius);
   --input-font-size:    var(--text-sm);
-  --input-focus-ring:   color-mix(in srgb, var(--color-accent) 15%, transparent);
+  --input-focus-ring:   var(--color-primary-tint);
 
   /* Card (article) */
   --card-bg:            var(--color-bg);
@@ -173,7 +194,7 @@
 
   /* Progress */
   --progress-bg:        var(--color-surface-2);
-  --progress-fill:      var(--color-accent);
+  --progress-fill:      var(--color-primary);
   --progress-radius:    var(--radius-full);
   --progress-height:    0.5rem;
 
@@ -208,9 +229,14 @@
     --color-text:  #efefef;
     --color-muted: #888888;
 
-    /* Accent flips to white so CTAs remain high-contrast */
-    --color-accent:    #ffffff;
-    --color-accent-fg: #000000;
+    /* Brand — primary flips to white so CTAs remain high-contrast */
+    /* Derived tints auto-recompute from the updated base colors  */
+    --color-primary:      #ffffff;
+    --color-primary-fg:   #000000;
+    --color-secondary:    var(--gray-300);
+    --color-secondary-fg: #000000;
+    --color-tertiary:     var(--gray-500);
+    --color-tertiary-fg:  #ffffff;
 
     /* Semantic (slightly muted for dark) */
     --color-positive: #22c55e;

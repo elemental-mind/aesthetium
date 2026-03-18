@@ -94,7 +94,7 @@ p:last-child {
 /* ─── Links ─────────────────────────────────────────────────── */
 
 a {
-  color: var(--color-accent);
+  color: var(--color-primary);
   text-underline-offset: 0.2em;
   transition: opacity var(--duration) var(--ease);
 }
@@ -430,18 +430,33 @@ aside {
 }
 
 aside[positive] {
-  border-color: var(--color-positive);
-  background-color: color-mix(in srgb, var(--color-positive) 8%, var(--color-bg));
+  border-color:     var(--color-positive);
+  background-color: var(--color-positive-subtle);
 }
 
 aside[negative] {
-  border-color: var(--color-negative);
-  background-color: color-mix(in srgb, var(--color-negative) 8%, var(--color-bg));
+  border-color:     var(--color-negative);
+  background-color: var(--color-negative-subtle);
 }
 
 aside[alert] {
-  border-color: var(--color-alert);
-  background-color: color-mix(in srgb, var(--color-alert) 8%, var(--color-bg));
+  border-color:     var(--color-alert);
+  background-color: var(--color-alert-subtle);
+}
+
+aside[primary] {
+  border-color:     var(--color-primary);
+  background-color: var(--color-primary-subtle);
+}
+
+aside[secondary] {
+  border-color:     var(--color-secondary);
+  background-color: var(--color-secondary-subtle);
+}
+
+aside[tertiary] {
+  border-color:     var(--color-tertiary);
+  background-color: var(--color-tertiary-subtle);
 }
 
 
@@ -488,7 +503,7 @@ button:active {
 button:focus-visible,
 input[type="button"]:focus-visible,
 input[type="submit"]:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -502,15 +517,15 @@ input:disabled {
 /* Primary / Highlight */
 button[highlight],
 input[type="submit"] {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-accent-fg);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary-fg);
 }
 
 button[highlight]:hover,
 input[type="submit"]:hover {
-  opacity: 0.82;
-  background-color: var(--color-accent);
+  background-color: color-mix(in srgb, var(--color-primary) 85%, var(--color-primary-fg));
+  border-color:     color-mix(in srgb, var(--color-primary) 85%, var(--color-primary-fg));
 }
 
 /* Semantic variants */
@@ -532,10 +547,42 @@ button[alert] {
   color: var(--color-alert-fg);
 }
 
-button[positive]:hover,
-button[negative]:hover,
+button[positive]:hover {
+  background-color: color-mix(in srgb, var(--color-positive) 85%, var(--color-positive-fg));
+  border-color:     color-mix(in srgb, var(--color-positive) 85%, var(--color-positive-fg));
+}
+
+button[negative]:hover {
+  background-color: color-mix(in srgb, var(--color-negative) 85%, var(--color-negative-fg));
+  border-color:     color-mix(in srgb, var(--color-negative) 85%, var(--color-negative-fg));
+}
+
 button[alert]:hover {
-  opacity: 0.82;
+  background-color: color-mix(in srgb, var(--color-alert) 85%, var(--color-alert-fg));
+  border-color:     color-mix(in srgb, var(--color-alert) 85%, var(--color-alert-fg));
+}
+
+/* Secondary / Tertiary */
+button[secondary] {
+  background-color: var(--color-secondary);
+  border-color:     var(--color-secondary);
+  color:            var(--color-secondary-fg);
+}
+
+button[secondary]:hover {
+  background-color: color-mix(in srgb, var(--color-secondary) 85%, var(--color-secondary-fg));
+  border-color:     color-mix(in srgb, var(--color-secondary) 85%, var(--color-secondary-fg));
+}
+
+button[tertiary] {
+  background-color: var(--color-tertiary);
+  border-color:     var(--color-tertiary);
+  color:            var(--color-tertiary-fg);
+}
+
+button[tertiary]:hover {
+  background-color: color-mix(in srgb, var(--color-tertiary) 85%, var(--color-tertiary-fg));
+  border-color:     color-mix(in srgb, var(--color-tertiary) 85%, var(--color-tertiary-fg));
 }
 
 /* Ghost / outline */
@@ -645,7 +692,7 @@ input[type="radio"] {
   width: 1rem;
   height: 1rem;
   cursor: pointer;
-  accent-color: var(--color-accent);
+  accent-color: var(--color-primary);
 }
 
 /* Validity states */
@@ -659,7 +706,7 @@ input[invalid],
 textarea[invalid],
 select[invalid] {
   border-color: var(--color-negative);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-negative) 12%, transparent);
+  box-shadow: 0 0 0 3px var(--color-negative-tint);
 }
 
 input:disabled,
@@ -824,31 +871,42 @@ dialog h3 {
 }
 
 [badge][positive] {
-  background-color: color-mix(in srgb, var(--color-positive) 14%, transparent);
-  color: var(--color-positive);
+  background-color: var(--color-positive-tint);
+  color:            var(--color-positive);
 }
 
 [badge][negative] {
-  background-color: color-mix(in srgb, var(--color-negative) 14%, transparent);
-  color: var(--color-negative);
+  background-color: var(--color-negative-tint);
+  color:            var(--color-negative);
 }
 
 [badge][alert] {
-  background-color: color-mix(in srgb, var(--color-alert) 14%, transparent);
-  color: var(--color-alert);
+  background-color: var(--color-alert-tint);
+  color:            var(--color-alert);
 }
 
-[badge][highlight] {
-  background-color: color-mix(in srgb, var(--color-accent) 14%, transparent);
-  color: var(--color-accent);
+[badge][highlight],
+[badge][primary] {
+  background-color: var(--color-primary-tint);
+  color:            var(--color-primary);
+}
+
+[badge][secondary] {
+  background-color: var(--color-secondary-tint);
+  color:            var(--color-secondary);
+}
+
+[badge][tertiary] {
+  background-color: var(--color-tertiary-tint);
+  color:            var(--color-tertiary);
 }
 
 
 /* ─── Highlight — universal emphasis ───────────────────────── */
 
 section[highlight] {
-  background-color: var(--color-accent);
-  color: var(--color-accent-fg);
+  background-color: var(--color-primary);
+  color: var(--color-primary-fg);
   padding: var(--space-12) var(--space-6);
 }
 
@@ -862,7 +920,7 @@ section[highlight] a {
 }
 
 article[highlight] {
-  border-color: var(--color-accent);
+  border-color: var(--color-primary);
   box-shadow: var(--shadow);
 }
 
