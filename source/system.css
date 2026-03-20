@@ -4,249 +4,332 @@
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
+  /* ── Light Mode Tokens ──────────────────────────────────────── */
+  --light-primary: #000000;
+  --light-secondary: #404040;
+  --light-tertiary: #737373;
+  --light-canvas: #ffffff;
+  --light-shade-light: #ffffff;
+  --light-shade-dark: #000000;
 
-  /* ── Palette (raw scale) ───────────────────────────────────── */
-  --gray-50:  #fafafa;
-  --gray-100: #f5f5f5;
-  --gray-200: #ebebeb;
-  --gray-300: #d4d4d4;
-  --gray-400: #a3a3a3;
-  --gray-500: #737373;
-  --gray-600: #525252;
-  --gray-700: #404040;
-  --gray-800: #262626;
-  --gray-900: #171717;
+  --light-positive: #16a34a;
+  --light-positive-fg: var(--light-shade-light);
+  --light-negative: #dc2626;
+  --light-negative-fg: var(--light-shade-light);
+  --light-alert: #d97706;
+  --light-alert-fg: var(--light-shade-light);
 
-  /* ── Semantic surfaces ─────────────────────────────────────── */
-  --color-bg:        #ffffff;       /* white — cards, inputs, dialogs */
-  --color-page:      var(--gray-50); /* near-white — page shell        */
-  --color-surface:   var(--gray-100);
-  --color-surface-2: var(--gray-200);
-  --color-border:    var(--gray-300);
+  --light-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --light-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.05);
+  --light-shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.10), 0 4px 10px rgba(0, 0, 0, 0.06);
+  --light-shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.13), 0 8px 24px rgba(0, 0, 0, 0.07);
 
-  /* ── Text ──────────────────────────────────────────────────── */
-  --color-text:  var(--gray-900);
-  --color-muted: var(--gray-500);
+  /* ── Dark Mode Tokens ───────────────────────────────────────── */
+  --dark-primary: #ffffff;
+  --dark-secondary: #c0c0c0;
+  --dark-tertiary: #909090;
+  --dark-canvas: #1b1b1b;
+  --dark-shade-light: #000000;
+  --dark-shade-dark: #ffffff;
 
-  /* ── Brand colors ──────────────────────────────────────────── */
-  /*    Override all three to theme the full brand palette.      */
-  /*    The -subtle and -tint tokens are derived automatically   */
-  /*    via color-mix — just change the base and everything      */
-  /*    (hover tints, badges, focus rings) updates with it.      */
-  --color-primary:          #000000;
-  --color-primary-fg:       #ffffff;
-  --color-secondary:        var(--gray-700);
-  --color-secondary-fg:     #ffffff;
-  --color-tertiary:         var(--gray-500);
-  --color-tertiary-fg:      #ffffff;
+  --dark-positive: color-mix(in srgb, #16a34a 72%, var(--dark-shade-dark));
+  --dark-positive-fg: var(--dark-shade-light);
+  --dark-negative: color-mix(in srgb, #dc2626 72%, var(--dark-shade-dark));
+  --dark-negative-fg: var(--dark-shade-light);
+  --dark-alert: color-mix(in srgb, #d97706 72%, var(--dark-shade-dark));
+  --dark-alert-fg: var(--dark-shade-light);
 
-  /* Derived tints */
-  --color-primary-subtle:   color-mix(in srgb, var(--color-primary)    8%, var(--color-bg));
-  --color-primary-tint:     color-mix(in srgb, var(--color-primary)   14%, transparent);
-  --color-secondary-subtle: color-mix(in srgb, var(--color-secondary)  8%, var(--color-bg));
-  --color-secondary-tint:   color-mix(in srgb, var(--color-secondary) 14%, transparent);
-  --color-tertiary-subtle:  color-mix(in srgb, var(--color-tertiary)   8%, var(--color-bg));
-  --color-tertiary-tint:    color-mix(in srgb, var(--color-tertiary)  14%, transparent);
-
-  /* ── Semantic accents ──────────────────────────────────────── */
-  --color-positive:         #16a34a;
-  --color-positive-fg:      #ffffff;
-  --color-positive-subtle:  color-mix(in srgb, var(--color-positive)   8%, var(--color-bg));
-  --color-positive-tint:    color-mix(in srgb, var(--color-positive)  14%, transparent);
-  --color-negative:         #dc2626;
-  --color-negative-fg:      #ffffff;
-  --color-negative-subtle:  color-mix(in srgb, var(--color-negative)   8%, var(--color-bg));
-  --color-negative-tint:    color-mix(in srgb, var(--color-negative)  14%, transparent);
-  --color-alert:            #d97706;
-  --color-alert-fg:         #ffffff;
-  --color-alert-subtle:     color-mix(in srgb, var(--color-alert)      8%, var(--color-bg));
-  --color-alert-tint:       color-mix(in srgb, var(--color-alert)     14%, transparent);
+  --dark-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.30), 0 1px 2px rgba(0, 0, 0, 0.20);
+  --dark-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), 0 2px 4px rgba(0, 0, 0, 0.20);
+  --dark-shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.45), 0 4px 10px rgba(0, 0, 0, 0.25);
+  --dark-shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.55), 0 8px 24px rgba(0, 0, 0, 0.30);
 
   /* ── Typography ────────────────────────────────────────────── */
   /*    Override these to swap fonts without touching the CSS.   */
   --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono:    ui-monospace, 'JetBrains Mono', 'Fira Code', monospace;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Type scale */
-  --text-xs:   0.75rem;    /*  12px */
-  --text-sm:   0.875rem;   /*  14px */
-  --text-base: 1rem;       /*  16px */
-  --text-lg:   1.125rem;   /*  18px */
-  --text-xl:   1.25rem;    /*  20px */
-  --text-2xl:  1.5rem;     /*  24px */
-  --text-3xl:  1.875rem;   /*  30px */
-  --text-4xl:  2.25rem;    /*  36px */
-  --text-5xl:  3rem;       /*  48px */
+  --text-xs: 0.75rem;
+  /*  12px */
+  --text-sm: 0.875rem;
+  /*  14px */
+  --text-base: 1rem;
+  /*  16px */
+  --text-lg: 1.125rem;
+  /*  18px */
+  --text-xl: 1.25rem;
+  /*  20px */
+  --text-2xl: 1.5rem;
+  /*  24px */
+  --text-3xl: 1.875rem;
+  /*  30px */
+  --text-4xl: 2.25rem;
+  /*  36px */
+  --text-5xl: 3rem;
+  /*  48px */
 
   /* Leading */
-  --leading-tight:  1.25;
+  --leading-tight: 1.25;
   --leading-normal: 1.65;
-  --leading-loose:  1.8;
+  --leading-loose: 1.8;
 
   /* ── Spacing ────────────────────────────────────────────────── */
-  --space-1:  0.25rem;
-  --space-2:  0.5rem;
-  --space-3:  0.75rem;
-  --space-4:  1rem;
-  --space-5:  1.25rem;
-  --space-6:  1.5rem;
-  --space-8:  2rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
   --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
   --space-20: 5rem;
 
   /* ── Border radius ──────────────────────────────────────────── */
-  --radius-sm:   0.25rem;
-  --radius:      0.4rem;
-  --radius-lg:   0.75rem;
-  --radius-xl:   1.25rem;
+  --radius-sm: 0.25rem;
+  --radius: 0.4rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1.25rem;
   --radius-full: 9999px;
 
   /* ── Motion ─────────────────────────────────────────────────── */
   --duration-fast: 100ms;
-  --duration:      150ms;
+  --duration: 150ms;
   --duration-slow: 250ms;
-  --ease:          ease;
-
-  /* ── Shadows ────────────────────────────────────────────────── */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow:    0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.05);
-  --shadow-lg: 0 10px 32px rgba(0,0,0,0.10), 0 4px 10px rgba(0,0,0,0.06);
-  --shadow-xl: 0 24px 64px rgba(0,0,0,0.13), 0 8px 24px rgba(0,0,0,0.07);
+  --ease: ease;
 
   /* ── Layout ─────────────────────────────────────────────────── */
   --container-width: 72rem;
-  --content-width:   68ch;
+  --content-width: 68ch;
 
   /* ── Component tokens ───────────────────────────────────────── */
   /*    Each references a design token as default.                */
   /*    Override individually to customize one component.         */
 
   /* Button */
-  --button-bg:          var(--color-surface);
-  --button-bg-hover:    var(--color-surface-2);
-  --button-border:      var(--color-border);
-  --button-text:        var(--color-text);
-  --button-radius:      var(--radius);
-  --button-font-size:   var(--text-sm);
+  --button-radius: var(--radius);
+  --button-font-size: var(--text-sm);
 
   /* Input / Form controls */
-  --input-bg:           var(--color-bg);
-  --input-border:       var(--color-border);
-  --input-radius:       var(--radius);
-  --input-font-size:    var(--text-sm);
-  --input-focus-ring:   var(--color-primary-tint);
+  --input-radius: var(--radius);
+  --input-font-size: var(--text-sm);
 
   /* Card (article) */
-  --card-bg:            var(--color-bg);
-  --card-border:        var(--color-border);
-  --card-radius:        var(--radius-lg);
-  --card-padding:       var(--space-6);
-  --card-shadow:        var(--shadow-sm);
+  --card-radius: var(--radius-lg);
+  --card-padding: var(--space-6);
+  --card-shadow: var(--shadow-sm);
 
   /* Table */
-  --table-border:       var(--color-border);
-  --table-header-bg:    var(--color-surface);
-  --table-radius:       var(--radius);
+  --table-radius: var(--radius);
   --table-cell-padding: var(--space-3) var(--space-4);
 
   /* Badge */
-  --badge-bg:           var(--color-surface-2);
-  --badge-text:         var(--color-muted);
-  --badge-radius:       var(--radius-full);
-  --badge-font-size:    var(--text-xs);
+  --badge-radius: var(--radius-full);
+  --badge-font-size: var(--text-xs);
 
   /* Aside / Callout */
-  --aside-bg:           var(--color-surface);
-  --aside-border:       var(--color-border);
-  --aside-radius:       0 var(--radius) var(--radius) 0;
-  --aside-padding:      var(--space-4) var(--space-5);
+  --aside-radius: 0 var(--radius) var(--radius) 0;
+  --aside-padding: var(--space-4) var(--space-5);
 
   /* Dialog */
-  --dialog-bg:          var(--color-bg);
-  --dialog-border:      var(--color-border);
-  --dialog-radius:      var(--radius-xl);
-  --dialog-padding:     var(--space-6);
-  --dialog-shadow:      var(--shadow-xl);
-  --dialog-max-width:   480px;
+  --dialog-radius: var(--radius-xl);
+  --dialog-padding: var(--space-6);
+  --dialog-shadow: var(--shadow-xl);
+  --dialog-max-width: 480px;
 
   /* Details / Disclosure */
-  --details-bg:         var(--color-bg);
-  --details-border:     var(--color-border);
-  --details-radius:     var(--radius);
-  --details-shadow:     var(--shadow-sm);
-  --summary-bg:         var(--color-surface);
-  --summary-bg-hover:   var(--color-surface-2);
+  --details-radius: var(--radius);
+  --details-shadow: var(--shadow-sm);
 
   /* Code */
-  --code-bg:            var(--color-surface);
-  --code-border:        var(--color-border);
-  --code-radius:        var(--radius-sm);
-  --pre-bg:             var(--color-surface);
-  --pre-border:         var(--color-border);
-  --pre-radius:         var(--radius);
-
-  /* Blockquote */
-  --blockquote-border:  var(--color-border);
-  --blockquote-color:   var(--color-muted);
+  --code-radius: var(--radius-sm);
+  --pre-radius: var(--radius);
 
   /* Progress */
-  --progress-bg:        var(--color-surface-2);
-  --progress-fill:      var(--color-primary);
-  --progress-radius:    var(--radius-full);
-  --progress-height:    0.5rem;
+  --progress-radius: var(--radius-full);
+  --progress-height: 0.5rem;
 
   /* Nav */
-  --nav-link-color:     var(--color-muted);
-  --nav-link-hover-bg:  var(--color-surface);
-  --nav-link-active-bg: var(--color-surface-2);
-  --nav-link-radius:    var(--radius);
+  --nav-link-radius: var(--radius);
 
   /* Fieldset */
-  --fieldset-border:    var(--color-border);
-  --fieldset-radius:    var(--radius);
+  --fieldset-radius: var(--radius);
 
 }
 
+/* ─── Color scheme — light & dark ──────────────────────────── */
+/*    Only primitives need flipping — * re-derives everything.  */
 
-/* ─── Dark mode ─────────────────────────────────────────────── */
-/*    Depth in dark mode comes from lighter surfaces = higher   */
-/*    elevation, not from shadows.                              */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-primary: var(--light-primary);
+    --color-secondary: var(--light-secondary);
+    --color-tertiary: var(--light-tertiary);
+    --color-canvas: var(--light-canvas);
+    --shade-light: var(--light-shade-light);
+    --shade-dark: var(--light-shade-dark);
+
+    --color-positive: var(--light-positive);
+    --color-positive-fg: var(--light-positive-fg);
+    --color-negative: var(--light-negative);
+    --color-negative-fg: var(--light-negative-fg);
+    --color-alert: var(--light-alert);
+    --color-alert-fg: var(--light-alert-fg);
+
+    --shadow-sm: var(--light-shadow-sm);
+    --shadow: var(--light-shadow);
+    --shadow-lg: var(--light-shadow-lg);
+    --shadow-xl: var(--light-shadow-xl);
+  }
+
+  [inverted] {
+    --color-primary: var(--dark-primary);
+    --color-secondary: var(--dark-secondary);
+    --color-tertiary: var(--dark-tertiary);
+    --color-canvas: var(--dark-canvas);
+    --shade-light: var(--dark-shade-light);
+    --shade-dark: var(--dark-shade-dark);
+
+    --color-positive: var(--dark-positive);
+    --color-positive-fg: var(--dark-positive-fg);
+    --color-negative: var(--dark-negative);
+    --color-negative-fg: var(--dark-negative-fg);
+    --color-alert: var(--dark-alert);
+    --color-alert-fg: var(--dark-alert-fg);
+
+    --shadow-sm: var(--dark-shadow-sm);
+    --shadow: var(--dark-shadow);
+    --shadow-lg: var(--dark-shadow-lg);
+    --shadow-xl: var(--dark-shadow-xl);
+  }
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Surfaces — four distinct levels */
-    --color-page:      #0c0c0c;   /* page/shell background   */
-    --color-bg:        #141414;   /* cards, panels           */
-    --color-surface:   #1c1c1c;   /* inset elements          */
-    --color-surface-2: #242424;   /* hover, nested           */
-    --color-surface-3: #2e2e2e;   /* tooltips, popovers      */
-    --color-border:    #2d2d2d;
+    --color-primary: var(--dark-primary);
+    --color-secondary: var(--dark-secondary);
+    --color-tertiary: var(--dark-tertiary);
+    --color-canvas: var(--dark-canvas);
+    --shade-light: var(--dark-shade-light);
+    --shade-dark: var(--dark-shade-dark);
 
-    /* Text */
-    --color-text:  #efefef;
-    --color-muted: #888888;
+    --color-positive: var(--dark-positive);
+    --color-positive-fg: var(--dark-positive-fg);
+    --color-negative: var(--dark-negative);
+    --color-negative-fg: var(--dark-negative-fg);
+    --color-alert: var(--dark-alert);
+    --color-alert-fg: var(--dark-alert-fg);
 
-    /* Brand — primary flips to white so CTAs remain high-contrast */
-    /* Derived tints auto-recompute from the updated base colors  */
-    --color-primary:      #ffffff;
-    --color-primary-fg:   #000000;
-    --color-secondary:    var(--gray-300);
-    --color-secondary-fg: #000000;
-    --color-tertiary:     var(--gray-500);
-    --color-tertiary-fg:  #ffffff;
-
-    /* Semantic (slightly muted for dark) */
-    --color-positive: #22c55e;
-    --color-negative: #f87171;
-    --color-alert:    #fbbf24;
-
-    /* Shadows are less effective on dark — boost them */
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.30), 0 1px 2px rgba(0,0,0,0.20);
-    --shadow:    0 4px 12px rgba(0,0,0,0.35), 0 2px 4px rgba(0,0,0,0.20);
-    --shadow-lg: 0 10px 32px rgba(0,0,0,0.45), 0 4px 10px rgba(0,0,0,0.25);
-    --shadow-xl: 0 24px 64px rgba(0,0,0,0.55), 0 8px 24px rgba(0,0,0,0.30);
+    --shadow-sm: var(--dark-shadow-sm);
+    --shadow: var(--dark-shadow);
+    --shadow-lg: var(--dark-shadow-lg);
+    --shadow-xl: var(--dark-shadow-xl);
   }
+
+  [inverted] {
+    --color-primary: var(--light-primary);
+    --color-secondary: var(--light-secondary);
+    --color-tertiary: var(--light-tertiary);
+    --color-canvas: var(--light-canvas);
+    --shade-light: var(--light-shade-light);
+    --shade-dark: var(--light-shade-dark);
+
+    --color-positive: var(--light-positive);
+    --color-positive-fg: var(--light-positive-fg);
+    --color-negative: var(--light-negative);
+    --color-negative-fg: var(--light-negative-fg);
+    --color-alert: var(--light-alert);
+    --color-alert-fg: var(--light-alert-fg);
+
+    --shadow-sm: var(--light-shadow-sm);
+    --shadow: var(--light-shadow);
+    --shadow-lg: var(--light-shadow-lg);
+    --shadow-xl: var(--light-shadow-xl);
+  }
+}
+
+/* ─── Per-element derived tokens ────────────────────────────── */
+/*    Evaluated on every element so [inverted] and dark mode    */
+/*    correctly re-compute the full token chain locally.        */
+
+* {
+  /* Shade scale — inferred from shade-light / shade-dark */
+  --shade-100: color-mix(in srgb, var(--shade-dark) 2%, var(--shade-light));
+  --shade-200: color-mix(in srgb, var(--shade-dark) 4%, var(--shade-light));
+  --shade-300: color-mix(in srgb, var(--shade-dark) 8%, var(--shade-light));
+  --shade-400: color-mix(in srgb, var(--shade-dark) 17%, var(--shade-light));
+  --shade-500: color-mix(in srgb, var(--shade-dark) 36%, var(--shade-light));
+  --shade-600: color-mix(in srgb, var(--shade-dark) 55%, var(--shade-light));
+  --shade-700: color-mix(in srgb, var(--shade-dark) 75%, var(--shade-light));
+  --shade-800: color-mix(in srgb, var(--shade-dark) 91%, var(--shade-light));
+  --shade-900: color-mix(in srgb, var(--shade-dark) 97%, var(--shade-light));
+
+  /* Semantic surfaces */
+  --color-bg: var(--color-canvas);
+  /* cards, inputs, dialogs */
+  --color-page: var(--shade-100);
+  /* page shell             */
+  --color-surface: var(--shade-200);
+  /* inset elements         */
+  --color-surface-2: var(--shade-300);
+  /* hover, nested          */
+  --color-border: var(--shade-400);
+
+  /* Text */
+  --color-text: var(--shade-800);
+  --color-muted: var(--shade-600);
+
+  /* Derived tints — auto from brand */
+  --color-primary-subtle: color-mix(in srgb, var(--color-primary) 8%, var(--color-bg));
+  --color-primary-tint: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  --color-secondary-subtle: color-mix(in srgb, var(--color-secondary) 8%, var(--color-bg));
+  --color-secondary-tint: color-mix(in srgb, var(--color-secondary) 14%, transparent);
+  --color-tertiary-subtle: color-mix(in srgb, var(--color-tertiary) 8%, var(--color-bg));
+  --color-tertiary-tint: color-mix(in srgb, var(--color-tertiary) 14%, transparent);
+
+  /* Accent subtles */
+  --color-positive-subtle: color-mix(in srgb, var(--color-positive) 8%, var(--shade-light));
+  --color-positive-tint: color-mix(in srgb, var(--color-positive) 14%, var(--shade-light));
+  --color-negative-subtle: color-mix(in srgb, var(--color-negative) 8%, var(--shade-light));
+  --color-negative-tint: color-mix(in srgb, var(--color-negative) 14%, var(--shade-light));
+  --color-alert-subtle: color-mix(in srgb, var(--color-alert) 8%, var(--shade-light));
+  --color-alert-tint: color-mix(in srgb, var(--color-alert) 14%, var(--shade-light));
+
+  /* Component tokens that reference semantic surfaces */
+  --button-bg: var(--color-surface);
+  --button-bg-hover: var(--color-surface-2);
+  --button-border: var(--color-border);
+  --button-text: var(--color-text);
+  --input-bg: var(--color-bg);
+  --input-border: var(--color-border);
+  --input-focus-ring: var(--color-primary-tint);
+  --card-bg: var(--color-bg);
+  --card-border: var(--color-border);
+  --table-border: var(--color-border);
+  --table-header-bg: var(--color-surface);
+  --badge-bg: var(--color-surface-2);
+  --badge-text: var(--color-muted);
+  --aside-bg: var(--color-surface);
+  --aside-border: var(--color-border);
+  --dialog-bg: var(--color-bg);
+  --dialog-border: var(--color-border);
+  --details-bg: var(--color-bg);
+  --details-border: var(--color-border);
+  --summary-bg: var(--color-surface);
+  --summary-bg-hover: var(--color-surface-2);
+  --code-bg: var(--color-surface);
+  --code-border: var(--color-border);
+  --pre-bg: var(--color-surface);
+  --pre-border: var(--color-border);
+  --blockquote-border: var(--color-border);
+  --blockquote-color: var(--color-muted);
+  --progress-bg: var(--color-surface-2);
+  --progress-fill: var(--color-primary);
+  --nav-link-color: var(--color-muted);
+  --nav-link-hover-bg: var(--color-surface);
+  --nav-link-active-bg: var(--color-surface-2);
+  --fieldset-border: var(--color-border);
 }
