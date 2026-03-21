@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
 import injectHTML from 'vite-plugin-html-inject';
 import cssnano from 'cssnano';
-import { resolve, relative } from 'path';
-import { readdirSync, statSync } from 'fs';
+import { resolve, relative, extname } from 'path';
+import { readdirSync, statSync, createReadStream, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 
 const docsDir = fileURLToPath(new URL('.', import.meta.url));
@@ -16,7 +16,7 @@ function collectHtmlInputs(dir, skip = ['partials']) {
             if (!skip.includes(entry))
                 Object.assign(inputs, collectHtmlInputs(full, skip));
         } else if (entry.endsWith('.html')) {
-            const key = relative(projectRoot, full).replace(/\\/g, '/').replace(/\.html$/, '');
+            const key = relative(docsDir, full).replace(/\\/g, '/').replace(/\.html$/, '');
             inputs[key] = full;
         }
     }
@@ -24,8 +24,22 @@ function collectHtmlInputs(dir, skip = ['partials']) {
 }
 
 export default defineConfig({
-    root: projectRoot,
-    plugins: [injectHTML()],
+    root: docsDir,
+    plugins: [
+        injectHTML(),
+        {
+            name: 'serve-source',
+            configureServer(server) {
+                server.middlewares.use((req, res, next) => {
+                    if (!req.url?.startsWith('/source/')) return next();
+                    const file = resolve(projectRoot, req.url.slice(1));
+                    if (!existsSync(file)) return next();
+                    res.setHeader('Content-Type', 'text/' + (extname(file).slice(1) || 'plain'));
+                    createReadStream(file).pipe(res);
+                });
+            }
+        }
+    ],
     css: {
         postcss: { plugins: [cssnano({ preset: 'default' })] }
     },
