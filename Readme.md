@@ -161,7 +161,7 @@ Aesthetium is built on CSS custom properties. Override any token in your own `:r
 | `--container-width` | `72rem` | Max page width |
 | `--content-width` | `68ch` | Max paragraph width |
 
-The full token list is in [`source/system.css`](source/system.css).
+The full token list is in [`source/system.css`](source/system.css) and documented in the [Tokens guide](documentation/guide/tokens.html).
 
 Dark mode is supported automatically via `prefers-color-scheme`.
 
