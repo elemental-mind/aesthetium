@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetium — Classless CSS Framework</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap">
+  <link rel="stylesheet" href="../source/aesthetium.css">
+</head>
+<body>
+  <load src="documentation/partials/nav-root.html" />
+
+  <main>
+
+    <!-- ═══ HERO ══════════════════════════════════════════════ -->
+    <section full-page stack centered>
+      <h1>Beautiful HTML,<br>zero class names.</h1>
+      <p>Aesthetium is a classless, attribute-driven CSS framework. Drop in one stylesheet and write semantic HTML — no build step, no JavaScript, no class soup.</p>
+      <div row centered>
+        <a href="guide/getting-started.html"><button highlight large>Get Started</button></a>
+        <a href="guide/components.html"><button ghost large>Components</button></a>
+      </div>
+      <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aesthetium/framework_distribution/aesthetium.css"&gt;</code></pre>
+    </section>
+
+    <!-- ═══ VALUE PROPS ═══════════════════════════════════════ -->
+    <section>
+      <div row wrap>
+        <article>
+          <h3>No class names</h3>
+          <p>Aesthetium styles semantic HTML elements directly. Write <code>&lt;button&gt;</code>, get a beautiful button.</p>
+          <pre><code>&lt;button&gt;Default&lt;/button&gt;
+&lt;button highlight&gt;Primary&lt;/button&gt;
+&lt;button ghost&gt;Secondary&lt;/button&gt;</code></pre>
+          <div row>
+            <button>Default</button>
+            <button highlight>Primary</button>
+            <button ghost>Secondary</button>
+          </div>
+        </article>
+
+        <article>
+          <h3>Attribute-driven variants</h3>
+          <p>Boolean HTML attributes express intent — not appearance. Your markup stays readable and meaningful.</p>
+          <pre><code>&lt;aside positive&gt;Saved!&lt;/aside&gt;
+&lt;aside negative&gt;Error&lt;/aside&gt;
+&lt;aside alert&gt;Warning&lt;/aside&gt;
+&lt;article inverted&gt;Dark card&lt;/article&gt;</code></pre>
+          <div stack compact>
+            <aside positive>Saved!</aside>
+            <aside negative>Error</aside>
+            <aside alert>Warning</aside>
+          </div>
+        </article>
+
+        <article>
+          <h3>Token-based theming</h3>
+          <p>The entire design system is CSS custom properties. Override one token to change everything that references it.</p>
+          <pre><code>:root {
+  --color-accent: #6d28d9;
+  --radius: 0.25rem;
+  --font-body: 'Inter', sans-serif;
+}</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══ LIVE DEMO ═════════════════════════════════════════ -->
+    <section row wrap>
+      <div stack>
+        <h2>Write HTML. Get design.</h2>
+        <p>Every standard HTML element is styled out of the box. Use attributes when you need variants. The whole framework fits in under 5 KB gzipped.</p>
+        <ul>
+          <li>Semantic HTML only — no divs for everything</li>
+          <li>Auto dark mode via <code>prefers-color-scheme</code></li>
+          <li>Zero JavaScript</li>
+          <li>Three-tier token system for deep customization</li>
+        </ul>
+        <div row>
+          <a href="guide/getting-started.html"><button highlight>Get Started</button></a>
+          <a href="guide/tokens.html"><button ghost>Explore Tokens</button></a>
+        </div>
+      </div>
+      <div stack>
+        <h4>Form — zero classes</h4>
+        <form onsubmit="return false">
+          <label for="demo-name">Name</label>
+          <input type="text" id="demo-name" placeholder="Jane Doe">
+          <label for="demo-email">Email</label>
+          <input type="email" id="demo-email" placeholder="jane@example.com">
+          <label for="demo-role">Role</label>
+          <select id="demo-role">
+            <option>Designer</option>
+            <option>Developer</option>
+            <option>Both</option>
+          </select>
+          <button highlight>Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURE GRID ══════════════════════════════════════ -->
+    <section>
+      <h2>Everything you need. Nothing you don't.</h2>
+      <div row wrap>
+        <article>
+          <h4>Auto dark mode</h4>
+          <p>Respects <code>prefers-color-scheme</code>. No extra config.</p>
+        </article>
+        <article>
+          <h4>Under 5 KB</h4>
+          <p>The full framework, gzipped. No tree-shaking required.</p>
+        </article>
+        <article>
+          <h4>Zero JavaScript</h4>
+          <p>Pure CSS. Works in any environment, including no-JS SSR.</p>
+        </article>
+        <article>
+          <h4>Layout attributes</h4>
+          <p><code>[row]</code>, <code>[stack]</code>, <code>[spread]</code>, <code>[centered]</code> — flex layout without a single class.</p>
+        </article>
+        <article>
+          <h4>Semantic variants</h4>
+          <p><code>[highlight]</code>, <code>[ghost]</code>, <code>[positive]</code>, <code>[negative]</code>, <code>[inverted]</code>.</p>
+        </article>
+        <article>
+          <h4>Deep tokens</h4>
+          <p>Design → semantic → component. Override at any tier.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══ CTA BANNER ════════════════════════════════════════ -->
+    <section inverted stack centered>
+      <h2>Start building today.</h2>
+      <p>One stylesheet. Semantic HTML. A complete design system.</p>
+      <div row centered>
+        <a href="guide/getting-started.html"><button highlight large>Get Started</button></a>
+        <a href="https://github.com/elemental-mind/aesthetium"><button ghost large>GitHub</button></a>
+      </div>
+    </section>
+
+  </main>
+
+  <load src="documentation/partials/footer-root.html" />
+</body>
+</html>

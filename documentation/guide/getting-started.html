@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started — Aesthetium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap">
+  <link rel="stylesheet" href="../../source/aesthetium.css">
+</head>
+<body>
+  <load src="documentation/partials/nav-guide.html" />
+
+  <main>
+
+    <section>
+      <h1>Get Started</h1>
+      <p>Aesthetium is a classless, attribute-driven CSS framework. Drop in one stylesheet and write semantic HTML — no class names, no JavaScript.</p>
+    </section>
+
+    <section>
+      <h2>Installation</h2>
+
+      <h3>CDN</h3>
+      <p>The fastest way to get started — no build step required.</p>
+      <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aesthetium/framework_distribution/aesthetium.css"&gt;</code></pre>
+
+      <h3>npm</h3>
+      <pre><code>npm install aesthetium</code></pre>
+      <p>Then link from <code>node_modules</code> or import in your bundle entry:</p>
+      <pre><code>import 'aesthetium/framework_distribution/aesthetium.css';</code></pre>
+
+      <h3>Bundler (Vite / webpack)</h3>
+      <p>If your bundler resolves the <code>style</code> field in <code>package.json</code>, a bare import is enough:</p>
+      <pre><code>import 'aesthetium';</code></pre>
+    </section>
+
+    <section>
+      <h2>Quick Start</h2>
+      <p>Create an HTML file, link the stylesheet, and write semantic markup:</p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;link rel="stylesheet" href="aesthetium.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;strong&gt;My App&lt;/strong&gt;
+    &lt;nav&gt;
+      &lt;a href="/"&gt;Home&lt;/a&gt;
+      &lt;a href="/about"&gt;About&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section&gt;
+      &lt;h1&gt;Hello World&lt;/h1&gt;
+      &lt;p&gt;No classes needed.&lt;/p&gt;
+      &lt;button highlight&gt;Get Started&lt;/button&gt;
+      &lt;button ghost&gt;Learn More&lt;/button&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2>Core Concepts</h2>
+
+      <h3>Classless by default</h3>
+      <p>Aesthetium targets semantic HTML elements directly — <code>h1</code>, <code>button</code>, <code>table</code>, <code>form</code>. You get styled output without adding a single class.</p>
+
+      <h3>Attributes for variants</h3>
+      <p>Boolean HTML attributes express intent without class names:</p>
+      <pre><code>&lt;button highlight&gt;Primary action&lt;/button&gt;
+&lt;button ghost&gt;Secondary action&lt;/button&gt;
+&lt;aside positive&gt;Success message&lt;/aside&gt;
+&lt;aside negative&gt;Error message&lt;/aside&gt;
+&lt;article inverted&gt;Dark surface&lt;/article&gt;</code></pre>
+
+      <h3>Token-based theming</h3>
+      <p>The entire design system lives in CSS custom properties. Override them in your own <code>:root</code> block to apply your brand:</p>
+      <pre><code>:root {
+  --color-accent:    #6d28d9;
+  --color-accent-fg: #ffffff;
+  --font-body:       'Inter', sans-serif;
+  --radius:          0.5rem;
+}</code></pre>
+
+      <h3>Layout attributes</h3>
+      <p>Structural layout is also attribute-driven:</p>
+      <pre><code>&lt;div row&gt;…&lt;/div&gt;           &lt;!-- horizontal flex --&gt;
+&lt;div stack&gt;…&lt;/div&gt;         &lt;!-- vertical flex --&gt;
+&lt;div row spread&gt;…&lt;/div&gt;    &lt;!-- space-between --&gt;
+&lt;section centered&gt;…&lt;/section&gt; &lt;!-- centered content --&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2>Browser Support</h2>
+      <p>Aesthetium uses CSS nesting and custom properties. These are supported in all modern browsers.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Browser</th>
+            <th>Minimum version</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chrome / Edge</td>
+            <td>112+</td>
+            <td><span badge positive>Supported</span></td>
+          </tr>
+          <tr>
+            <td>Firefox</td>
+            <td>117+</td>
+            <td><span badge positive>Supported</span></td>
+          </tr>
+          <tr>
+            <td>Safari</td>
+            <td>16.5+</td>
+            <td><span badge positive>Supported</span></td>
+          </tr>
+          <tr>
+            <td>Internet Explorer</td>
+            <td>All</td>
+            <td><span badge negative>Not supported</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Next Steps</h2>
+      <div row wrap>
+        <article>
+          <h3>Components</h3>
+          <p>Browse the live component reference.</p>
+          <a href="components.html">View →</a>
+        </article>
+        <article>
+          <h3>Tokens</h3>
+          <p>Learn how to customize the token system.</p>
+          <a href="tokens.html">View →</a>
+        </article>
+        <article>
+          <h3>Layout</h3>
+          <p>Explore all structural layout attributes.</p>
+          <a href="layout.html">View →</a>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <load src="documentation/partials/footer-guide.html" />
+</body>
+</html>

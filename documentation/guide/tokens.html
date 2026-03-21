@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tokens — Aesthetium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap">
+  <link rel="stylesheet" href="../../source/aesthetium.css">
+</head>
+<body>
+  <load src="documentation/partials/nav-guide.html" />
+
+  <main>
+
+    <section>
+      <h1>Tokens</h1>
+      <p>Aesthetium uses a three-tier token system built entirely on CSS custom properties. Understanding it lets you customize every aspect of the framework without touching the source.</p>
+    </section>
+
+    <section>
+      <h2>How Tokens Work</h2>
+      <p>Tokens flow in one direction:</p>
+      <pre><code>Design tokens  →  Semantic tokens  →  Component tokens</code></pre>
+      <ul>
+        <li><strong>Design tokens</strong> — raw values (colors, sizes, families)</li>
+        <li><strong>Semantic tokens</strong> — purpose-mapped aliases (<code>--color-text</code>, <code>--color-bg</code>)</li>
+        <li><strong>Component tokens</strong> — element-specific overrides (<code>--btn-radius</code>, <code>--input-border</code>)</li>
+      </ul>
+      <p>Override at any tier. Changing a design token propagates everywhere that semantic and component tokens reference it.</p>
+    </section>
+
+    <section>
+      <h2>Customization</h2>
+      <p>Add a <code>:root</code> block anywhere after the framework stylesheet:</p>
+      <pre><code>&lt;link rel="stylesheet" href="aesthetium.css"&gt;
+&lt;style&gt;
+  :root {
+    --color-accent:    #6d28d9;
+    --color-accent-fg: #ffffff;
+    --font-body:       'Inter', sans-serif;
+    --radius:          0.75rem;
+  }
+&lt;/style&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2>Design Tokens</h2>
+
+      <h3>Colors</h3>
+      <table>
+        <thead><tr><th>Token</th><th>Default</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>--color-accent</code></td><td>#2563eb</td><td>Brand / primary accent</td></tr>
+          <tr><td><code>--color-accent-fg</code></td><td>#ffffff</td><td>Text on accent backgrounds</td></tr>
+          <tr><td><code>--color-positive</code></td><td>#16a34a</td><td>Success / positive states</td></tr>
+          <tr><td><code>--color-negative</code></td><td>#dc2626</td><td>Error / destructive states</td></tr>
+          <tr><td><code>--color-alert</code></td><td>#d97706</td><td>Warning / attention states</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Typography</h3>
+      <table>
+        <thead><tr><th>Token</th><th>Default</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>--font-body</code></td><td>Inter, system-ui, sans-serif</td><td>Body typeface</td></tr>
+          <tr><td><code>--font-mono</code></td><td>ui-monospace, monospace</td><td>Code typeface</td></tr>
+          <tr><td><code>--text-xs</code></td><td>0.75rem</td><td>Extra-small text</td></tr>
+          <tr><td><code>--text-sm</code></td><td>0.875rem</td><td>Small text</td></tr>
+          <tr><td><code>--text-base</code></td><td>1rem</td><td>Base body size</td></tr>
+          <tr><td><code>--text-lg</code></td><td>1.125rem</td><td>Large text</td></tr>
+          <tr><td><code>--text-xl</code></td><td>1.25rem</td><td>Extra-large text</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Spacing</h3>
+      <table>
+        <thead><tr><th>Token</th><th>Default</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>--space-1</code></td><td>0.25rem</td><td>Tightest spacing</td></tr>
+          <tr><td><code>--space-2</code></td><td>0.5rem</td><td>Extra-small gap</td></tr>
+          <tr><td><code>--space-3</code></td><td>0.75rem</td><td>Small gap</td></tr>
+          <tr><td><code>--space-4</code></td><td>1rem</td><td>Base gap</td></tr>
+          <tr><td><code>--space-6</code></td><td>1.5rem</td><td>Medium gap</td></tr>
+          <tr><td><code>--space-8</code></td><td>2rem</td><td>Large gap</td></tr>
+          <tr><td><code>--space-12</code></td><td>3rem</td><td>Extra-large gap</td></tr>
+          <tr><td><code>--space-16</code></td><td>4rem</td><td>Section gap</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Border Radius</h3>
+      <table>
+        <thead><tr><th>Token</th><th>Default</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>--radius-sm</code></td><td>0.25rem</td><td>Subtle rounding (badges, code)</td></tr>
+          <tr><td><code>--radius</code></td><td>0.5rem</td><td>Default rounding (buttons, inputs)</td></tr>
+          <tr><td><code>--radius-lg</code></td><td>0.75rem</td><td>Card rounding</td></tr>
+          <tr><td><code>--radius-xl</code></td><td>1rem</td><td>Large card rounding</td></tr>
+          <tr><td><code>--radius-full</code></td><td>9999px</td><td>Pill shape</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Motion</h3>
+      <table>
+        <thead><tr><th>Token</th><th>Default</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>--duration-fast</code></td><td>100ms</td><td>Quick micro-interactions</td></tr>
+          <tr><td><code>--duration</code></td><td>200ms</td><td>Default transition</td></tr>
+          <tr><td><code>--duration-slow</code></td><td>400ms</td><td>Slower animations</td></tr>
+          <tr><td><code>--easing</code></td><td>ease</td><td>Default easing curve</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Layout</h3>
+      <table>
+        <thead><tr><th>Token</th><th>Default</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>--container-width</code></td><td>72rem</td><td>Max page width</td></tr>
+          <tr><td><code>--content-width</code></td><td>68ch</td><td>Max prose width</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Semantic Tokens</h2>
+      <p>Semantic tokens map design values to roles. These are what components actually use, and they adapt automatically for dark mode.</p>
+      <table>
+        <thead><tr><th>Token</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><code>--color-page</code></td><td>Page background</td></tr>
+          <tr><td><code>--color-bg</code></td><td>Card / surface background</td></tr>
+          <tr><td><code>--color-surface</code></td><td>Elevated surface</td></tr>
+          <tr><td><code>--color-text</code></td><td>Primary text</td></tr>
+          <tr><td><code>--color-muted</code></td><td>Secondary / muted text</td></tr>
+          <tr><td><code>--color-border</code></td><td>Border color</td></tr>
+          <tr><td><code>--shadow-sm</code></td><td>Subtle elevation shadow</td></tr>
+          <tr><td><code>--shadow</code></td><td>Default shadow</td></tr>
+          <tr><td><code>--shadow-lg</code></td><td>Prominent shadow</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Component Tokens</h2>
+      <p>Component tokens let you override individual element styles without affecting the broader system:</p>
+      <pre><code>:root {
+  --btn-radius:      var(--radius-full);   /* pill buttons */
+  --input-radius:    0;                    /* square inputs */
+  --card-padding:    var(--space-8);       /* roomier cards */
+  --header-height:   4rem;                 /* taller nav */
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>Dark Mode &amp; <code>[inverted]</code></h2>
+      <p>Dark mode activates automatically via <code>prefers-color-scheme: dark</code>. Semantic tokens remap to dark-mode values — no extra code needed.</p>
+      <p>The <code>[inverted]</code> attribute forces a dark surface on any element regardless of the OS setting:</p>
+      <pre><code>&lt;section inverted&gt;
+  &lt;h2&gt;Always dark&lt;/h2&gt;
+  &lt;p&gt;This section uses the inverted palette.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+      <div row wrap>
+        <article>
+          <h4>Default surface</h4>
+          <p>Follows the OS theme.</p>
+        </article>
+        <article inverted>
+          <h4>Inverted surface</h4>
+          <p>Always uses the dark palette.</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <load src="documentation/partials/footer-guide.html" />
+</body>
+</html>

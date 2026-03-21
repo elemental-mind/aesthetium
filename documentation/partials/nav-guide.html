@@ -1,0 +1,14 @@
+<header>
+  <strong><a href="../index.html">Aesthetium</a></strong>
+  <nav>
+    <a href="getting-started.html">Get Started</a>
+    <a href="components.html">Components</a>
+    <a href="tokens.html">Tokens</a>
+    <a href="layout.html">Layout</a>
+  </nav>
+  <script>
+    document.querySelectorAll('header nav a').forEach(a => {
+      try { if (new URL(a.href).pathname === location.pathname) a.setAttribute('active', ''); } catch {}
+    });
+  </script>
+</header>

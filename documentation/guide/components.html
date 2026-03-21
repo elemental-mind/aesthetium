@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aesthetium — Sample Sheet</title>
+    <title>Components — Aesthetium</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap">
@@ -82,55 +82,12 @@
             gap: 0.5rem;
         }
 
-        /* ── Floating header (demo only) ──────────────────────────── */
-        #header-wrap {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            max-width: var(--container-width);
-            margin-inline: auto;
-            padding: var(--space-3) var(--space-4) var(--space-10);
-            background: linear-gradient(to bottom,
-                    var(--color-page) 0%,
-                    var(--color-page) 55%,
-                    transparent 100%);
-            pointer-events: none;
-        }
-
-        #header-wrap>header {
-            pointer-events: auto;
-            position: static;
-            top: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: var(--text-lg);
-            gap: var(--space-4);
-            padding-inline: var(--space-6);
-            padding-block: var(--space-4);
-            background-color: var(--color-bg);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-        }
     </style>
 </head>
 
 <body>
+  <load src="documentation/partials/nav-guide.html" />
 
-    <div id="header-wrap">
-        <header>
-            <strong>Aesthetium</strong>
-            <nav>
-                <a href="#typography">Type</a>
-                <a href="#colors">Colors</a>
-                <a href="#buttons">Buttons</a>
-                <a href="#forms">Forms</a>
-                <a href="#components">Components</a>
-                <a href="#tokens" active>Tokens</a>
-            </nav>
-        </header>
-    </div>
 
     <main>
 
@@ -675,9 +632,7 @@
 
     </main>
 
-    <footer>
-        <p>Aesthetium — classless, token-driven, semantic.</p>
-    </footer>
+  <load src="documentation/partials/footer-guide.html" />
 
 </body>
 

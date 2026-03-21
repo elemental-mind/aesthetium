@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout — Aesthetium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap">
+  <link rel="stylesheet" href="../../source/aesthetium.css">
+</head>
+<body>
+  <load src="documentation/partials/nav-guide.html" />
+
+  <main>
+
+    <section>
+      <h1>Layout</h1>
+      <p>Aesthetium provides structural layout through boolean HTML attributes. No utility classes — just intent expressed directly in markup.</p>
+    </section>
+
+    <section>
+      <h2><code>[row]</code></h2>
+      <p>Horizontal flex container with a default gap.</p>
+      <pre><code>&lt;div row&gt;
+  &lt;article&gt;One&lt;/article&gt;
+  &lt;article&gt;Two&lt;/article&gt;
+  &lt;article&gt;Three&lt;/article&gt;
+&lt;/div&gt;</code></pre>
+      <div row>
+        <article>One</article>
+        <article>Two</article>
+        <article>Three</article>
+      </div>
+    </section>
+
+    <section>
+      <h2><code>[stack]</code></h2>
+      <p>Vertical flex container with a default gap.</p>
+      <pre><code>&lt;div stack&gt;
+  &lt;p&gt;First&lt;/p&gt;
+  &lt;p&gt;Second&lt;/p&gt;
+  &lt;p&gt;Third&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+      <div stack>
+        <aside>First</aside>
+        <aside>Second</aside>
+        <aside>Third</aside>
+      </div>
+    </section>
+
+    <section>
+      <h2><code>[spread]</code></h2>
+      <p>Distributes children with <code>justify-content: space-between</code>. Usually combined with <code>[row]</code>.</p>
+      <pre><code>&lt;div row spread&gt;
+  &lt;strong&gt;Brand&lt;/strong&gt;
+  &lt;nav&gt;…&lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+      <div row spread>
+        <strong>Brand</strong>
+        <span badge>Right-aligned</span>
+      </div>
+    </section>
+
+    <section>
+      <h2><code>[centered]</code></h2>
+      <p>Centers children both horizontally and vertically.</p>
+      <pre><code>&lt;section centered&gt;
+  &lt;h2&gt;Centered content&lt;/h2&gt;
+  &lt;p&gt;All children are centered.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+      <section centered style="min-height: 8rem;">
+        <h3>Centered content</h3>
+        <p>All children are centered.</p>
+      </section>
+    </section>
+
+    <section>
+      <h2><code>[wrap]</code></h2>
+      <p>Enables flex wrapping. Combine with <code>[row]</code> for responsive grids.</p>
+      <pre><code>&lt;div row wrap&gt;
+  &lt;article&gt;…&lt;/article&gt;
+  &lt;article&gt;…&lt;/article&gt;
+  &lt;article&gt;…&lt;/article&gt;
+&lt;/div&gt;</code></pre>
+      <div row wrap>
+        <article>Card one</article>
+        <article>Card two</article>
+        <article>Card three</article>
+        <article>Card four</article>
+      </div>
+    </section>
+
+    <section>
+      <h2><code>[compact]</code> / <code>[spacious]</code></h2>
+      <p>Tighten or loosen the default gap on any flex container.</p>
+      <pre><code>&lt;div row compact&gt;…&lt;/div&gt;
+&lt;div row spacious&gt;…&lt;/div&gt;</code></pre>
+      <div row compact>
+        <span badge>Compact</span>
+        <span badge>Gap</span>
+        <span badge>Items</span>
+      </div>
+      <div row spacious style="margin-top: var(--space-4)">
+        <span badge>Spacious</span>
+        <span badge>Gap</span>
+        <span badge>Items</span>
+      </div>
+    </section>
+
+    <section>
+      <h2><code>[full-page]</code></h2>
+      <p>Sets the element to <code>min-height: 100svh</code>. Ideal for hero sections.</p>
+      <pre><code>&lt;section full-page stack centered&gt;
+  &lt;h1&gt;Hero&lt;/h1&gt;
+&lt;/section&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2><code>[scrollable]</code></h2>
+      <p>Constrains the element to a fixed height with internal scroll.</p>
+      <pre><code>&lt;div scrollable&gt;…long content…&lt;/div&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2><code>[inverted]</code></h2>
+      <p>Forces the dark-mode palette on any element, regardless of OS setting.</p>
+      <pre><code>&lt;section inverted stack centered&gt;
+  &lt;h2&gt;Dark section&lt;/h2&gt;
+  &lt;p&gt;Always renders in the dark palette.&lt;/p&gt;
+  &lt;button highlight&gt;CTA&lt;/button&gt;
+&lt;/section&gt;</code></pre>
+      <section inverted stack centered style="padding: var(--space-8); border-radius: var(--radius-lg);">
+        <h2>Dark section</h2>
+        <p>Always renders in the dark palette.</p>
+        <button highlight>CTA</button>
+      </section>
+    </section>
+
+    <section>
+      <h2>Page Structure</h2>
+      <p>A typical Aesthetium page uses semantic elements that are automatically styled:</p>
+      <pre><code>&lt;body&gt;
+  &lt;header&gt;…nav…&lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section&gt;…hero…&lt;/section&gt;
+    &lt;section&gt;…content…&lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;…links…&lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+      <ul>
+        <li><code>header</code> — sticky top nav, flex spread by default</li>
+        <li><code>main</code> — centered container with <code>--container-width</code></li>
+        <li><code>section</code> — padded content block</li>
+        <li><code>footer</code> — padded bottom section with muted text</li>
+        <li><code>aside</code> — callout / sidebar with border treatment</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Sidebar Pattern</h2>
+      <p>A two-column layout with a main content area and a narrower aside:</p>
+      <pre><code>&lt;section row wrap&gt;
+  &lt;div stack&gt;
+    &lt;h2&gt;Main content&lt;/h2&gt;
+    &lt;p&gt;…&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;aside&gt;
+    &lt;strong&gt;Sidebar&lt;/strong&gt;
+    &lt;p&gt;…&lt;/p&gt;
+  &lt;/aside&gt;
+&lt;/section&gt;</code></pre>
+      <section row wrap>
+        <div stack>
+          <h3>Main content</h3>
+          <p>The main column grows to fill available space.</p>
+        </div>
+        <aside>
+          <strong>Sidebar</strong>
+          <p>The aside shrinks to its natural width.</p>
+        </aside>
+      </section>
+    </section>
+
+  </main>
+
+  <load src="documentation/partials/footer-guide.html" />
+</body>
+</html>

@@ -1,0 +1,13 @@
+<header>
+  <strong><a href="index.html">Aesthetium</a></strong>
+  <nav>
+    <a href="guide/index.html">Guide</a>
+    <a href="reference.html">Reference</a>
+    <a href="https://github.com/elemental-mind/aesthetium">GitHub</a>
+  </nav>
+  <script>
+    document.querySelectorAll('header nav a').forEach(a => {
+      try { if (new URL(a.href).pathname === location.pathname) a.setAttribute('active', ''); } catch {}
+    });
+  </script>
+</header>
