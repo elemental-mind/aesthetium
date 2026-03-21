@@ -1,3 +1,5 @@
 .vite/
 node_modules/
 distribution/
+framework_distribution/
+documentation_distribution/

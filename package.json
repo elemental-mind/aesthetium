@@ -10,17 +10,24 @@
     "url": "https://github.com/elemental-mind/aesthetium.git"
   },
   "type": "module",
-  "style": "./distribution/aesthetium.css",
-  "main": "./distribution/aesthetium.css",
+  "style": "./framework_distribution/aesthetium.css",
+  "main": "./framework_distribution/aesthetium.css",
   "scripts": {
-    "build":   "postcss source/aesthetium.css -o distribution/aesthetium.css",
-    "patch":   "npm run build && npm version patch && git push && npm publish",
-    "release": "npm run build && npm version minor && git push && npm publish"
+    "dev": "vite --config documentation/vite.config.js",
+    "build:css": "node build-css.js",
+    "build:docs": "vite build --config documentation/vite.config.js",
+    "build": "npm run build:css && npm run build:docs",
+    "patch": "npm run build:css && npm version patch && git push && npm publish",
+    "release": "npm run build:css && npm version minor && git push && npm publish"
   },
   "devDependencies": {
+    "cssnano": "^7",
     "postcss": "^8",
-    "postcss-cli": "^11",
     "postcss-import": "^16",
-    "cssnano": "^7"
+    "vite": "^8.0.1",
+    "vite-plugin-html-inject": "^1.1.2"
+  },
+  "dependencies": {
+    "wrangler": "^4.76.0"
   }
 }

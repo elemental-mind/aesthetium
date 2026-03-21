@@ -4,6 +4,7 @@ node_modules/
 .vite/
 source/
 concept/
-postcss.config.js
-aesthetium.html
-examples/
+documentation/
+documentation_distribution/
+build-css.js
+build.js
