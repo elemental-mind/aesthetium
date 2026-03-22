@@ -46,8 +46,8 @@
 
   /* ── Typography ────────────────────────────────────────────── */
   /*    Override these to swap fonts without touching the CSS.   */
-  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Inter Tight', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter Tight', 'Segoe UI', system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Type scale */
