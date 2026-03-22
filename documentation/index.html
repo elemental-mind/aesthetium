@@ -8,21 +8,317 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap">
   <link rel="stylesheet" href="../source/aesthetium.css">
+  <style>
+    #landing {
+      justify-content: space-between;
+      padding-block: 0;
+    }
+
+    .card-scene {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      perspective: 1500px;
+      height: 100%;
+
+      * {
+        transform-style: preserve-3d;
+      }
+
+      .card-stack {
+        position: relative;
+        transform: rotateX(24deg) rotateY(-35deg) rotateZ(19deg);
+        will-change: transform;
+
+        article {
+          border-radius: var(--radius-xl);
+          box-shadow: 0 80px 160px rgba(0, 0, 0, .05), 0 30px 60px rgba(0, 0, 0, .1);
+        }
+      }
+    }
+
+    .form-card {
+      width: 420px;
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      [floating] {
+        margin-block: 5px;
+
+        &:has(input[type=checkbox]) {
+          display: flex;
+          align-items: center;
+          gap: var(--space-2);
+          font-size: var(--text-xs);
+        }
+
+        &:has(input[type=radio]) {
+          display: flex;
+          align-items: center;
+          gap: var(--space-4);
+          font-size: var(--text-xs);
+        }
+      }
+
+      button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    .image-card {
+      position: absolute;
+      top: -50px;
+      left: 230px;
+      transform: translateZ(-500px);
+      overflow: hidden;
+      width: 400px;
+
+      img {
+        display: block;
+        height: 320px;
+        object-fit: cover;
+        overflow: visible;
+        margin: -1.5rem -1.5rem 1.5rem;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.25rem;
+      }
+
+      p {
+        font-size: var(--text-sm);
+        color: var(--color-muted);
+      }
+
+      footer {
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+        color: var(--color-muted);
+
+        span {
+          font-size: 0.6rem;
+          text-transform: uppercase;
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-sm);
+          padding: 0.2rem 0.55rem;
+        }
+      }
+    }
+
+    .chart-card {
+      position: absolute;
+      top: -270px;
+      left: -470px;
+      transform: translateZ(-260px);
+      width: 380px;
+
+      header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        h3 {
+          margin-top: 0px;
+        }
+
+        strong {
+          font-size: 2.5rem;
+          font-weight: 800;
+          display: block;
+        }
+
+        p {
+          font-size: var(--text-xs);
+          color: var(--color-muted);
+          margin: 0;
+        }
+      }
+
+      svg {
+        display: block;
+        width: 100%;
+        height: 80px;
+        margin: 0 0 0.4rem;
+        overflow: visible;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.6rem;
+        color: var(--color-muted);
+      }
+    }
+
+    .gauge-card {
+      position: absolute;
+      top: 270px;
+      left: -330px;
+      transform: translateZ(-170px);
+      width: 270px;
+
+      h3 {
+        margin-top: 0px;
+      }
+
+      svg {
+        display: block;
+        width: 100%;
+        margin: 0.25rem 0 0;
+      }
+
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: -0.5rem;
+        padding: 0 0.25rem;
+
+        span:not([badge]) {
+          font-size: 0.6rem;
+          color: var(--color-muted);
+          letter-spacing: 0.04em;
+        }
+      }
+    }
+  </style>
 </head>
 <body>
   <load src="partials/nav-root.html" />
 
   <main>
 
-    <!-- ═══ HERO ══════════════════════════════════════════════ -->
-    <section full-page stack centered>
-      <h1>Beautiful HTML,<br>zero class names.</h1>
-      <p>Aesthetium is a classless, attribute-driven CSS framework. Drop in one stylesheet and write semantic HTML — no build step, no JavaScript, no class soup.</p>
-      <div row centered>
-        <a href="guide/getting-started.html"><button highlight large>Get Started</button></a>
-        <a href="guide/components.html"><button ghost large>Components</button></a>
+    <!-- ═══ LANDING ════════════════════════════════════════════ -->
+    <section row full-page id="landing">
+      <header>
+        <h1>Aesthetium</h1>
+        <h5>The minimalist CSS Framework</h5>
+        <p>Light on the eye. Light on your code. Light on your bandwidth.</p>
+      </header>
+      <div class="card-scene">
+        <div class="card-stack">
+          <article class="image-card">
+            <img src="assets/layers.png" alt="Layered abstract 3D forms">
+            <header>
+              <h3>Aesthetic Layers</h3>
+              <span badge positive>4 KB</span>
+            </header>
+            <p>Every surface is a layer. Aesthetium stacks tokens, utilities and components — minimal
+              by design, purposeful by default.</p>
+            <footer>
+              <span>Design tokens</span>
+              <span>Utility-first</span>
+              <span>Zero JS</span>
+            </footer>
+          </article>
+
+          <article class="chart-card">
+            <header>
+              <div>
+                <h3>Lighthouse</h3>
+                <strong>98</strong>
+                <p>Performance score</p>
+              </div>
+              <span badge positive>+4</span>
+            </header>
+            <svg viewBox="0 0 200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="currentColor" stop-opacity="0.15" />
+                  <stop offset="100%" stop-color="currentColor" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <path d="M0,65 L28,58 L55,62 L80,40 L105,44 L130,22 L158,28 L185,10 L200,14 L200,80 L0,80 Z"
+                fill="url(#chartFill)" />
+              <polyline points="0,65 28,58 55,62 80,40 105,44 130,22 158,28 185,10 200,14" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+              <circle cx="200" cy="14" r="3.5" fill="currentColor" />
+            </svg>
+            <footer>
+              <span>Jan</span><span>Mar</span><span>May</span><span>Jul</span>
+            </footer>
+          </article>
+
+          <article class="gauge-card">
+            <h3>Bundle Budget</h3>
+            <svg viewBox="0 0 200 165" xmlns="http://www.w3.org/2000/svg">
+              <!-- track -->
+              <circle cx="100" cy="105" r="72" fill="none" stroke="var(--color-border)" stroke-width="13"
+                stroke-dasharray="339.3 113.1" stroke-linecap="round" transform="rotate(135 100 105)" />
+              <!-- fill — 72% -->
+              <circle cx="100" cy="105" r="72" fill="none" stroke="var(--color-alert)" stroke-width="13"
+                stroke-dasharray="244.3 208.1" stroke-linecap="round" transform="rotate(135 100 105)" />
+              <!-- centre label -->
+              <text x="100" y="97" text-anchor="middle" font-size="30" font-weight="800" fill="var(--color-text)"
+                font-family="inherit">72%</text>
+              <text x="100" y="116" text-anchor="middle" font-size="10.5" fill="var(--color-muted)" font-family="inherit">of
+                budget used</text>
+            </svg>
+            <footer>
+              <span>0 KB</span>
+              <span badge alert>Warning</span>
+              <span>100 KB</span>
+            </footer>
+          </article>
+
+          <article class="form-card">
+            <h3>Create Account</h3>
+            <form onsubmit="return false">
+              <div floating>
+                <label for="name">Full name</label>
+                <input id="name" type="text" value="Ada Lovelace">
+              </div>
+
+              <div floating>
+                <label for="email">Email address</label>
+                <input id="email" type="email" value="ada@example.com">
+              </div>
+
+              <div floating>
+                <label for="pass">Password</label>
+                <input invalid id="pass" type="password" placeholder="Min. 8 characters">
+              </div>
+
+              <div floating>
+                <label for="role">Role</label>
+                <select id="role">
+                  <option>Select a role…</option>
+                  <option>Admin</option>
+                  <option>Editor</option>
+                  <option>Viewer</option>
+                </select>
+              </div>
+
+              <div floating>
+                <label for="bio">Bio</label>
+                <textarea id="bio" placeholder="Tell us about yourself…" rows="2"></textarea>
+              </div>
+
+              <div floating>
+                <input type="checkbox" id="terms">
+                <label for="terms">I agree to the terms</label>
+              </div>
+
+              <div floating>
+                <label><input type="radio" name="plan" checked> Free</label>
+                <label><input type="radio" name="plan"> Pro</label>
+                <label><input type="radio" name="plan"> Team</label>
+              </div>
+
+              <button floating highlight>Create Account</button>
+            </form>
+          </article>
+        </div>
       </div>
-      <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aesthetium/framework_distribution/aesthetium.css"&gt;</code></pre>
     </section>
 
     <!-- ═══ VALUE PROPS ═══════════════════════════════════════ -->
@@ -145,5 +441,181 @@
   </main>
 
   <load src="partials/footer-root.html" />
+
+  <script>
+
+    // ── RotationController ────────────────────────────────────────
+    // Manages the 3-D tilt of the card stack and exposes the rotation
+    // matrix so DepthControllers can align their shadows to the surface.
+    class RotationController
+    {
+      static BASE_ROTATION = { rx: 24, ry: -35, rz: 19 };
+
+      constructor(card, scene)
+      {
+        this.card = card;
+        this.scene = scene;
+
+        this.rx = RotationController.BASE_ROTATION.rx;
+        this.ry = RotationController.BASE_ROTATION.ry;
+        this.rz = RotationController.BASE_ROTATION.rz;
+        this.axes = { xx: 0, xy: 0, yx: 0, yy: 0 };
+        this.recomputeAxes();
+
+        this.scene.onChanged(() => this.sceneChanged());
+      }
+
+      sceneChanged()
+      {
+        this.rx = RotationController.BASE_ROTATION.rx + this.scene.dy * -5;
+        this.ry = RotationController.BASE_ROTATION.ry + this.scene.dx * 7;
+        this.rz = RotationController.BASE_ROTATION.rz + this.scene.dx * -1.5;
+        this.recomputeAxes();
+        this.scene.renderUpdate(() =>
+          this.card.style.transform = `rotateX(${this.rx}deg) rotateY(${this.ry}deg) rotateZ(${this.rz}deg)`);
+      }
+
+      // Screen-space projection of the card's local X/Y axes (M = Rx·Ry·Rz).
+      recomputeAxes()
+      {
+        const toRad = d => d * Math.PI / 180;
+        const cX = Math.cos(toRad(this.rx)), sX = Math.sin(toRad(this.rx));
+        const cY = Math.cos(toRad(this.ry)), sY = Math.sin(toRad(this.ry));
+        const cZ = Math.cos(toRad(this.rz)), sZ = Math.sin(toRad(this.rz));
+        this.axes.xx = cY * cZ;
+        this.axes.xy = cX * sZ + sX * sY * cZ;
+        this.axes.yx = -cY * sZ;
+        this.axes.yy = cX * cZ - sX * sY * sZ;
+      }
+    }
+
+    // ── FloatationController ───────────────────────────────────────────
+    // One instance per [floating] element. Translates it along Z and applies
+    // a matching drop-shadow that tracks the scene rotation.
+
+    class FloatationController
+    {
+      static MAX_FLOATING_HEIGHT = 124;
+      static MOUSE_REACTION_RADIUS = 600;
+
+      constructor(el, scene)
+      {
+        this.scene = scene;
+        this.el = el;
+        this.maxFloatHeight = this.relativePositionInContainer * FloatationController.MAX_FLOATING_HEIGHT;
+
+        scene.onChanged(() => this.sceneChanged());
+      }
+
+      get elementCentroid()
+      {
+        const boundingRect = this.el.getBoundingClientRect();
+        return { x: boundingRect.left + boundingRect.width / 2, y: boundingRect.top + boundingRect.height / 2 };
+      }
+
+      get relativeMouseDistance()
+      {
+        const centroid = this.elementCentroid;
+        const absoluteDistance = Math.hypot(scene.mouseX - centroid.x, scene.mouseY - centroid.y);
+        return Math.min(absoluteDistance / FloatationController.MOUSE_REACTION_RADIUS, 1);
+      }
+
+      get relativePositionInContainer()
+      {
+        const embeddingForm = this.el.closest('form').getBoundingClientRect();
+        const boundingRect = this.el.getBoundingClientRect();
+        const position = (boundingRect.top + boundingRect.height / 2 - embeddingForm.top) / embeddingForm.height;
+        return Math.max(0, Math.min(1, position));
+      }
+
+      sceneChanged()
+      {
+        const offsetZ = this.relativeMouseDistance * this.maxFloatHeight;
+        const { offsetX, offsetY, blur, opacity } = this.computeShadowForZOffset(offsetZ);
+        this.scene.renderUpdate(() =>
+        {
+          this.el.style.transform = `translateZ(${offsetZ}px)`;
+          this.el.style.filter = `drop-shadow(${offsetX}px ${offsetY}px ${blur}px rgba(0,0,0,${opacity}))`;
+        });
+      }
+
+      computeShadowForZOffset(zOffset)
+      {
+        const relativeZ = zOffset / FloatationController.MAX_FLOATING_HEIGHT;
+        const lx = this.scene.light.x * zOffset * relativeZ;
+        const ly = this.scene.light.y * zOffset * relativeZ;
+        const { xx, xy, yx, yy } = this.scene.rotation.axes;
+        const offsetX = (lx * xx + ly * yx).toFixed(1);
+        const offsetY = (lx * xy + ly * yy).toFixed(1);
+        const blur = (30 * relativeZ * relativeZ).toFixed(1);
+        const opacity = (0.1 + 0.2 * relativeZ).toFixed(2);
+        return { offsetX, offsetY, blur, opacity };
+      }
+    }
+
+    // ── SceneController ───────────────────────────────────────────
+    // Central coordinator. Owns the RAF loop, exposes mouse state, and
+    // dispatches onUpdate events. DOM writes are collected via render()
+    // and flushed together after all listeners have read.
+
+    class SceneController
+    {
+      constructor()
+      {
+        this.mouseX = 0;
+        this.mouseY = 0;
+        this.dx = 0;
+        this.dy = 0;
+        this.rotation = null;
+        this.light = { x: 0.75, y: 0.07 };
+        this.needsUpdate = false;
+        this.onChangedCallbacks = [];
+        this.updateRenderers = [];
+        this.controllers = [];
+      }
+
+      onChanged(fn) { this.onChangedCallbacks.push(fn); }
+
+      renderUpdate(fn) { this.updateRenderers.push(fn); }
+
+      setup()
+      {
+        this.rotation = new RotationController(document.querySelector('.card-stack'), this);
+
+        document.addEventListener('mousemove', (e) => this.mouseMoved(e));
+
+        for (const el of document.querySelectorAll('[floating]')) this.controllers.push(new FloatationController(el, this));
+
+        this.updateScene();
+      }
+
+      mouseMoved(e)
+      {
+        this.mouseX = e.clientX;
+        this.mouseY = e.clientY;
+        this.dx = (e.clientX / window.innerWidth - 0.5) * 2;
+        this.dy = (e.clientY / window.innerHeight - 0.5) * 2;
+        this.updateScene();
+      }
+
+      updateScene()
+      {
+        if (this.needsUpdate) return;
+        this.needsUpdate = true;
+        requestAnimationFrame(() => this.renderLoop());
+      }
+
+      renderLoop()
+      {
+        this.needsUpdate = false;
+        for (const onUpdateCallback of this.onChangedCallbacks) onUpdateCallback(); // all reads + render() calls
+        for (const updateRenderer of this.updateRenderers) updateRenderer();     // all writes
+        this.updateRenderers.length = 0;
+      }
+    }
+
+    const scene = new SceneController();
+    scene.setup();
+  </script>
 </body>
 </html>

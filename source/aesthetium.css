@@ -3,7 +3,6 @@
    Attribute-driven. Token-based. Semantic HTML only.
    ═══════════════════════════════════════════════════════════════ */
 
-
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 @import 'system.css';
 
@@ -17,7 +16,6 @@
   margin: 0;
   padding: 0;
 }
-
 
 /* ─── Base ──────────────────────────────────────────────────── */
 
@@ -35,7 +33,6 @@ body {
   color: var(--color-text);
   background-color: var(--color-page);
 }
-
 
 /* ─── Typography ────────────────────────────────────────────── */
 
@@ -271,16 +268,15 @@ body>header {
   padding-block: var(--space-3);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  position: sticky;
+  position: fixed;
   top: var(--space-3);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
   z-index: 10;
   background-color: var(--color-bg);
   box-shadow: 0 4px 12px var(--color-page), 0 2px 4px var(--color-page), var(--color-page) 0px -3rem 0px -10px;
   margin-block: var(--space-3);
-}
-
-body>main {
-  padding-block: var(--space-12);
 }
 
 body>footer {
