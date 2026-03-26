@@ -13,7 +13,10 @@
   <style>
     #landing {
       justify-content: space-between;
-      padding-block: 0;
+
+      >header {
+        transform: translateY(-3rem);
+      }
     }
 
     .card-scene {
@@ -117,7 +120,7 @@
 
     .chart-card {
       position: absolute;
-      top: -270px;
+      top: -35px;
       left: -470px;
       transform: translateZ(-260px);
       width: 380px;
@@ -158,6 +161,44 @@
         justify-content: space-between;
         font-size: 0.6rem;
         color: var(--color-muted);
+      }
+    }
+
+    .scroll-nudge {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      translate: -50% 0;
+      width: 22px;
+      height: 36px;
+      border-radius: 999px;
+      border: 2.5px solid var(--color-muted);
+      opacity: 0.6;
+      display: flex;
+      justify-content: center;
+      padding-top: 6px;
+
+      &>div {
+        width: 4px;
+        height: 12px;
+        border-radius: 999px;
+        background: var(--color-muted);
+        animation: nudge 4s ease-in-out infinite;
+      }
+
+
+    }
+
+    @keyframes nudge {
+
+      0%,
+      40%,
+      100% {
+        translate: 0 0;
+      }
+
+      20% {
+        translate: 0 6px;
       }
     }
 
@@ -206,6 +247,10 @@
         <h1>Aesthetium</h1>
         <h5 light>The minimalist CSS Framework</h5>
         <p light>Light on the eye. Light on your code. Light on your bandwidth.</p>
+        <div row>
+          <a href="guide/getting-started.html"><button highlight>Get Started</button></a>
+          <a href="reference.html"><button ghost>View Sample Sheet</button></a>
+        </div>
       </header>
       <div class="card-scene">
         <div class="card-stack">
@@ -322,6 +367,10 @@
             </form>
           </article>
         </div>
+      </div>
+
+      <div class="scroll-nudge" aria-label="Scroll down">
+        <div class="scroll-dot"></div>
       </div>
     </section>
 
