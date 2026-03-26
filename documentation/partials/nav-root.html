@@ -1,13 +1,11 @@
 <header>
   <strong>Aesthetium</strong>
   <nav>
-    <a href="guide/index.html">Guide</a>
-    <a href="reference.html">Reference</a>
+    <a href="reference.html">Sample Sheet</a>
+    <a href="guide/index.html">Docs</a>
     <a href="https://github.com/elemental-mind/aesthetium">GitHub</a>
   </nav>
   <script>
-    document.querySelectorAll('header nav a').forEach(a => {
-      try { if (new URL(a.href).pathname === location.pathname) a.setAttribute('active', ''); } catch {}
-    });
+    [...document.querySelectorAll('header nav a')].find(a => new URL(a.href).pathname === location.pathname)?.setAttribute('active', '');
   </script>
 </header>
