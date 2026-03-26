@@ -267,6 +267,10 @@ figure {
 
 
 /* ─── Layout — document structure ──────────────────────────── */
+body:has(> header) {
+  padding-block-start: calc(var(--header-height) + var(--space-3));
+}
+
 body>main {
   max-width: var(--container-width);
   margin-inline: auto;
