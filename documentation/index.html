@@ -12,19 +12,24 @@
   <link rel="stylesheet" href="../source/aesthetium.css">
   <style>
     #landing {
-      justify-content: space-between;
-
       >header {
         transform: translateY(-3rem);
+        flex: 0 0 auto;
+      }
+
+      >.card-scene {
+        flex: 1 1 340px;
       }
     }
 
     .card-scene {
       display: flex;
       align-items: center;
-      justify-content: end;
+      justify-content: center;
       perspective: 1500px;
+      min-width: 470px;
       height: 100%;
+      container-type: inline-size;
 
       * {
         transform-style: preserve-3d;
@@ -34,6 +39,7 @@
         position: relative;
         transform: rotateX(24deg) rotateY(-35deg) rotateZ(19deg);
         will-change: transform;
+        zoom: clamp(0.5, calc(150cqi / 1100), 1.5);
 
         article {
           border-radius: var(--radius-xl);
@@ -76,9 +82,9 @@
 
     .image-card {
       position: absolute;
-      top: -50px;
-      left: 230px;
-      transform: translateZ(-500px);
+      top: 10px;
+      left: 370px;
+      transform: translateZ(-125px);
       overflow: hidden;
       width: 400px;
 
@@ -164,49 +170,11 @@
       }
     }
 
-    .scroll-nudge {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      translate: -50% 0;
-      width: 22px;
-      height: 36px;
-      border-radius: 999px;
-      border: 2.5px solid var(--color-muted);
-      opacity: 0.6;
-      display: flex;
-      justify-content: center;
-      padding-top: 6px;
-
-      &>div {
-        width: 4px;
-        height: 12px;
-        border-radius: 999px;
-        background: var(--color-muted);
-        animation: nudge 4s ease-in-out infinite;
-      }
-
-
-    }
-
-    @keyframes nudge {
-
-      0%,
-      40%,
-      100% {
-        translate: 0 0;
-      }
-
-      20% {
-        translate: 0 6px;
-      }
-    }
-
     .gauge-card {
       position: absolute;
       top: 270px;
-      left: -330px;
-      transform: translateZ(-170px);
+      left: -220px;
+      transform: translateZ(-100px);
       width: 270px;
 
       h3 {
@@ -233,6 +201,43 @@
         }
       }
     }
+
+    .scroll-nudge {
+      position: absolute;
+      bottom: 4rem;
+      left: 50%;
+      translate: -50% 0;
+      width: 22px;
+      height: 36px;
+      border-radius: 999px;
+      border: 2.5px solid var(--color-muted);
+      opacity: 0.6;
+      display: flex;
+      justify-content: center;
+      padding-top: 6px;
+
+      &>div {
+        width: 5px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--color-muted);
+        animation: nudge 3s ease-in-out infinite;
+      }
+    }
+
+    @keyframes nudge {
+      0%,
+      20%,
+      40%,
+      100% {
+        translate: 0 0;
+      }
+
+      10%,
+      30% {
+        translate: 0 6px;
+      }
+    }
   </style>
 </head>
 
@@ -242,11 +247,12 @@
   <main>
 
     <!-- ═══ LANDING ════════════════════════════════════════════ -->
-    <section wrapping row full-page id="landing">
+    <section full-page id="landing" style="display: flex; flex-wrap: wrap; align-items: center; overflow: clip;">
       <header>
         <h1>Aesthetium</h1>
         <h5 light>The minimalist CSS Framework</h5>
-        <p light>Light on the eye. Light on your code. Light on your bandwidth.</p>
+        <p light><span style="white-space:nowrap">Light on the eye.</span> <span style="white-space:nowrap">Light on
+            your code.</span> <span style="white-space:nowrap">Light on your bandwidth.</span></p>
         <div row>
           <a href="guide/getting-started.html"><button highlight>Get Started</button></a>
           <a href="reference.html"><button ghost>View Sample Sheet</button></a>
@@ -255,16 +261,15 @@
       <div class="card-scene">
         <div class="card-stack">
           <article class="image-card">
-            <img src="assets/layers.png" alt="Layered abstract 3D forms">
+            <img src="assets/surfaces.jpg" alt="Layered abstract 3D forms">
             <header>
-              <h3>Aesthetic Layers</h3>
+              <h3>Cards & Layers</h3>
               <span badge positive>4 KB</span>
             </header>
-            <p>Every surface is a layer. Aesthetium stacks tokens, utilities and components — minimal
-              by design, purposeful by default.</p>
+            <p>Drop an <code>&lt;article&gt;</code> anywhere and get a styled card — shadow, radius, and spacing included. Stack them, nest them, or float them in 3D without touching a single class.</p>
             <footer>
-              <span>Design tokens</span>
-              <span>Utility-first</span>
+              <span>Semantic HTML</span>
+              <span>Customizability</span>
               <span>Zero JS</span>
             </footer>
           </article>
@@ -509,16 +514,31 @@
     // matrix so DepthControllers can align their shadows to the surface.
     class RotationController
     {
-      static BASE_ROTATION = { rx: 24, ry: -15, rz: 19 };
+      static BASE_RX = 24;
+      static BASE_RZ = 19;
+      static BASE_RY_MAX = -20; // wide container (≥600px)
+      static BASE_RY_MIN = -55; // narrow container (≤340px)
+
+      // baseRy is computed from container width
+      static ryForWidth(w) {
+        const t = Math.max(0, Math.min(1, (w - 340) / (600 - 340)));
+        return RotationController.BASE_RY_MIN + t * (RotationController.BASE_RY_MAX - RotationController.BASE_RY_MIN);
+      }
 
       constructor(card, scene)
       {
         this.card = card;
         this.scene = scene;
+        this.baseRy = RotationController.BASE_RY_MAX;
 
-        this.rx = RotationController.BASE_ROTATION.rx;
-        this.ry = RotationController.BASE_ROTATION.ry;
-        this.rz = RotationController.BASE_ROTATION.rz;
+        new ResizeObserver(([entry]) => {
+          this.baseRy = RotationController.ryForWidth(entry.contentRect.width);
+          this.scene.updateScene();
+        }).observe(document.querySelector('.card-scene'));
+
+        this.rx = RotationController.BASE_RX;
+        this.ry = this.baseRy;
+        this.rz = RotationController.BASE_RZ;
         this.axes = { xx: 0, xy: 0, yx: 0, yy: 0 };
         this.recomputeAxes();
 
@@ -527,9 +547,9 @@
 
       sceneChanged()
       {
-        this.rx = RotationController.BASE_ROTATION.rx + this.scene.dy * -5;
-        this.ry = RotationController.BASE_ROTATION.ry + this.scene.dx * 7;
-        this.rz = RotationController.BASE_ROTATION.rz + this.scene.dx * -1.5;
+        this.rx = RotationController.BASE_RX + this.scene.dy * -5;
+        this.ry = this.baseRy + this.scene.dx * 8;
+        this.rz = RotationController.BASE_RZ + this.scene.dx * -1.5;
         this.recomputeAxes();
         this.scene.renderUpdate(() =>
           this.card.style.transform = `rotateX(${this.rx}deg) rotateY(${this.ry}deg) rotateZ(${this.rz}deg)`);
