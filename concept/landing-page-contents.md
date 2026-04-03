@@ -40,7 +40,7 @@ Communicates: this is production-quality, not a toy.
 hasn't fully articulated. Make them nod before we pitch anything.
 
 **Headline:**
-> Your markup shouldn't look like this.
+> Markup Simplicity
 
 **Body:**
 Show a Tailwind button vs an Aesthetium button side by side.
@@ -73,7 +73,7 @@ Show a Tailwind button vs an Aesthetium button side by side.
 The live demo already exists. Sharpen the framing around it.
 
 **Headline:**
-> Write semantic HTML. Get design.
+> Semantic HTML. Instant Design.
 
 **The core claim to communicate:**
 HTML already has a vocabulary. Aesthetium speaks it.
@@ -96,7 +96,7 @@ Right: live interactive form with zero classes
 This is where we go from "sounds nice" to "I understand why it works."
 
 **Headline:**
-> Three ideas. Radically different result.
+> Three Core Principles
 
 **Pillar 1 — Classless**
 > `<button>` is already a button. We style the element, not the class.
@@ -110,7 +110,7 @@ Code example:
 
 **Pillar 2 — Attribute-driven variants**
 > Boolean attributes express intent. Not appearance.
-> `positive`, `negative`, `alert`, `inverted` — these names describe *what*, not *how*.
+> `positive`, `negative`, `alert`, `dark` — these names describe *what*, not *how*.
 
 Code example:
 ```html
@@ -139,14 +139,14 @@ Code example:
 **Objective:** Credibility checklist. Cover the "but what about..." objections.
 
 **Headline:**
-> Everything you need. Nothing you don't.
+> Complete by Design
 
 **Grid items (6):**
 1. **Auto dark mode** — Respects `prefers-color-scheme`. No extra config.
 2. **Under 5 KB** — The full framework, gzipped. No tree-shaking required.
 3. **Zero JavaScript** — Pure CSS. Works anywhere, including no-JS SSR.
 4. **Layout attributes** — `[row]`, `[stack]`, `[spread]`, `[centered]` — flex layout without a class.
-5. **Semantic variants** — `highlight`, `ghost`, `positive`, `negative`, `inverted`.
+5. **Semantic variants** — `highlight`, `ghost`, `positive`, `negative`, `dark`.
 6. **Deep token system** — Design → semantic → component. Override at any tier.
 
 ---
@@ -157,7 +157,7 @@ Code example:
 Take the emotion out. Let the data speak.
 
 **Headline:**
-> The numbers are hard to argue with.
+> Framework Comparison
 
 | | Aesthetium | Tailwind CSS | Bootstrap |
 |---|---|---|---|
@@ -179,7 +179,7 @@ Take the emotion out. Let the data speak.
 **Objective:** Close. Remove friction. Give two exits (docs vs GitHub).
 
 **Headline:**
-> Start building today.
+> Start Building
 
 **Subline:**
 > One stylesheet. Semantic HTML. A complete design system.
