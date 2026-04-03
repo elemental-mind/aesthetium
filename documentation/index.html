@@ -428,6 +428,43 @@
                   border-radius: 3px;
                 }
               }
+
+              .overlay {
+                position: absolute;
+                inset: 0;
+                border-radius: var(--radius);
+                pointer-events: none;
+
+                &.positive {
+                  border: 2px solid rgba(40, 200, 64, 0.5);
+                  background: rgba(40, 200, 64, 0.04);
+                }
+
+                &.negative {
+                  border: 2px solid rgba(255, 95, 87, 0.5);
+                  background: rgba(255, 95, 87, 0.04);
+                }
+
+                .badge {
+                  position: absolute;
+                  bottom: 10px;
+                  right: 10px;
+                  width: 36px;
+                  height: 36px;
+                  border-radius: var(--radius-full);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                  color: white;
+                  font-size: 1.1rem;
+                  font-weight: bold;
+                  line-height: 1;
+                }
+
+                &.positive .badge { background: #28c840; }
+                &.negative .badge { background: #ff5f57; }
+              }
             }
 
             #simple {
@@ -440,6 +477,8 @@
               z-index: 10;
               transform: perspective(2000px) rotateX(25deg) translateY(-50px) translateZ(100px);
               transform-style: preserve-3d;
+
+              min-width: 250px;
 
               align-items: center;
               justify-content: center;
@@ -524,6 +563,31 @@
               transform-style: preserve-3d;
             }
           }
+
+          @media (max-width: 768px) {
+            #side-by-side {
+              display: flex;
+              flex-direction: column;
+              gap: var(--space-8);
+
+              #mock-browser {
+                order: -1;
+                transform: none;
+                min-width: 0;
+                min-height: 180px;
+
+                #button-wrapper button {
+                  font-size: 1.25rem;
+                  padding: 0.75rem 2rem;
+                }
+              }
+
+              #simple, #complex {
+                transform: none;
+                transform-origin: initial;
+              }
+            }
+          }
         }
       </style>
       <header stack>
@@ -537,6 +601,9 @@
           <div class="code-scene">
             <pre dark
               id="aesthetium-markup"><span style="width:71%"></span><span style="width:44%"></span><span style="width:58%"></span><code class="language-html highlighted">&lt;button highlight&gt;Submit&lt;/button&gt;</code><span style="width:63%"></span><span style="width:38%"></span><span style="width:50%"></span><span style="width:27%"></span></pre>
+            <div class="overlay positive">
+              <div class="badge">✓</div>
+            </div>
           </div>
           <footer>
             Aesthetium
@@ -566,6 +633,9 @@
       focus:ring-2 focus:ring-indigo-500"&gt;
     Submit
 &lt;/button&gt;</code><span style="width:55%"></span><span style="width:41%"></span></pre>
+            <div class="overlay negative">
+              <div class="badge">✕</div>
+            </div>
           </div>
           <footer>
             Class based frameworks
