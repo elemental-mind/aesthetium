@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap">
   <link rel="stylesheet" href="../../source/aesthetium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
 </head>
 <body>
   <load src="partials/nav-guide.html" />
@@ -123,14 +124,14 @@
     </section>
 
     <section>
-      <h2><code>[inverted]</code></h2>
+      <h2><code>[dark]</code></h2>
       <p>Forces the dark-mode palette on any element, regardless of OS setting.</p>
-      <pre><code>&lt;section inverted stack centered&gt;
+      <pre><code>&lt;section dark stack centered&gt;
   &lt;h2&gt;Dark section&lt;/h2&gt;
   &lt;p&gt;Always renders in the dark palette.&lt;/p&gt;
   &lt;button highlight&gt;CTA&lt;/button&gt;
 &lt;/section&gt;</code></pre>
-      <section inverted stack centered style="padding: var(--space-8); border-radius: var(--radius-lg);">
+      <section dark stack centered style="padding: var(--space-8); border-radius: var(--radius-lg);">
         <h2>Dark section</h2>
         <p>Always renders in the dark palette.</p>
         <button highlight>CTA</button>
@@ -187,5 +188,7 @@
   </main>
 
   <load src="partials/footer-guide.html" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
 </body>
 </html>

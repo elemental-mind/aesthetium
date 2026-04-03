@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap">
   <link rel="stylesheet" href="../../source/aesthetium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
 </head>
 <body>
   <load src="partials/nav-guide.html" />
@@ -79,7 +80,7 @@
 &lt;button ghost&gt;Secondary action&lt;/button&gt;
 &lt;aside positive&gt;Success message&lt;/aside&gt;
 &lt;aside negative&gt;Error message&lt;/aside&gt;
-&lt;article inverted&gt;Dark surface&lt;/article&gt;</code></pre>
+&lt;article dark&gt;Dark surface&lt;/article&gt;</code></pre>
 
       <h3>Token-based theming</h3>
       <p>The entire design system lives in CSS custom properties. Override them in your own <code>:root</code> block to apply your brand:</p>
@@ -158,5 +159,7 @@
   </main>
 
   <load src="partials/footer-guide.html" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
 </body>
 </html>
