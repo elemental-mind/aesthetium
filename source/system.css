@@ -189,7 +189,7 @@
     --shadow-xl: var(--light-shadow-xl);
   }
 
-  [inverted] {
+  [dark] {
     --color-primary: var(--dark-primary);
     --color-secondary: var(--dark-secondary);
     --color-tertiary: var(--dark-tertiary);
@@ -233,7 +233,7 @@
     --shadow-xl: var(--dark-shadow-xl);
   }
 
-  [inverted] {
+  [dark] {
     --color-primary: var(--light-primary);
     --color-secondary: var(--light-secondary);
     --color-tertiary: var(--light-tertiary);
@@ -256,7 +256,7 @@
 }
 
 /* ─── Per-element derived tokens ────────────────────────────── */
-/*    Evaluated on every element so [inverted] and dark mode    */
+/*    Evaluated on every element so [dark] and dark mode        */
 /*    correctly re-compute the full token chain locally.        */
 
 * {

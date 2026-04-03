@@ -55,7 +55,7 @@ o -> in progress
 - [x] Flexbox attributes: `[row]`, `[stack]`, `[spread]`, `[centered]`, `[wrapping]`
 - [x] Gap variants: `[compact]`, `[spacious]`
 - [x] `[full-page]`, `[scrollable]`
-- [x] `[inverted]` force-dark sections (to be reworked)
+- [x] `[dark]` force-dark sections, `[shaded]` greyed surface, `[shadowless]` utility
 
 ### Components
 - [x] Buttons — with `ghost`, `pill`, `small`, `large`, semantic color variants
@@ -78,7 +78,7 @@ o -> in progress
 ### Color System
 - [x] Shade scale (100–900) via `color-mix()`
 - [x] Light / dark mode via `prefers-color-scheme`
-- [ ] Refine colours — replace `inverted` attribute with `dark` and `shaded` variants
+- [x] Refine colours — replace `inverted` attribute with `dark` and `shaded` variants
 
 ### Responsive System
 - [ ] Breakpoint definitions (sm, md, lg, xl)

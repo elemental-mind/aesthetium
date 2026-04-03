@@ -390,6 +390,10 @@ section {
   &> :first-child {
     margin-block-start: 0;
   }
+
+  &[shaded] {
+    background-color: var(--shade-300);
+  }
 }
 
 main>section {
@@ -461,6 +465,10 @@ main>section {
 [full-page] {
   min-height: 105vh;
   padding-block: 5vh;
+}
+
+[shadowless] {
+  box-shadow: none;
 }
 
 
