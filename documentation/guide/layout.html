@@ -21,14 +21,14 @@
     </section>
 
     <section>
-      <h2><code>[row]</code></h2>
+      <h2><code>[strip]</code></h2>
       <p>Horizontal flex container with a default gap.</p>
-      <pre><code>&lt;div row&gt;
+      <pre><code>&lt;div strip&gt;
   &lt;article&gt;One&lt;/article&gt;
   &lt;article&gt;Two&lt;/article&gt;
   &lt;article&gt;Three&lt;/article&gt;
 &lt;/div&gt;</code></pre>
-      <div row>
+      <div strip>
         <article>One</article>
         <article>Two</article>
         <article>Three</article>
@@ -52,12 +52,12 @@
 
     <section>
       <h2><code>[spread]</code></h2>
-      <p>Distributes children with <code>justify-content: space-between</code>. Usually combined with <code>[row]</code>.</p>
-      <pre><code>&lt;div row spread&gt;
+      <p>Distributes children with <code>justify-content: space-between</code>. Usually combined with <code>[strip]</code>.</p>
+      <pre><code>&lt;div strip spread&gt;
   &lt;strong&gt;Brand&lt;/strong&gt;
   &lt;nav&gt;…&lt;/nav&gt;
 &lt;/div&gt;</code></pre>
-      <div row spread>
+      <div strip spread>
         <strong>Brand</strong>
         <span badge>Right-aligned</span>
       </div>
@@ -77,14 +77,14 @@
     </section>
 
     <section>
-      <h2><code>[wrap]</code></h2>
-      <p>Enables flex wrapping. Combine with <code>[row]</code> for responsive grids.</p>
-      <pre><code>&lt;div row wrap&gt;
+      <h2><code>[strips]</code></h2>
+      <p>Horizontal flex container that wraps onto multiple lines.</p>
+      <pre><code>&lt;div strips&gt;
   &lt;article&gt;…&lt;/article&gt;
   &lt;article&gt;…&lt;/article&gt;
   &lt;article&gt;…&lt;/article&gt;
 &lt;/div&gt;</code></pre>
-      <div row wrap>
+      <div strips>
         <article>Card one</article>
         <article>Card two</article>
         <article>Card three</article>
@@ -95,14 +95,14 @@
     <section>
       <h2><code>[compact]</code> / <code>[spacious]</code></h2>
       <p>Tighten or loosen the default gap on any flex container.</p>
-      <pre><code>&lt;div row compact&gt;…&lt;/div&gt;
-&lt;div row spacious&gt;…&lt;/div&gt;</code></pre>
-      <div row compact>
+      <pre><code>&lt;div strip compact&gt;…&lt;/div&gt;
+&lt;div strip spacious&gt;…&lt;/div&gt;</code></pre>
+      <div strip compact>
         <span badge>Compact</span>
         <span badge>Gap</span>
         <span badge>Items</span>
       </div>
-      <div row spacious style="margin-top: var(--space-4)">
+      <div strip spacious style="margin-top: var(--space-4)">
         <span badge>Spacious</span>
         <span badge>Gap</span>
         <span badge>Items</span>
@@ -163,7 +163,7 @@
     <section>
       <h2>Sidebar Pattern</h2>
       <p>A two-column layout with a main content area and a narrower aside:</p>
-      <pre><code>&lt;section row wrap&gt;
+      <pre><code>&lt;section strips&gt;
   &lt;div stack&gt;
     &lt;h2&gt;Main content&lt;/h2&gt;
     &lt;p&gt;…&lt;/p&gt;
@@ -173,7 +173,7 @@
     &lt;p&gt;…&lt;/p&gt;
   &lt;/aside&gt;
 &lt;/section&gt;</code></pre>
-      <section row wrap>
+      <section strips>
         <div stack>
           <h3>Main content</h3>
           <p>The main column grows to fill available space.</p>

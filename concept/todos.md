@@ -20,7 +20,7 @@ o -> in progress
         - [ ] Responsive typography
         - [ ] Responsive spacing
     - [+] Document: Layouts
-        - [ ] Flexbox attributes (`row`, `stack`, `spread`, `centered`, `wrapping`)
+        - [ ] Flexbox attributes (`strip`, `stack`, `spread`, `centered`, `strips`)
         - [ ] Gap variants
         - [ ] Full-page & scrollable
         - [ ] Grid support
@@ -52,7 +52,7 @@ o -> in progress
 
 ### Layout/Depth
 - [x] Spacing scale (12 levels)
-- [x] Flexbox attributes: `[row]`, `[stack]`, `[spread]`, `[centered]`, `[wrapping]`
+- [x] Flexbox attributes: `[strip]`, `[stack]`, `[spread]`, `[centered]`, `[strips]`
 - [x] Gap variants: `[compact]`, `[spacious]`
 - [x] `[full-page]`, `[scrollable]`
 - [x] `[dark]` force-dark sections, `[shaded]` greyed surface, `[shadowless]` utility

@@ -1,0 +1,6 @@
+/* Section attributes */
+
+section[full-page] {
+  min-height: 105vh;
+  padding-block: 5vh;
+}

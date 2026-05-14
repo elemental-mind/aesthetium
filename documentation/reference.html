@@ -19,7 +19,7 @@
     <section full-page stack centered>
       <h1>Build beautiful websites<br>with semantic HTML</h1>
       <p>A classless CSS framework that styles your markup. No classes, no JavaScript, just HTML.</p>
-      <div row centered>
+      <div strip centered>
         <button highlight large>Get Started</button>
         <button ghost large>Documentation</button>
       </div>
@@ -28,7 +28,7 @@
     <!-- ═══ FEATURES ══════════════════════════════════════════ -->
     <section id="features">
       <h2>Features</h2>
-      <div row wrap>
+      <div strips>
         <article>
           <h3>Classless</h3>
           <p>Style semantic HTML directly. No class names to memorize or maintain.</p>
@@ -83,7 +83,7 @@
     <!-- ═══ PRICING ═══════════════════════════════════════════ -->
     <section id="pricing">
       <h2>Pricing</h2>
-      <div row wrap>
+      <div strips>
         <article>
           <h3>Free</h3>
           <p><strong>$0</strong> / month</p>
@@ -118,7 +118,7 @@
     </section>
 
     <!-- ═══ STATS ═════════════════════════════════════════════ -->
-    <section row spread wrap>
+    <section strips spread>
       <article stack centered>
         <strong>10K+</strong>
         <p>Downloads</p>
@@ -145,7 +145,7 @@
     </section>
 
     <!-- ═══ SIDEBAR LAYOUT ════════════════════════════════════ -->
-    <section row wrap>
+    <section strips>
       <div stack>
         <h2>Documentation</h2>
         <p>The framework provides a comprehensive set of styles for all common HTML elements. Each component can be customized through CSS variables without touching the source.</p>
@@ -196,7 +196,7 @@
     <!-- ═══ BADGES / TAGS ═════════════════════════════════════ -->
     <section>
       <h2>Tags</h2>
-      <div row wrap>
+      <div strips>
         <span badge>Default</span>
         <span badge highlight>Featured</span>
         <span badge positive>Stable</span>
@@ -264,18 +264,18 @@
 
         <fieldset>
           <legend>Preferences</legend>
-          <div row wrap>
+          <div strips>
             <label><input type="checkbox"> Subscribe to newsletter</label>
             <label><input type="checkbox"> Agree to terms</label>
           </div>
-          <div row wrap>
+          <div strips>
             <label><input type="radio" name="contact-pref"> Email</label>
             <label><input type="radio" name="contact-pref"> Phone</label>
             <label><input type="radio" name="contact-pref"> No preference</label>
           </div>
         </fieldset>
 
-        <div row>
+        <div strip>
           <input type="submit" value="Send Message">
           <button ghost type="reset">Clear</button>
         </div>
@@ -315,7 +315,7 @@
       <dialog id="demo-dialog">
         <h3>Confirm Action</h3>
         <p>Are you sure you want to proceed? This action cannot be undone.</p>
-        <div row>
+        <div strip>
           <button highlight onclick="document.getElementById('demo-dialog').close()">Confirm</button>
           <button ghost onclick="document.getElementById('demo-dialog').close()">Cancel</button>
         </div>

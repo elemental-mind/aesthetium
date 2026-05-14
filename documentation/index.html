@@ -20,7 +20,7 @@
   <main>
 
     <!-- ═══ LANDING ════════════════════════════════════════════ -->
-    <section full-page row wrapping id="landing">
+    <section full-page strips id="landing">
       <style>
         #landing {
           >header {
@@ -244,7 +244,7 @@
         <h1>Aesthetium</h1>
         <h5 light>The minimalist CSS Framework</h5>
         <p light>Light on the eye. Light on your code. Light on your bandwidth.</p>
-        <div row>
+        <div strip>
           <a href="guide/getting-started.html"><button highlight>Get Started</button></a>
           <a href="reference.html"><button ghost>View Sample Sheet</button></a>
         </div>
@@ -596,7 +596,7 @@
           Express your intent. State the <i>what</i> not the <i>how</i>. Let the design system handle the rest.
         </p>
       </header>
-      <div row class id="side-by-side">
+      <div strip class id="side-by-side">
         <div stack id="simple">
           <div class="code-scene">
             <pre dark
@@ -645,7 +645,7 @@
     </section>
 
     <!-- ═══ LIVE DEMO ═════════════════════════════════════════ -->
-    <section full-page row wrap dark>
+    <section full-page strips dark>
       <div stack>
         <h4>Form — zero classes</h4>
         <form onsubmit="return false">
@@ -671,7 +671,7 @@
           <li>Auto dark mode via <code>prefers-color-scheme</code> — no config</li>
           <li>Zero JavaScript — works in any environment, including SSR with no JS</li>
         </ul>
-        <div row>
+        <div strip>
           <a href="guide/getting-started.html"><button highlight>Get Started</button></a>
           <a href="guide/tokens.html"><button ghost>Explore Tokens</button></a>
         </div>
@@ -708,7 +708,7 @@
           <pre><code>&lt;button&gt;Default&lt;/button&gt;
 &lt;button highlight&gt;Primary&lt;/button&gt;
 &lt;button ghost&gt;Secondary&lt;/button&gt;</code></pre>
-          <div row>
+          <div strip>
             <button>Default</button>
             <button highlight>Primary</button>
             <button ghost>Secondary</button>
@@ -779,7 +779,7 @@
         </article>
         <article stack>
           <h4>Layout attributes</h4>
-          <p light><code>[row]</code>, <code>[stack]</code>, <code>[spread]</code>, <code>[centered]</code> — flex
+          <p light><code>[strip]</code>, <code>[stack]</code>, <code>[spread]</code>, <code>[centered]</code> — flex
             layout
             without a single class.</p>
         </article>
@@ -797,7 +797,7 @@
     </section>
 
     <!-- ═══ COMPARISON TABLE ══════════════════════════════════ -->
-    <section full-page row wrap>
+    <section full-page strips>
       <div stack>
         <h2>Framework Comparison</h2>
         <p light>No purging ritual. No PostCSS config. No learning a parallel vocabulary.</p>
@@ -859,7 +859,7 @@
     <section full-page dark stack centered>
       <h2>Start Building</h2>
       <p>One stylesheet. Semantic HTML. A complete design system.</p>
-      <div row centered>
+      <div strip centered>
         <a href="guide/getting-started.html"><button highlight large>Get Started</button></a>
         <a href="https://github.com/elemental-mind/aesthetium"><button ghost large>GitHub</button></a>
       </div>

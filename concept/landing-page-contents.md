@@ -145,7 +145,7 @@ Code example:
 1. **Auto dark mode** — Respects `prefers-color-scheme`. No extra config.
 2. **Under 5 KB** — The full framework, gzipped. No tree-shaking required.
 3. **Zero JavaScript** — Pure CSS. Works anywhere, including no-JS SSR.
-4. **Layout attributes** — `[row]`, `[stack]`, `[spread]`, `[centered]` — flex layout without a class.
+4. **Layout attributes** — `[strip]`, `[stack]`, `[spread]`, `[centered]` — flex layout without a class.
 5. **Semantic variants** — `highlight`, `ghost`, `positive`, `negative`, `dark`.
 6. **Deep token system** — Design → semantic → component. Override at any tier.
 

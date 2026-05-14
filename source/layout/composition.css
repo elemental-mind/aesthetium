@@ -1,0 +1,84 @@
+/* Layout composition attributes */
+
+[strip] {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+
+  &[scrollable] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  >aside {
+    flex: 0 0 280px;
+    margin-block: 0;
+  }
+}
+
+[stack] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+
+  &[scrollable] {
+    overflow-y: auto;
+  }
+}
+
+[strips] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+
+  >aside {
+    flex: 0 0 280px;
+    margin-block: 0;
+  }
+}
+
+[stacks] {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+[tiles] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--tile-min, 12rem)), 1fr));
+  gap: var(--space-4);
+}
+
+[tile-strip] {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+
+  &[scrollable] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+[tile-stack] {
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: minmax(0, 1fr);
+  gap: var(--space-4);
+
+  &[scrollable] {
+    overflow-y: auto;
+  }
+}
+
+[spread] {
+  justify-content: space-between;
+}
+
+[centered] {
+  justify-content: center;
+  align-items: center;
+}
