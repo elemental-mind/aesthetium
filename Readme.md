@@ -19,7 +19,7 @@ This framework helps you keep your DOM clean, helping drive the separation betwe
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aesthetium/distribution/aesthetium.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aesthetium/distribution/framework/aesthetium.css">
 ```
 
 ### npm
@@ -29,13 +29,38 @@ npm install aesthetium
 ```
 
 ```html
-<link rel="stylesheet" href="node_modules/aesthetium/distribution/aesthetium.css">
+<link rel="stylesheet" href="node_modules/aesthetium/distribution/framework/aesthetium.css">
 ```
 
 Or with a bundler:
 
 ```css
 @import 'aesthetium';
+```
+
+### Modular imports
+
+Use the full bundle when you want everything:
+
+```css
+@import 'aesthetium';
+```
+
+Use the smaller core bundle for tokens, reset, document defaults, typography, media, and layout attributes only:
+
+```css
+@import 'aesthetium/core.css';
+```
+
+Or compose only the pieces you need:
+
+```css
+@import 'aesthetium/tokens/system.css';
+@import 'aesthetium/base/reset.css';
+@import 'aesthetium/base/document.css';
+@import 'aesthetium/base/typography.css';
+@import 'aesthetium/components/button.css';
+@import 'aesthetium/components/form.css';
 ```
 
 ## Attributes
@@ -161,7 +186,7 @@ Aesthetium is built on CSS custom properties. Override any token in your own `:r
 | `--container-width` | `72rem` | Max page width |
 | `--content-width` | `68ch` | Max paragraph width |
 
-The full token list is in [`source/system.css`](source/system.css) and documented in the [Tokens guide](documentation/guide/tokens.html).
+The full token list is in [`source/tokens/system.css`](source/tokens/system.css) and documented in the [Tokens guide](documentation/guide/tokens.html).
 
 Dark mode is supported automatically via `prefers-color-scheme`.
 

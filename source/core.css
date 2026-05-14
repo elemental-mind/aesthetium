@@ -1,0 +1,10 @@
+/* Aesthetium - minimal semantic foundation */
+
+@import 'tokens/system.css';
+
+@import 'base/reset.css';
+@import 'base/document.css';
+@import 'base/typography.css';
+@import 'base/media.css';
+
+@import 'layout/attributes.css';

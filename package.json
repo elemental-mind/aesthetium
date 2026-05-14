@@ -10,8 +10,17 @@
     "url": "https://github.com/elemental-mind/aesthetium.git"
   },
   "type": "module",
-  "style": "./framework_distribution/aesthetium.css",
-  "main": "./framework_distribution/aesthetium.css",
+  "style": "./distribution/framework/aesthetium.css",
+  "main": "./distribution/framework/aesthetium.css",
+  "exports": {
+    ".": "./distribution/framework/aesthetium.css",
+    "./aesthetium.css": "./distribution/framework/aesthetium.css",
+    "./core.css": "./distribution/framework/core.css",
+    "./tokens/*": "./distribution/framework/tokens/*",
+    "./base/*": "./distribution/framework/base/*",
+    "./layout/*": "./distribution/framework/layout/*",
+    "./components/*": "./distribution/framework/components/*"
+  },
   "scripts": {
     "dev": "vite --config documentation/vite.config.js",
     "build:css": "node build-css.js",

@@ -45,7 +45,7 @@ export default defineConfig({
     },
     base: './',
     build: {
-        outDir: resolve(projectRoot, 'documentation_distribution'),
+        outDir: resolve(projectRoot, 'distribution/docs'),
         emptyOutDir: true,
         cssCodeSplit: false,
         rollupOptions: {

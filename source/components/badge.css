@@ -1,0 +1,44 @@
+/* ─── Badges ────────────────────────────────────────────────── */
+
+[badge] {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--badge-font-size);
+  font-weight: 500;
+  padding: 0.2em 0.6em;
+  border-radius: var(--badge-radius);
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+
+  &[positive] {
+    background-color: var(--color-positive-tint);
+    color: var(--color-positive);
+  }
+
+  &[negative] {
+    background-color: var(--color-negative-tint);
+    color: var(--color-negative);
+  }
+
+  &[alert] {
+    background-color: var(--color-alert-tint);
+    color: var(--color-alert);
+  }
+
+  &:is([highlight], [primary]) {
+    background-color: var(--color-primary-tint);
+    color: var(--color-primary);
+  }
+
+  &[secondary] {
+    background-color: var(--color-secondary-tint);
+    color: var(--color-secondary);
+  }
+
+  &[tertiary] {
+    background-color: var(--color-tertiary-tint);
+    color: var(--color-tertiary);
+  }
+}

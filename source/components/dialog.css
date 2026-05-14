@@ -1,0 +1,24 @@
+/* ─── Dialog ────────────────────────────────────────────────── */
+
+dialog {
+  background-color: var(--dialog-bg);
+  border: 1px solid var(--dialog-border);
+  border-radius: var(--dialog-radius);
+  padding: var(--dialog-padding);
+  max-width: var(--dialog-max-width);
+  width: calc(100% - var(--space-8));
+  box-shadow: var(--dialog-shadow);
+  margin: auto;
+
+  &::backdrop {
+    background-color: color-mix(in srgb, var(--color-text) 35%, transparent);
+    backdrop-filter: blur(3px);
+  }
+
+  h2,
+  h3 {
+    margin-block-start: 0;
+  }
+}
+
+

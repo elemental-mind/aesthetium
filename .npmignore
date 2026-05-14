@@ -6,5 +6,6 @@ source/
 concept/
 documentation/
 documentation_distribution/
+framework_distribution/
 build-css.js
 build.js

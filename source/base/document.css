@@ -1,0 +1,20 @@
+/* ─── Base ──────────────────────────────────────────────────── */
+
+html {
+  font-size: var(--text-base);
+  -webkit-text-size-adjust: 100%;
+  color-scheme: light;
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  scrollbar-color: gray transparent;
+  scrollbar-gutter: auto;
+  overflow-y: overlay;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-page);
+}
+

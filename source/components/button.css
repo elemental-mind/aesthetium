@@ -1,0 +1,116 @@
+/* ─── Buttons ───────────────────────────────────────────────── */
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+[role="button"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--button-font-size);
+  font-weight: 500;
+  line-height: 1;
+  padding: calc(var(--space-2) + 1px) var(--space-4);
+  border-radius: var(--button-radius);
+  border: 1px solid var(--button-border);
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  transition:
+    background-color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    opacity var(--duration) var(--ease);
+
+  &:hover {
+    background-color: var(--button-bg-hover);
+  }
+
+  &:active {
+    opacity: 0.75;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  &:disabled,
+  &:is(input:disabled) {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &:is([highlight], [type="submit"]) {
+    --_btn-fill: var(--color-primary);
+    --_btn-ink: var(--color-canvas);
+  }
+
+  &[positive] {
+    --_btn-fill: var(--color-positive);
+    --_btn-ink: var(--color-positive-fg);
+  }
+
+  &[negative] {
+    --_btn-fill: var(--color-negative);
+    --_btn-ink: var(--color-negative-fg);
+  }
+
+  &[alert] {
+    --_btn-fill: var(--color-alert);
+    --_btn-ink: var(--color-alert-fg);
+  }
+
+  &[secondary] {
+    --_btn-fill: var(--color-secondary);
+    --_btn-ink: var(--color-canvas);
+  }
+
+  &[tertiary] {
+    --_btn-fill: var(--color-tertiary);
+    --_btn-ink: var(--color-canvas);
+  }
+
+  &:is([highlight], [type="submit"], [positive], [negative], [alert], [secondary], [tertiary]) {
+    background-color: var(--_btn-fill);
+    border-color: var(--_btn-fill);
+    color: var(--_btn-ink);
+
+    &:hover {
+      background-color: color-mix(in srgb, var(--_btn-fill) 85%, var(--_btn-ink));
+      border-color: color-mix(in srgb, var(--_btn-fill) 85%, var(--_btn-ink));
+    }
+  }
+
+  &[ghost] {
+    background-color: transparent;
+    border-color: var(--button-border);
+    color: var(--button-text);
+
+    &:hover {
+      background-color: var(--button-bg);
+    }
+  }
+
+  &[small] {
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--text-xs);
+  }
+
+  &[large] {
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-base);
+  }
+
+  &[pill] {
+    border-radius: var(--radius-full);
+  }
+}
+
+

@@ -1,0 +1,98 @@
+/* ─── Forms ─────────────────────────────────────────────────── */
+
+fieldset {
+  border: 1px solid var(--fieldset-border);
+  border-radius: var(--fieldset-radius);
+  padding: var(--space-5);
+  margin-block: var(--space-4);
+
+  legend {
+    font-weight: 600;
+    font-size: var(--text-sm);
+    padding-inline: var(--space-2);
+  }
+}
+
+label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-block-end: var(--space-1);
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  font-size: var(--input-font-size);
+  color: var(--color-text);
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  padding: var(--space-2) var(--space-3);
+  width: 100%;
+  line-height: var(--leading-normal);
+  appearance: none;
+  transition:
+    border-color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--input-focus-ring);
+  }
+
+  &::placeholder {
+    color: var(--color-muted);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &[valid] {
+    border-color: var(--color-positive);
+  }
+
+  &[invalid] {
+    border-color: var(--color-negative);
+    box-shadow: 0 0 0 3px var(--color-negative-tint);
+  }
+
+  &+small {
+    display: block;
+    margin-block-start: var(--space-1);
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23737373'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  background-size: 1.25em;
+  padding-inline-end: var(--space-8);
+  cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  appearance: auto;
+  background-color: revert;
+  border: revert;
+  border-radius: revert;
+  padding: 0;
+  box-shadow: none;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+

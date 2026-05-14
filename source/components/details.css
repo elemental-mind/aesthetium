@@ -1,0 +1,65 @@
+/* ─── Details / Disclosure ──────────────────────────────────── */
+
+details {
+  border: 1px solid var(--details-border);
+  border-radius: var(--details-radius);
+  overflow: hidden;
+  margin-block: var(--space-2);
+  box-shadow: var(--details-shadow);
+  background-color: var(--details-bg);
+
+  &[open] {
+    padding: 0 var(--space-4) var(--space-4);
+
+    >summary {
+      margin-inline: calc(-1 * var(--space-4));
+      border-bottom: 1px solid var(--details-border);
+    }
+
+    summary::after {
+      transform: rotate(270deg);
+    }
+  }
+
+  > :not(summary):first-of-type {
+    padding-top: var(--space-4);
+  }
+
+  >pre {
+    margin-block: var(--space-3) 0;
+  }
+
+  summary {
+    font-weight: 500;
+    font-size: var(--text-sm);
+    padding: var(--space-3) var(--space-4);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--summary-bg);
+    user-select: none;
+    transition: background-color var(--duration) var(--ease);
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: '›';
+      font-size: 1.1em;
+      line-height: 1;
+      transform: rotate(90deg);
+      transition: transform var(--duration) var(--ease);
+      color: var(--color-muted);
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      background-color: var(--summary-bg-hover);
+    }
+  }
+}
+
+

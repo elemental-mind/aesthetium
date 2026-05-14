@@ -1,0 +1,45 @@
+/* ─── Progress ──────────────────────────────────────────────── */
+
+progress {
+  width: 100%;
+  height: var(--progress-height);
+  border: none;
+  border-radius: var(--progress-radius);
+  background-color: var(--progress-bg);
+  overflow: hidden;
+  appearance: none;
+
+  &::-webkit-progress-bar {
+    background-color: var(--progress-bg);
+  }
+
+  &::-webkit-progress-value {
+    background-color: var(--progress-fill);
+  }
+
+  &::-moz-progress-bar {
+    background-color: var(--progress-fill);
+  }
+
+  &[positive] {
+    &::-webkit-progress-value {
+      background-color: var(--color-positive);
+    }
+
+    &::-moz-progress-bar {
+      background-color: var(--color-positive);
+    }
+  }
+
+  &[negative] {
+    &::-webkit-progress-value {
+      background-color: var(--color-negative);
+    }
+
+    &::-moz-progress-bar {
+      background-color: var(--color-negative);
+    }
+  }
+}
+
+

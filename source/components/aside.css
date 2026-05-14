@@ -1,0 +1,42 @@
+/* ─── Aside — callout blocks ────────────────────────────────── */
+
+aside {
+  background-color: var(--aside-bg);
+  border-inline-start: 3px solid var(--aside-border);
+  border-radius: var(--aside-radius);
+  padding: var(--aside-padding);
+  margin-block: var(--space-4);
+  font-size: var(--text-sm);
+
+  &[positive] {
+    border-color: var(--color-positive);
+    background-color: var(--color-positive-subtle);
+  }
+
+  &[negative] {
+    border-color: var(--color-negative);
+    background-color: var(--color-negative-subtle);
+  }
+
+  &[alert] {
+    border-color: var(--color-alert);
+    background-color: var(--color-alert-subtle);
+  }
+
+  &[primary] {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary-subtle);
+  }
+
+  &[secondary] {
+    border-color: var(--color-secondary);
+    background-color: var(--color-secondary-subtle);
+  }
+
+  &[tertiary] {
+    border-color: var(--color-tertiary);
+    background-color: var(--color-tertiary-subtle);
+  }
+}
+
+
