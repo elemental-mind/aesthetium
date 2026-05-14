@@ -1,0 +1,75 @@
+/* Header */
+
+body:has(> header) {
+  & main>section {
+    padding-block-start: calc(var(--header-height) + var(--space-3)*3);
+
+    &[full-page] {
+      padding-block-start: calc(var(--header-height) + var(--space-3)*3);
+    }
+  }
+}
+
+body>header {
+  display: block flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 95;
+
+  width: var(--header-width);
+  max-width: 95vw;
+  height: var(--header-height);
+
+  margin-inline: auto;
+  margin-block-start: var(--space-3);
+  padding-inline: var(--space-5);
+
+  * {
+    z-index: 100;
+  }
+
+  /* Blurs the page content behind the header area. */
+  &::before {
+    content: "";
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 90;
+
+    height: calc(var(--header-height) + var(--space-3));
+
+    backdrop-filter: blur(1.5rem);
+    mask: linear-gradient(to top, transparent, black 75%);
+  }
+
+  /* Draws the visible header surface. */
+  &::after {
+    content: "";
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 95;
+
+    width: var(--container-width);
+    max-width: 95vw;
+    height: var(--header-height);
+
+    margin-inline: auto;
+    margin-block-start: var(--space-3);
+
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+  }
+}
