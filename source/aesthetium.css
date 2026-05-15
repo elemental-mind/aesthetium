@@ -11,7 +11,7 @@
 @import 'attributes/layouts.css';
 @import 'attributes/depth.css';
 @import 'attributes/hierarchy.css';
-@import 'attributes/indication.css';
+@import 'attributes/signals.css';
 
 @import 'components/header.css';
 @import 'components/navigation.css';
