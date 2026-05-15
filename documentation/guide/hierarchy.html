@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hierarchy - Aesthetium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap">
+  <link rel="stylesheet" href="../../source/aesthetium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+</head>
+<body>
+  <load src="partials/nav-guide.html" />
+
+  <main>
+    <section>
+      <h1>Hierarchy</h1>
+      <p>Hierarchy attributes adjust visual importance through color, weight, and emphasis. They are useful for labels, metadata, navigation groups, and repeated content.</p>
+    </section>
+
+    <section>
+      <h2>Single Element Hierarchy</h2>
+      <p>Apply hierarchy directly when one element needs to stand apart.</p>
+      <pre><code>&lt;p highlight&gt;Primary text&lt;/p&gt;
+&lt;p light&gt;Muted text&lt;/p&gt;
+&lt;p heavy&gt;Heavy text&lt;/p&gt;
+&lt;p emphasized&gt;Emphasized text&lt;/p&gt;</code></pre>
+      <div stack>
+        <p highlight>Primary text</p>
+        <p light>Muted text</p>
+        <p heavy>Heavy text</p>
+        <p emphasized>Emphasized text</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Attributes</h2>
+      <table>
+        <thead>
+          <tr><th>Attribute</th><th>Effect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>[highlight]</code></td><td>Uses the primary color token.</td></tr>
+          <tr><td><code>[light]</code></td><td>Uses the muted color token.</td></tr>
+          <tr><td><code>[heavy]</code></td><td>Sets a heavy font weight.</td></tr>
+          <tr><td><code>[emphasized]</code></td><td>Sets italic emphasis.</td></tr>
+          <tr><td><code>[plain]</code></td><td>Returns color and weight to inherited values and removes italic style.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Parent Child Hierarchy</h2>
+      <p>Use <code>items-</code> attributes on a parent to style every direct child. Then place a plain attribute on a child when that one member needs to opt out or take a different role.</p>
+      <pre><code>&lt;nav strip items-highlighted&gt;
+  &lt;a href="/"&gt;Home&lt;/a&gt;
+  &lt;a href="/docs" plain&gt;Docs&lt;/a&gt;
+  &lt;a href="/account" light&gt;Account&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+      <nav strip items-highlighted>
+        <a href="/">Home</a>
+        <a href="/docs" plain>Docs</a>
+        <a href="/account" light>Account</a>
+      </nav>
+    </section>
+
+    <section>
+      <h2>Item Attributes</h2>
+      <table>
+        <thead>
+          <tr><th>Parent Attribute</th><th>Direct Child Effect</th><th>Useful Override</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>[items-highlighted]</code></td><td>Every direct child uses the primary color.</td><td><code>[plain]</code> or <code>[light]</code></td></tr>
+          <tr><td><code>[items-light]</code></td><td>Every direct child uses the muted color.</td><td><code>[plain]</code> or <code>[highlight]</code></td></tr>
+          <tr><td><code>[items-heavy]</code></td><td>Every direct child receives heavy font weight.</td><td><code>[plain]</code></td></tr>
+          <tr><td><code>[items-emphasized]</code></td><td>Every direct child becomes italic.</td><td><code>[plain]</code></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Combining Parent Rules</h2>
+      <p>Parent attributes compose. This example makes all children highlighted and heavy, while one child opts out with <code>[plain]</code> and another switches to muted text.</p>
+      <pre><code>&lt;div stack items-highlighted items-heavy&gt;
+  &lt;p&gt;Important item&lt;/p&gt;
+  &lt;p plain&gt;Plain child override&lt;/p&gt;
+  &lt;p light&gt;Muted child override&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+      <div stack items-highlighted items-heavy>
+        <p>Important item</p>
+        <p plain>Plain child override</p>
+        <p light>Muted child override</p>
+      </div>
+    </section>
+  </main>
+
+  <load src="partials/footer-guide.html" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>

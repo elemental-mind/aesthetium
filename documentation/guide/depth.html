@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Depth - Aesthetium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap">
+  <link rel="stylesheet" href="../../source/aesthetium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+</head>
+<body>
+  <load src="partials/nav-guide.html" />
+
+  <main>
+    <section>
+      <h1>Depth</h1>
+      <p>Depth attributes control shadow elevation. Use them to make surfaces feel raised, floating, or intentionally flat without writing utility classes.</p>
+    </section>
+
+    <section>
+      <h2>Single Element Depth</h2>
+      <p>Apply depth directly when one element needs a specific elevation.</p>
+      <pre><code>&lt;article floating&gt;Floating surface&lt;/article&gt;
+&lt;article raised&gt;Raised surface&lt;/article&gt;
+&lt;article flat&gt;Flat surface&lt;/article&gt;</code></pre>
+      <div tiles>
+        <article floating>Floating surface</article>
+        <article raised>Raised surface</article>
+        <article flat>Flat surface</article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Attributes</h2>
+      <table>
+        <thead>
+          <tr><th>Attribute</th><th>Effect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>[floating]</code></td><td>Uses the larger shadow token for prominent elevated surfaces.</td></tr>
+          <tr><td><code>[raised]</code></td><td>Uses the standard shadow token for subtle elevation.</td></tr>
+          <tr><td><code>[flat]</code></td><td>Removes depth from the element.</td></tr>
+          <tr><td><code>[shadowless]</code></td><td>Alias for <code>[flat]</code> when the intent is explicitly no shadow.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Parent Child Depth</h2>
+      <p>Prefix the attribute with <code>items-</code> to apply depth to every direct child. A child can still override the parent treatment with its own plain depth attribute.</p>
+      <pre><code>&lt;div tiles items-floating&gt;
+  &lt;article&gt;Floating from parent&lt;/article&gt;
+  &lt;article flat&gt;Flat child override&lt;/article&gt;
+  &lt;article raised&gt;Raised child override&lt;/article&gt;
+&lt;/div&gt;</code></pre>
+      <div tiles items-floating>
+        <article>Floating from parent</article>
+        <article flat>Flat child override</article>
+        <article raised>Raised child override</article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Item Attributes</h2>
+      <table>
+        <thead>
+          <tr><th>Parent Attribute</th><th>Applies To</th><th>Child Override</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>[items-floating]</code></td><td>Every direct child receives <code>--shadow-lg</code>.</td><td><code>[raised]</code>, <code>[flat]</code>, or <code>[shadowless]</code></td></tr>
+          <tr><td><code>[items-raised]</code></td><td>Every direct child receives <code>--shadow</code>.</td><td><code>[floating]</code>, <code>[flat]</code>, or <code>[shadowless]</code></td></tr>
+          <tr><td><code>[items-flat]</code></td><td>Every direct child receives no shadow.</td><td><code>[floating]</code> or <code>[raised]</code></td></tr>
+          <tr><td><code>[items-shadowless]</code></td><td>Alias for <code>[items-flat]</code>.</td><td><code>[floating]</code> or <code>[raised]</code></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <load src="partials/footer-guide.html" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Layout — Aesthetium</title>
+  <title>Layout - Aesthetium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap">
@@ -14,15 +14,20 @@
   <load src="partials/nav-guide.html" />
 
   <main>
-
     <section>
       <h1>Layout</h1>
-      <p>Aesthetium provides structural layout through boolean HTML attributes. No utility classes — just intent expressed directly in markup.</p>
+      <p>Aesthetium provides structural layout through boolean HTML attributes. Layout attributes describe how an element arranges its direct children.</p>
+      <p>They can be mixed with spacing attributes and with child-item attributes from the depth, signals, and hierarchy guides.</p>
+    </section>
+
+    <section>
+      <h2>Flex Composition</h2>
+      <p>Use these when each child should keep its natural or component-defined size.</p>
     </section>
 
     <section>
       <h2><code>[strip]</code></h2>
-      <p>Horizontal flex container with a default gap.</p>
+      <p>Horizontal flex container with centered children and a default gap.</p>
       <pre><code>&lt;div strip&gt;
   &lt;article&gt;One&lt;/article&gt;
   &lt;article&gt;Two&lt;/article&gt;
@@ -51,38 +56,12 @@
     </section>
 
     <section>
-      <h2><code>[spread]</code></h2>
-      <p>Distributes children with <code>justify-content: space-between</code>. Usually combined with <code>[strip]</code>.</p>
-      <pre><code>&lt;div strip spread&gt;
-  &lt;strong&gt;Brand&lt;/strong&gt;
-  &lt;nav&gt;…&lt;/nav&gt;
-&lt;/div&gt;</code></pre>
-      <div strip spread>
-        <strong>Brand</strong>
-        <span badge>Right-aligned</span>
-      </div>
-    </section>
-
-    <section>
-      <h2><code>[centered]</code></h2>
-      <p>Centers children both horizontally and vertically.</p>
-      <pre><code>&lt;section centered&gt;
-  &lt;h2&gt;Centered content&lt;/h2&gt;
-  &lt;p&gt;All children are centered.&lt;/p&gt;
-&lt;/section&gt;</code></pre>
-      <section centered style="min-height: 8rem;">
-        <h3>Centered content</h3>
-        <p>All children are centered.</p>
-      </section>
-    </section>
-
-    <section>
-      <h2><code>[strips]</code></h2>
-      <p>Horizontal flex container that wraps onto multiple lines.</p>
+      <h2><code>[strips]</code> / <code>[stacks]</code></h2>
+      <p>Wrapping flex containers. <code>[strips]</code> wraps horizontal rows; <code>[stacks]</code> wraps vertical columns when the height is constrained.</p>
       <pre><code>&lt;div strips&gt;
-  &lt;article&gt;…&lt;/article&gt;
-  &lt;article&gt;…&lt;/article&gt;
-  &lt;article&gt;…&lt;/article&gt;
+  &lt;article&gt;One&lt;/article&gt;
+  &lt;article&gt;Two&lt;/article&gt;
+  &lt;article&gt;Three&lt;/article&gt;
 &lt;/div&gt;</code></pre>
       <div strips>
         <article>Card one</article>
@@ -93,10 +72,58 @@
     </section>
 
     <section>
+      <h2><code>[spread]</code> / <code>[centered]</code></h2>
+      <p><code>[spread]</code> distributes children with <code>justify-content: space-between</code>. <code>[centered]</code> centers children on both axes.</p>
+      <pre><code>&lt;div strip spread&gt;
+  &lt;strong&gt;Brand&lt;/strong&gt;
+  &lt;span badge&gt;Right-aligned&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+      <div strip spread>
+        <strong>Brand</strong>
+        <span badge>Right-aligned</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Grid Composition</h2>
+      <p>Use tile attributes when children should share predictable grid tracks.</p>
+    </section>
+
+    <section>
+      <h2><code>[tiles]</code></h2>
+      <p>Responsive grid whose columns fit the available width. Change the minimum tile size with <code>--tile-min</code>.</p>
+      <pre><code>&lt;div tiles style="--tile-min: 10rem"&gt;
+  &lt;article&gt;Alpha&lt;/article&gt;
+  &lt;article&gt;Beta&lt;/article&gt;
+  &lt;article&gt;Gamma&lt;/article&gt;
+&lt;/div&gt;</code></pre>
+      <div tiles style="--tile-min: 10rem;">
+        <article>Alpha</article>
+        <article>Beta</article>
+        <article>Gamma</article>
+      </div>
+    </section>
+
+    <section>
+      <h2><code>[tile-strip]</code> / <code>[tile-stack]</code></h2>
+      <p>Equal-track grids in one direction. Add <code>[scrollable]</code> when the track list can overflow.</p>
+      <pre><code>&lt;div tile-strip scrollable&gt;
+  &lt;article&gt;One&lt;/article&gt;
+  &lt;article&gt;Two&lt;/article&gt;
+  &lt;article&gt;Three&lt;/article&gt;
+&lt;/div&gt;</code></pre>
+      <div tile-strip scrollable>
+        <article>One</article>
+        <article>Two</article>
+        <article>Three</article>
+      </div>
+    </section>
+
+    <section>
       <h2><code>[compact]</code> / <code>[spacious]</code></h2>
-      <p>Tighten or loosen the default gap on any flex container.</p>
-      <pre><code>&lt;div strip compact&gt;…&lt;/div&gt;
-&lt;div strip spacious&gt;…&lt;/div&gt;</code></pre>
+      <p>Tighten or loosen the default gap on layout containers.</p>
+      <pre><code>&lt;div strip compact&gt;...&lt;/div&gt;
+&lt;div strip spacious&gt;...&lt;/div&gt;</code></pre>
       <div strip compact>
         <span badge>Compact</span>
         <span badge>Gap</span>
@@ -110,54 +137,10 @@
     </section>
 
     <section>
-      <h2><code>[full-page]</code></h2>
-      <p>Sets the element to <code>min-height: 100svh</code>. Ideal for hero sections.</p>
-      <pre><code>&lt;section full-page stack centered&gt;
-  &lt;h1&gt;Hero&lt;/h1&gt;
-&lt;/section&gt;</code></pre>
-    </section>
-
-    <section>
       <h2><code>[scrollable]</code></h2>
-      <p>Constrains the element to a fixed height with internal scroll.</p>
-      <pre><code>&lt;div scrollable&gt;…long content…&lt;/div&gt;</code></pre>
-    </section>
-
-    <section>
-      <h2><code>[dark]</code></h2>
-      <p>Forces the dark-mode palette on any element, regardless of OS setting.</p>
-      <pre><code>&lt;section dark stack centered&gt;
-  &lt;h2&gt;Dark section&lt;/h2&gt;
-  &lt;p&gt;Always renders in the dark palette.&lt;/p&gt;
-  &lt;button highlight&gt;CTA&lt;/button&gt;
-&lt;/section&gt;</code></pre>
-      <section dark stack centered style="padding: var(--space-8); border-radius: var(--radius-lg);">
-        <h2>Dark section</h2>
-        <p>Always renders in the dark palette.</p>
-        <button highlight>CTA</button>
-      </section>
-    </section>
-
-    <section>
-      <h2>Page Structure</h2>
-      <p>A typical Aesthetium page uses semantic elements that are automatically styled:</p>
-      <pre><code>&lt;body&gt;
-  &lt;header&gt;…nav…&lt;/header&gt;
-
-  &lt;main&gt;
-    &lt;section&gt;…hero…&lt;/section&gt;
-    &lt;section&gt;…content…&lt;/section&gt;
-  &lt;/main&gt;
-
-  &lt;footer&gt;…links…&lt;/footer&gt;
-&lt;/body&gt;</code></pre>
-      <ul>
-        <li><code>header</code> — sticky top nav, flex spread by default</li>
-        <li><code>main</code> — centered container with <code>--container-width</code></li>
-        <li><code>section</code> — padded content block</li>
-        <li><code>footer</code> — padded bottom section with muted text</li>
-        <li><code>aside</code> — callout / sidebar with border treatment</li>
-      </ul>
+      <p>Adds internal scrolling to supported layout containers. On <code>[strip]</code> and <code>[tile-strip]</code> it scrolls horizontally; on <code>[stack]</code> and <code>[tile-stack]</code> it scrolls vertically.</p>
+      <pre><code>&lt;div strip scrollable&gt;...wide content...&lt;/div&gt;
+&lt;div stack scrollable&gt;...tall content...&lt;/div&gt;</code></pre>
     </section>
 
     <section>
@@ -166,11 +149,11 @@
       <pre><code>&lt;section strips&gt;
   &lt;div stack&gt;
     &lt;h2&gt;Main content&lt;/h2&gt;
-    &lt;p&gt;…&lt;/p&gt;
+    &lt;p&gt;...&lt;/p&gt;
   &lt;/div&gt;
   &lt;aside&gt;
     &lt;strong&gt;Sidebar&lt;/strong&gt;
-    &lt;p&gt;…&lt;/p&gt;
+    &lt;p&gt;...&lt;/p&gt;
   &lt;/aside&gt;
 &lt;/section&gt;</code></pre>
       <section strips>
@@ -180,11 +163,25 @@
         </div>
         <aside>
           <strong>Sidebar</strong>
-          <p>The aside shrinks to its natural width.</p>
+          <p>The aside keeps a stable sidebar width.</p>
         </aside>
       </section>
     </section>
 
+    <section>
+      <h2>Parent And Child Attributes</h2>
+      <p>Layout attributes set container behavior. Other attribute groups can style the children from the parent, then a child can opt out or override itself with a plain attribute.</p>
+      <pre><code>&lt;div tiles items-highlighted items-raised&gt;
+  &lt;article&gt;Highlighted and raised&lt;/article&gt;
+  &lt;article plain flat&gt;Plain and flat&lt;/article&gt;
+  &lt;article&gt;Highlighted and raised&lt;/article&gt;
+&lt;/div&gt;</code></pre>
+      <div tiles items-highlighted items-raised>
+        <article>Highlighted and raised</article>
+        <article plain flat>Plain and flat</article>
+        <article>Highlighted and raised</article>
+      </div>
+    </section>
   </main>
 
   <load src="partials/footer-guide.html" />

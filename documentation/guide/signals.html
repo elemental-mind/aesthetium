@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signals - Aesthetium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap">
+  <link rel="stylesheet" href="../../source/aesthetium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+</head>
+<body>
+  <load src="partials/nav-guide.html" />
+
+  <main>
+    <section>
+      <h1>Signals</h1>
+      <p>Signal attributes communicate state or tone: positive, negative, alert, or inactive. They stay small so they can be combined with components and layout attributes.</p>
+    </section>
+
+    <section>
+      <h2>Status Tone</h2>
+      <p>Use tone attributes directly on the element that carries the meaning.</p>
+      <pre><code>&lt;p positive&gt;Saved successfully.&lt;/p&gt;
+&lt;p negative&gt;Payment failed.&lt;/p&gt;
+&lt;p alert&gt;Storage almost full.&lt;/p&gt;</code></pre>
+      <div stack>
+        <p positive>Saved successfully.</p>
+        <p negative>Payment failed.</p>
+        <p alert>Storage almost full.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Inactive State</h2>
+      <p><code>[inactive]</code> lowers opacity for unavailable, disabled-looking, or secondary content. It does not change actual HTML behavior, so keep using native attributes like <code>disabled</code> when interaction must be blocked.</p>
+      <pre><code>&lt;button inactive&gt;Unavailable&lt;/button&gt;
+&lt;button disabled&gt;Disabled&lt;/button&gt;</code></pre>
+      <div strip>
+        <button inactive>Unavailable</button>
+        <button disabled>Disabled</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Attributes</h2>
+      <table>
+        <thead>
+          <tr><th>Attribute</th><th>Effect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>[positive]</code></td><td>Uses the positive color token for success or confirmation.</td></tr>
+          <tr><td><code>[negative]</code></td><td>Uses the negative color token for errors or destructive meaning.</td></tr>
+          <tr><td><code>[alert]</code></td><td>Uses the alert color token for warnings or attention.</td></tr>
+          <tr><td><code>[inactive]</code></td><td>Reduces opacity to show lowered availability or emphasis.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Parent Child Signals</h2>
+      <p><code>[items-inactive]</code> dims every direct child. A child can still add meaning with <code>[positive]</code>, <code>[negative]</code>, or <code>[alert]</code>; those attributes change color while the parent still supplies the inactive opacity.</p>
+      <pre><code>&lt;div stack items-inactive&gt;
+  &lt;p&gt;Dimmed by parent&lt;/p&gt;
+  &lt;p positive&gt;Positive, but still inactive&lt;/p&gt;
+  &lt;p alert&gt;Alert, but still inactive&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+      <div stack items-inactive>
+        <p>Dimmed by parent</p>
+        <p positive>Positive, but still inactive</p>
+        <p alert>Alert, but still inactive</p>
+      </div>
+    </section>
+  </main>
+
+  <load src="partials/footer-guide.html" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>
