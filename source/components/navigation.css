@@ -6,7 +6,7 @@ nav {
   gap: var(--space-1);
   flex-wrap: wrap;
 
-  a {
+  a:not([button]) {
     display: inline-block;
     text-decoration: none;
     color: var(--nav-link-color);
@@ -38,8 +38,8 @@ nav {
     flex-wrap: wrap;
   }
 
-  &[aria-label="Breadcrumb"] a+a::before,
-  &[aria-label="breadcrumb"] a+a::before {
+  &[aria-label="Breadcrumb"] a:not([button])+a:not([button])::before,
+  &[aria-label="breadcrumb"] a:not([button])+a:not([button])::before {
     content: '/';
     margin-inline: var(--space-1);
     color: var(--color-muted);
@@ -51,8 +51,7 @@ body>footer nav {
   align-items: flex-start;
   gap: var(--space-2);
 
-  a {
+  a:not([button]) {
     padding: var(--space-1) 0;
   }
 }
-

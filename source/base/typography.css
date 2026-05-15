@@ -52,7 +52,7 @@ p {
   }
 }
 
-a {
+a:not([button]) {
   color: var(--color-primary);
   text-underline-offset: 0.2em;
   transition: opacity var(--duration) var(--ease);
