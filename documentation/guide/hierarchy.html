@@ -23,11 +23,17 @@
       <h2>Single Element Hierarchy</h2>
       <p>Apply hierarchy directly when one element needs to stand apart.</p>
       <pre><code>&lt;p highlight&gt;Primary text&lt;/p&gt;
+&lt;p secondary&gt;Secondary text&lt;/p&gt;
+&lt;p tertiary&gt;Tertiary text&lt;/p&gt;
+&lt;p ghost&gt;Ghost surface&lt;/p&gt;
 &lt;p light&gt;Muted text&lt;/p&gt;
 &lt;p heavy&gt;Heavy text&lt;/p&gt;
 &lt;p emphasized&gt;Emphasized text&lt;/p&gt;</code></pre>
       <div stack>
         <p highlight>Primary text</p>
+        <p secondary>Secondary text</p>
+        <p tertiary>Tertiary text</p>
+        <p ghost>Ghost surface</p>
         <p light>Muted text</p>
         <p heavy>Heavy text</p>
         <p emphasized>Emphasized text</p>
@@ -42,6 +48,9 @@
         </thead>
         <tbody>
           <tr><td><code>[highlight]</code></td><td>Uses the primary color token.</td></tr>
+          <tr><td><code>[secondary]</code></td><td>Uses the secondary color token, border, and subtle background.</td></tr>
+          <tr><td><code>[tertiary]</code></td><td>Uses the tertiary color token, border, and subtle background.</td></tr>
+          <tr><td><code>[ghost]</code></td><td>Removes surface background.</td></tr>
           <tr><td><code>[light]</code></td><td>Uses the muted color token.</td></tr>
           <tr><td><code>[heavy]</code></td><td>Sets a heavy font weight.</td></tr>
           <tr><td><code>[emphasized]</code></td><td>Sets italic emphasis.</td></tr>
@@ -73,6 +82,8 @@
         </thead>
         <tbody>
           <tr><td><code>[items-highlighted]</code></td><td>Every direct child uses the primary color.</td><td><code>[plain]</code> or <code>[light]</code></td></tr>
+          <tr><td><code>[items-secondary]</code></td><td>Every direct child uses the secondary color.</td><td><code>[plain]</code>, <code>[highlight]</code>, or <code>[light]</code></td></tr>
+          <tr><td><code>[items-tertiary]</code></td><td>Every direct child uses the tertiary color.</td><td><code>[plain]</code>, <code>[highlight]</code>, or <code>[light]</code></td></tr>
           <tr><td><code>[items-light]</code></td><td>Every direct child uses the muted color.</td><td><code>[plain]</code> or <code>[highlight]</code></td></tr>
           <tr><td><code>[items-heavy]</code></td><td>Every direct child receives heavy font weight.</td><td><code>[plain]</code></td></tr>
           <tr><td><code>[items-emphasized]</code></td><td>Every direct child becomes italic.</td><td><code>[plain]</code></td></tr>
