@@ -1,0 +1,19 @@
+[items-inactive] > * {
+  opacity: 0.5;
+}
+
+[positive] {
+  color: var(--color-positive);
+}
+
+[negative] {
+  color: var(--color-negative);
+}
+
+[alert] {
+  color: var(--color-alert);
+}
+
+[inactive] {
+  opacity: 0.5;
+}
