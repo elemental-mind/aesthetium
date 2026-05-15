@@ -2,6 +2,7 @@
 
 @import 'base/fonts.css';
 @import 'tokens/system.css';
+@import 'attributes/color-inversion.css';
 
 @import 'base/reset.css';
 @import 'base/document.css';

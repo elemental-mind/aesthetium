@@ -1,5 +1,19 @@
 [items-highlighted] > * {
-  color: var(--color-primary);
+  color: var(--color-primary-fg);
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-subtle);
+}
+
+[items-secondary] > * {
+  color: var(--color-secondary-fg);
+  border-color: var(--color-secondary);
+  background-color: var(--color-secondary-subtle);
+}
+
+[items-tertiary] > * {
+  color: var(--color-tertiary-fg);
+  border-color: var(--color-tertiary);
+  background-color: var(--color-tertiary-subtle);
 }
 
 [items-light] > * {
@@ -21,11 +35,29 @@
 }
 
 [highlight] {
-  color: var(--color-primary);
+  color: var(--color-primary-fg);
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+}
+
+[secondary] {
+  color: var(--color-secondary-fg);
+  border-color: var(--color-secondary);
+  background-color: var(--color-secondary-subtle);
+}
+
+[tertiary] {
+  color: var(--color-tertiary-fg);
+  border-color: var(--color-tertiary);
+  background-color: var(--color-tertiary-subtle);
 }
 
 [light] {
   color: var(--color-muted);
+}
+
+[ghost] {
+  background-color: transparent;
 }
 
 [heavy] {
