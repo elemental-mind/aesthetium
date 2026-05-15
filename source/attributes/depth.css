@@ -1,0 +1,36 @@
+[items-floating]>* {
+  --depth: var(--shadow-lg);
+}
+
+[items-raised]>* {
+  --depth: var(--shadow);
+}
+
+[items-flat]>*,
+[items-shadowless]>* {
+  --depth: none;
+}
+
+[floating] {
+  --depth: var(--shadow-lg);
+}
+
+[raised] {
+  --depth: var(--shadow);
+}
+
+[flat],
+[shadowless] {
+  --depth: none;
+}
+
+[items-floating]>*,
+[items-raised]>*,
+[items-flat]>*,
+[items-shadowless]>*,
+[floating],
+[raised],
+[flat],
+[shadowless] {
+  box-shadow: var(--depth);
+}
