@@ -1,9 +1,0 @@
-/* Spacing attributes */
-
-[compact] {
-  gap: var(--space-2);
-}
-
-[spacious] {
-  gap: var(--space-8);
-}
