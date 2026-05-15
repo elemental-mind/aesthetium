@@ -10,6 +10,7 @@
 @import 'base/media.css';
 
 @import 'attributes/layouts.css';
+@import 'attributes/placement.css';
 @import 'attributes/depth.css';
 @import 'attributes/hierarchy.css';
 @import 'attributes/signals.css';

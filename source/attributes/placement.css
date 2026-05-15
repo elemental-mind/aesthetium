@@ -1,0 +1,182 @@
+/* Container placement and direct-child exceptions */
+
+:is([strip], [strips]) {
+  &[left] {
+    justify-content: start;
+  }
+
+  &[center],
+  &[h-center] {
+    justify-content: center;
+  }
+
+  &[right] {
+    justify-content: end;
+  }
+
+  &[full-width] {
+    justify-content: space-between;
+  }
+
+  &[top] {
+    align-items: start;
+  }
+
+  &[horizon],
+  &[middle],
+  &[v-center] {
+    align-items: center;
+  }
+
+  &[bottom] {
+    align-items: end;
+  }
+
+  &[full-height] {
+    align-items: stretch;
+  }
+
+  > [self-top] {
+    align-self: start;
+  }
+
+  > [self-horizon],
+  > [self-middle],
+  > [self-v-center] {
+    align-self: center;
+  }
+
+  > [self-bottom] {
+    align-self: end;
+  }
+
+  > [self-full-height] {
+    align-self: stretch;
+  }
+}
+
+:is([stack], [stacks]) {
+  &[left] {
+    align-items: start;
+  }
+
+  &[center],
+  &[h-center] {
+    align-items: center;
+  }
+
+  &[right] {
+    align-items: end;
+  }
+
+  &[full-width] {
+    align-items: stretch;
+  }
+
+  &[top] {
+    justify-content: start;
+  }
+
+  &[horizon],
+  &[middle],
+  &[v-center] {
+    justify-content: center;
+  }
+
+  &[bottom] {
+    justify-content: end;
+  }
+
+  &[full-height] {
+    justify-content: space-between;
+  }
+
+  > [self-left] {
+    align-self: start;
+  }
+
+  > [self-center],
+  > [self-h-center] {
+    align-self: center;
+  }
+
+  > [self-right] {
+    align-self: end;
+  }
+
+  > [self-full-width] {
+    align-self: stretch;
+  }
+}
+
+:is([tiles], [tile-strip], [tile-stack]) {
+  &[left] {
+    justify-items: start;
+  }
+
+  &[center],
+  &[h-center] {
+    justify-items: center;
+  }
+
+  &[right] {
+    justify-items: end;
+  }
+
+  &[full-width] {
+    justify-items: stretch;
+  }
+
+  &[top] {
+    align-items: start;
+  }
+
+  &[horizon],
+  &[middle],
+  &[v-center] {
+    align-items: center;
+  }
+
+  &[bottom] {
+    align-items: end;
+  }
+
+  &[full-height] {
+    align-items: stretch;
+  }
+
+  > [self-left] {
+    justify-self: start;
+  }
+
+  > [self-center],
+  > [self-h-center] {
+    justify-self: center;
+  }
+
+  > [self-right] {
+    justify-self: end;
+  }
+
+  > [self-full-width] {
+    justify-self: stretch;
+  }
+
+  > [self-top] {
+    align-self: start;
+  }
+
+  > [self-horizon],
+  > [self-middle],
+  > [self-v-center] {
+    align-self: center;
+  }
+
+  > [self-bottom] {
+    align-self: end;
+  }
+
+  > [self-full-height] {
+    align-self: stretch;
+  }
+}
