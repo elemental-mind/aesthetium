@@ -1,16 +1,17 @@
 /* Aesthetium - full framework entrypoint */
 
-@import 'base/font.css';
+@import 'base/fonts.css';
 @import 'tokens/system.css';
 
 @import 'base/reset.css';
 @import 'base/document.css';
 @import 'base/typography.css';
 @import 'base/media.css';
-@import 'base/depth.css';
 
-@import 'layout/composition.css';
-@import 'layout/spacing.css';
+@import 'attributes/layouts.css';
+@import 'attributes/depth.css';
+@import 'attributes/hierarchy.css';
+@import 'attributes/indication.css';
 
 @import 'components/header.css';
 @import 'components/navigation.css';

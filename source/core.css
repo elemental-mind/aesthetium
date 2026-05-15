@@ -6,9 +6,5 @@
 @import 'base/document.css';
 @import 'base/typography.css';
 @import 'base/media.css';
-@import 'base/depth.css';
-
-@import 'layout/composition.css';
-@import 'layout/spacing.css';
 
 @import 'components/section.css';
