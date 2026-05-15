@@ -1,0 +1,37 @@
+[items-highlighted] > * {
+  color: var(--color-primary);
+}
+
+[items-light] > * {
+  color: var(--color-muted);
+}
+
+[items-heavy] > * {
+  font-weight: 700;
+}
+
+[items-emphasized] > * {
+  font-style: italic;
+}
+
+[plain] {
+  color: inherit;
+  font-weight: inherit;
+  font-style: normal;
+}
+
+[highlight] {
+  color: var(--color-primary);
+}
+
+[light] {
+  color: var(--color-muted);
+}
+
+[heavy] {
+  font-weight: 700;
+}
+
+[emphasized] {
+  font-style: italic;
+}
